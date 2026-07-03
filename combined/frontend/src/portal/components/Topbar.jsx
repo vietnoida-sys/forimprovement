@@ -108,7 +108,7 @@ padding-top:0px;
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--indigo-600);
+    background: #012819;
     color: var(--white);
     display: flex;
     align-items: center;

@@ -320,7 +320,7 @@ export default function Auth() {
         .toggle-link-btn {
           background: none;
           border: none;
-          color: #4f46e5;
+          color: #012819;
           font-weight: 600;
           cursor: pointer;
           padding: 0;
@@ -328,7 +328,7 @@ export default function Auth() {
           text-decoration: underline;
         }
         .toggle-link-btn:hover {
-          color: #4338ca;
+          color: #050806;
         }
         .hint { font-size: 12px; color: #64748b; margin-top: 22px; text-align: center; line-height: 1.5; }
         .hint code { background: #f1f5f9; padding: 2px 5px; border-radius: 4px; color: #334155; }

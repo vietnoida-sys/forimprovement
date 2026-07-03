@@ -4,7 +4,7 @@ import {
   FolderCheck, Award, Plane, CalendarClock, MessageSquare, BarChart3,
   Wallet, LayoutTemplate, Gift, Sparkles, ShieldCheck, Settings, GraduationCap as Logo, Bell, X,
 } from "lucide-react";
-
+import logo from "../../assets/vietworldgate1.png";
 const GROUPS = [
   {
     label: "Overview",
@@ -64,8 +64,8 @@ export default function Sidebar({ open, onClose }) {
   return (
     <aside className={`sidebar ${open ? "open" : ""}`}>
       <div className="brand">
-        <div className="brand-mark"><Logo size={18} /></div>
-        <span>EduAdmin</span>
+        <div className="brand-mark"><img src={logo} alt="Logo" /></div>
+        <span>Admin</span>
         <button className="sidebar-close" onClick={onClose} aria-label="Close menu">
           <X size={18} />
         </button>
@@ -96,7 +96,7 @@ export default function Sidebar({ open, onClose }) {
 
         .sidebar {
           width: 250px;
-          background: var(--navy-950);
+          background: #012819;
           color: #b9c0d4;
           height: 100dvh;
           overflow-y: auto;
@@ -118,9 +118,9 @@ export default function Sidebar({ open, onClose }) {
         }
         .brand span { flex: 1; }
         .brand-mark {
-          width: 30px;
-          height: 30px;
-          background: linear-gradient(135deg, var(--indigo-600), var(--amber-500));
+          width: 40px;
+          height: 40px;
+       
           border-radius: 8px;
           display: flex;
           align-items: center;
@@ -137,7 +137,7 @@ export default function Sidebar({ open, onClose }) {
           border-radius: var(--radius-sm);
           flex-shrink: 0;
         }
-        .sidebar-close:hover { background: var(--navy-800); color: var(--white); }
+        .sidebar-close:hover { background: #012819; color: var(--white); }
         .nav { padding: 6px 12px 24px; }
         .nav-group { margin-top: 16px; }
         .nav-group-label {
@@ -159,9 +159,9 @@ export default function Sidebar({ open, onClose }) {
           color: #b9c0d4 !important;
           margin-bottom: 2px;
         }
-        .nav .nav-item:hover { background: var(--navy-800); color: var(--white) !important; }
+        .nav .nav-item:hover { background: #105a3e; color: var(--white) !important; }
         .nav .nav-item.active {
-          background: var(--navy-700);
+          background: #10744d;
           color: var(--white) !important;
           box-shadow: inset 3px 0 0 var(--amber-500);
         }

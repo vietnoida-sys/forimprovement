@@ -86,8 +86,8 @@ a { color: var(--indigo-600); text-decoration: none; }
   transition: background 0.15s ease, transform 0.05s ease;
 }
 .btn:active { transform: scale(0.98); }
-.btn-primary { background: var(--indigo-600); color: var(--white); }
-.btn-primary:hover { background: #434fc4; }
+.btn-primary { background: #012819; color: var(--white); }
+.btn-primary:hover { background: #08160d; }
 .btn-secondary { background: var(--slate-100); color: var(--slate-700); }
 .btn-secondary:hover { background: var(--slate-200); }
 .btn-danger { background: var(--red-100); color: #b3413d; }
