@@ -1,0 +1,494 @@
+/* ==========================================================================
+   DESIGN TOKENS & VARIABLES
+   ========================================================================= */
+:root {
+  --intl-purple: #800060;
+  --intl-purple-dark: #600048;
+  --intl-green-dark: #012819;
+  --intl-green-light: #082208;
+  --intl-green-cta: #0b2b0b;
+  --intl-txt-dark: #333333;
+  --intl-txt-muted: #555555;
+  --intl-border: #e0e0e0;
+  --intl-wa-green: #25D366;
+  --intl-wa-dark: #128C7E;
+  --intl-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================= */
+@keyframes intlFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intlWaPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==========================================================================
+   GLOBAL CONTAINER WRAPPER
+   ========================================================================= */
+.intl-dest-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--intl-txt-dark);
+  line-height: 1.6;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.intl-dest-wrapper *, 
+.intl-dest-wrapper *::before, 
+.intl-dest-wrapper *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HERO BANNER
+   ========================================================================= */
+.intl-hero-banner {
+  background:
+              url('https://images.pexels.com/photos/1766215/pexels-photo-1766215.jpeg') no-repeat center center; 
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+ 
+  color: #1a202c;
+  padding: 120px 6%;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: bannerScale 1.5s ease-out forwards;
+}
+
+.intl-banner-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  animation: intlFadeUp 0.6s ease-out;
+}
+
+.intl-banner-text h1 {
+  font-size: 2.8rem;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  color: #111827;
+}
+
+.intl-breadcrumb {
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--intl-txt-muted);
+}
+
+.intl-crumb-home,
+.intl-crumb-arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
+.intl-badge-holder {
+  display: flex;
+  align-items: center;
+}
+
+.intl-country-badge {
+  background: #ffffff;
+  padding: 12px;
+  font-size: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--intl-transition);
+}
+
+.intl-country-badge:hover {
+  transform: rotate(12deg) scale(1.1);
+}
+
+/* ==========================================================================
+   MAIN GRID SPLIT LAYOUT
+   ========================================================================= */
+.intl-main-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  padding: 50px 6%;
+  width: 100%;
+}
+
+/* ==========================================================================
+   SIDEBAR COMPONENTS
+   ========================================================================= */
+.intl-sidebar-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Call Box Styling */
+.intl-call-box {
+  background-color: var(--intl-green-dark);
+  color: white;
+  padding: 26px 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(1, 40, 25, 0.1);
+  transition: var(--intl-transition);
+}
+
+.intl-call-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(1, 40, 25, 0.2);
+}
+
+.intl-call-box p {
+  margin: 0 0 10px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+
+.intl-phone-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Sidebar WhatsApp Card */
+.intl-whatsapp-card {
+  border: 1px solid var(--intl-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: var(--intl-transition);
+}
+
+.intl-whatsapp-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.intl-wa-header {
+  background-color: var(--intl-wa-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+}
+
+.intl-wa-icon {
+  display: flex;
+  align-items: center;
+}
+
+.intl-wa-meta h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.intl-wa-meta p {
+  margin: 3px 0 0 0;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.intl-wa-body {
+  padding: 22px;
+  background-color: #ffffff;
+}
+
+.intl-wa-msg {
+  font-size: 0.9rem;
+  color: var(--intl-txt-muted);
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.intl-wa-btn {
+  display: block;
+  background-color: #012819;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.intl-wa-btn:hover {
+  background-color: #20ba5a;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MAIN CONTENT PANE
+   ========================================================================= */
+.intl-content-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intl-info-section h2 {
+  color: #111827;
+  font-size: 1.9rem;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  position: relative;
+}
+
+.intl-info-section p {
+  color: var(--intl-txt-muted);
+  font-size: 1.05rem;
+  margin: 0;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   CORE FEATURES GRID CARDS
+   ========================================================================= */
+.intl-features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 15px;
+}
+
+.intl-feature-item {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: var(--intl-transition);
+}
+
+.intl-feature-item:hover {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transform: translateY(-5px);
+}
+
+.intl-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.intl-icon-circle {
+  width: 52px;
+  height: 52px;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: var(--intl-transition);
+}
+
+.intl-feature-item:hover .intl-icon-circle {
+  background-color: var(--intl-green-dark);
+  color: white;
+  border-color: var(--intl-green-dark);
+}
+
+.intl-feature-item h3 {
+  font-size: 1.2rem;
+  color: #111827;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.intl-feature-item p {
+  font-size: 0.92rem;
+  color: var(--intl-txt-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   BOTTOM EXPLORER CTA SECTION
+   ========================================================================= */
+.intl-footer-cta {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+
+.intl-cta-tagline {
+  font-size: 0.85rem;
+  letter-spacing: 1.2px;
+  color: #4b5563;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.intl-footer-cta h2 {
+  font-size: 2.2rem;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  font-weight: 800;
+}
+
+.intl-cta-lead {
+  font-size: 1.2rem;
+  color: #374151;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.intl-cta-sub {
+  color: #6b7280;
+  margin: 0 0 30px 0;
+  font-size: 1rem;
+}
+
+.intl-btn-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.intl-primary-btn {
+  display: inline-block;
+  background-color: var(--intl-green-dark);
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  transition: var(--intl-transition);
+}
+
+.intl-primary-btn:hover {
+  background-color: var(--intl-green-cta);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(1, 40, 25, 0.25);
+}
+
+/* ==========================================================================
+   FLOATING WIDGETS
+   ========================================================================= */
+.intl-floating-widgets {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+}
+
+.intl-whatsapp-bubble {
+  width: 56px;
+  height: 56px;
+  background-color: var(--intl-wa-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  animation: intlWaPulse 2s infinite;
+  transition: var(--intl-transition);
+}
+
+.intl-whatsapp-bubble:hover {
+  transform: scale(1.1);
+  background-color: #22c35e;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .intl-main-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 40px 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  .intl-main-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  /* Desktop sidebar comes below content on mobile view */
+  .intl-sidebar-pane {
+    order: 2; 
+  }
+  
+  .intl-content-pane {
+    order: 1;
+  }
+  
+  .intl-banner-overlay {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .intl-banner-text h1 {
+    font-size: 2.2rem;
+ 
+  }
+
+  .intl-breadcrumb {
+    justify-content: center;
+  }
+  
+  .intl-btn-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .intl-primary-btn {
+    text-align: center;
+    width: 100%;
+    padding: 12px 24px;
+  }
+  
+  .intl-floating-widgets {
+    bottom: 20px;
+    left: 20px;
+  }
+}

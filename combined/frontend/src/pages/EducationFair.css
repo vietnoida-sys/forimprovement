@@ -1,0 +1,939 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+.heros {
+  background: linear-gradient(135deg, #e0f2f1, #ffffff);
+  padding: 80px 20px;
+}
+
+.heros-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.badges {
+  background: #012819;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.heros-left {
+  flex: 1.2;
+}
+
+.heros-left h1 {
+  font-size: 46px;
+  color: #012819;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.heros-left h1 span {
+  color: #012819;
+}
+
+.heros-left p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.whatsapps-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background:#012819;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  transition: 0.3s ease;
+}
+
+.whatsapps-hero-btn:hover {
+  background: #128c7e;
+  transform: translateY(-3px);
+}
+
+.statss {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.statss .cards {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  flex: 1;
+}
+
+.statss .cards h2 {
+  color: #012819;
+  margin: 0 0 5px 0;
+  font-size: 24px;
+}
+
+.statss .cards p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.heros-right {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.heros-right img {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+}
+
+/* ========================= */
+/* UNIVERSITIES & SLIDER SLOTS */
+/* ========================= */
+.tops-colleges {
+  padding: 70px 20px;
+  background: #f8fafc;
+}
+
+.containers {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.headers h2 {
+  font-size: 30px;
+  color: #0d1b2a;
+  margin: 0 0 5px 0;
+}
+
+.headers p {
+  color: #666;
+  margin: 0;
+}
+
+.arrowss button {
+  border: none;
+  background: #e2e8f0;
+  margin-left: 10px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #333;
+  transition: 0.3s;
+}
+
+.arrowss button:hover:not(:disabled) {
+  background: #0d47a1;
+  color: #fff;
+}
+
+.arrowss button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Core container wrapper */
+.sliders-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Desktop Grid Configuration (Default Style)
+   Creates exactly 3 equal columns. Excess cards automatically flow downward.
+   ========================================================================== */
+.universities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; /* Professional spacing between items */
+  margin-bottom: 50px;
+}
+
+/* Card Structure */
+.customs-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Interactive card hover */
+.customs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Banner Image */
+.customs-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Internal padding and item layout */
+.cards-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1; /* Automatically stretches cards to be equal height */
+}
+
+.cards-body h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.locations {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Metadata Bar (Programs and Fees) */
+.infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 12px 0;
+  margin: 4px 0;
+}
+
+.infos span {
+  color: #555555;
+  font-weight: 500;
+}
+
+.infos strong {
+  color: #012819;/* Deep professional green */
+  font-weight: 700;
+}
+
+/* Premium Visa Tag */
+.visas-badge {
+  font-size: 0.85rem;
+  background-color: #edf5fe;
+  color: #1a73e8;
+  padding: 6px 14px;
+  border-radius: 50px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* Standardized WhatsApp Button */
+.applys-btn {
+  width: 100%;
+  padding: 14px;
+  background-color:#012819; /* Official brand colors */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: auto; /* Aligns all buttons at the bottom regardless of text lengths */
+  transition: background-color 0.2s ease;
+}
+
+.applys-btn:hover {
+  background-color: #128c7e;
+}
+
+/* Footer Control Elements */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-container a {
+  text-decoration: none;
+}
+
+.tops-college-button {
+  padding: 14px 40px;
+  background-color: #0f172a; /* Slate 900 for a polished look */
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.tops-college-button:hover {
+  background-color: #334155;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablets & Small Monitors (Handles middle transition cleanly) */
+@media (max-width: 992px) {
+  .universities-grid {
+    grid-template-columns: repeat(2, 1fr); /* Automatically slips into 2 columns */
+    gap: 20px;
+  }
+}
+
+/* Mobile Devices (Width up to 600px) */
+@media (max-width: 600px) {
+  .sliders-container {
+    padding: 20px 15px;
+  }
+
+  .universities-grid {
+    grid-template-columns: 1fr; /* Forces exactly 1 card row by row */
+    gap: 24px;
+  }
+
+  .customs-card img {
+    height: 180px; /* Scales image down slightly on small phone viewport layouts */
+  }
+}
+.shows-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 200, 83, 0.3);
+}
+.applys-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  background: #012819;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: auto;
+}
+
+.applys-btn:hover {
+  background: #012819;
+}
+
+/* ========================= */
+/* COURSES SECTIONS */
+/* ========================= */
+.coursess {
+  padding: 70px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.subtitles {
+  color: #666;
+  margin:-20px 0 40px 0;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.courses-card {
+  background: #f8fafc;
+  padding: 22px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+  border: 1px solid #edf2f7;
+}
+
+.courses-card:hover {
+  background: #012819;
+  color: white;
+  transform: translateY(-4px);
+}
+
+.courses-icon {
+  font-size: 24px;
+  color: #012819;
+}
+.courses-card:hover .courses-icon {
+  color: #fff;
+}
+
+.shows-more button {
+  margin-top: 35px;
+  padding: 12px 35px;
+  border: none;
+  background: #012819;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.shows-more button:hover {
+  background: #012819;
+}
+
+/* ========================= */
+/* TRENDING TRACKS (DARK SECT) */
+/* ========================= */
+.mosts-searches {
+  padding: 70px 20px;
+  background: #012819;
+  color: white;
+}
+
+.mosts-searches .header h2 {
+  color: white;
+}
+.mosts-searches .header p {
+  color: #a7f3d0;
+}
+.mosts-searches .arrows button {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+.mosts-searches .arrows button:hover:not(:disabled) {
+  background: white;
+  color: #012819;
+}
+
+.darks-mode-card {
+  background: #012819;
+  border: 1px solid #012819;
+}
+.darks-mode-card h3 {
+  color: white;
+}
+.darks-mode-card .location, .dark-mode-card .info {
+  color: #cbd5e1;
+}
+
+.secondarys-btn {
+  background: #eab308;
+  color: #012819;
+  font-weight: 600;
+}
+.secondarys-btn:hover {
+  background: #ca8a04;
+}
+
+/* ========================= */
+/* IMMIGRATION WHATSAPP DESK */
+/* ========================= */
+.whatsapps-section {
+  padding: 80px 20px;
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+}
+
+.whatsapps-box {
+  background: #ffffff;
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.tags {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #888;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.whatsapps-box h2 {
+  font-size: 28px;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.whatsapps-box h2 span {
+  color: #012819;
+}
+
+.whatsapps-box p {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.whatsapps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #012819;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapps-btn:hover {
+  background: #012819;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 200, 83, 0.3);
+}
+/* ========================= */
+/* RESPONSIVE LAYOUT STYLES */
+/* ========================= */
+@media (max-width: 1024px) {
+  .courses-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .heros-container { flex-direction: column; text-align: center; }
+  .statss { justify-content: center; }
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+  .headers { flex-direction: column; align-items: flex-start; gap: 15px; }
+  .arrowss { align-self: flex-end; }
+}
+
+@media (max-width: 480px) {
+  .heros-left h1 { font-size: 32px; }
+  .courses-grid { grid-template-columns: 1fr; }
+  .whatsapps-content h2 { font-size: 26px; }
+}
+.benefitss {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #f9fafc, #eef3f8);
+  text-align: center;
+}
+
+.benefitss-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.benefitss-header p {
+  color: #666;
+  margin-bottom: 50px;
+}
+
+.benefitss-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.benefits-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.benefits-card .icon {
+  font-size: 35px;
+  color: #012819;
+  margin-bottom: 15px;
+}
+
+.benefits-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.benefits-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.benefits-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.benefitss-cta {
+  margin-top: 40px;
+}
+
+.benefitss-btn {
+  padding: 14px 28px;
+  background: #012819;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.benefitss-btn:hover {
+  background: #094b31;
+}
+
+/* 📱 Responsive */
+@media (max-width: 992px) {
+  .benefitss-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .benefitss-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================= */
+/* ⭐ RECENT REVIEWS SECTION  */
+/* ========================= */
+.recents-reviews {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.reviewss-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 50px auto;
+}
+
+.reviewss-header h2 {
+  font-size: 36px;
+  color: #0d1b2a;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.reviewss-header p {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* REVIEWS GRID */
+.reviewss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* INDIVIDUAL CARD */
+.reviews-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reviews-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.reviewers-avatar {
+  margin-bottom: 20px;
+}
+
+.reviewers-avatar img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.reviews-text {
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 25px 0;
+}
+
+.reviews-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 15px;
+}
+
+.reviewers-info h4 {
+  font-size: 15px;
+  color: #0d1b2a;
+  margin: 0 0 2px 0;
+  font-weight: 600;
+}
+
+.reviewers-info span {
+  font-size: 12px;
+  color: #0d47a1;
+  font-weight: 500;
+}
+
+.ratings {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* ========================= */
+/* 📱 RESPONSIVE ADJUSTMENTS  */
+/* ========================= */
+@media (max-width: 992px) {
+  .reviewss-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .reviewss-grid {
+    grid-template-columns: 1fr;
+  }
+  .reviewss-header h2 {
+    font-size: 28px;
+  }
+}
+/* ======================================= */
+/* 🗺️ STUDY ABROAD COUNTRY FLAGS SECTION */
+/* ======================================= */
+.countrys-flags-section {
+  padding: 80px 20px;
+  background: #f1f5f9;
+  font-family: "Poppins", sans-serif;
+}
+
+.flags-slider-container {
+  overflow: hidden;
+  padding: 15px 5px;
+}
+
+.flags-slider-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* COUNTRY CARD BASE */
+.flags-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px 20px;
+  min-width: 275px;
+  max-width: 275px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flags-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(13, 71, 161, 0.08);
+  border-color: #0d47a1;
+}
+
+.countrys-emoji {
+  font-size: 52px;
+  margin-bottom: 12px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.flags-card h3 {
+  font-size: 18px;
+  color: #0d1b2a;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.visas-info-tag {
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.processings-speed {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+}
+
+.flags-check-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #0d47a1;
+  border: 1px solid #0d47a1;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-top: auto;
+}
+
+.flags-check-btn:hover {
+  background: #0d47a1;
+  color: #ffffff;
+}
+
+/* EXPANDED DROPDOWN LAYOUT */
+.expandeds-countries-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  padding-top: 25px;
+  border-top: 1px dashed #cbd5e1;
+  animation: slideFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CENTERING CONTROL FOR DROPDOWN ITEMS */
+.expandeds-card {
+  flex: 1 1 calc(25% - 20px);
+  min-width: 260px;
+}
+
+/* BOTTOM SHOW MORE BUTTON */
+.shows-more-countries-btn-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.toggles-countries-btn {
+  background: #0d47a1;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(13, 71, 161, 0.2);
+  transition: 0.2s ease;
+}
+
+.toggles-countries-btn:hover {
+  background: #002171;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE LAYOUT BREAKPOINTS */
+@media (max-width: 768px) {
+  .expandeds-countries-grid {
+    justify-content: center;
+  }
+}
+.buttons-container{
+  text-align: center;
+  margin-top: 20px;
+}
+     
+    
+    
+.tops-college-button{
+ padding: 14px 28px;
+  background: #012819;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tops-college-button:hover{
+    background:green;
+      transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 200, 83, 0.3);
+    
+}

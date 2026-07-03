@@ -1,0 +1,373 @@
+:root {
+  --primary-plum: #800060;
+  --primary-plum-hover: #600048;
+  --whatsapp-green: #012819;
+  --whatsapp-green-hover: #012819;
+  --text-dark: #334155;
+  --text-muted: #64748b;
+  --bg-light-blue: #f8fafc;
+  --border-color: #e2e8f0;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  background-color: #ffffff;
+}
+
+.visa-page-container {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Hero Header Style --- */
+.visaAssistance-hero-banner {
+   background-image: url('https://images.pexels.com/photos/8061942/pexels-photo-8061942.jpeg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  
+
+  padding: 140px 6%;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: visaAssistance-hero-banner 1.5s ease-out forwards;
+}
+
+.application-form-tag{
+  color: var(--white);
+  background-color: #012819;
+}
+/* ADD THIS */
+.hero-overlay {
+  position: absolute;
+  inset: 0; /* top:0 left:0 right:0 bottom:0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FIX CONTENT POSITION */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* FIX HEADING */
+.visa-hero-banner h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 10px 0;
+}
+
+
+/* --- Content Layout Architecture --- */
+.visa-main-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.visa-grid-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* --- Sidebar Configs --- */
+.visa-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.appointment-call-widget {
+  background-color: #0a1f0f;
+  color: var(--white);
+  padding: 20px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.widget-flex {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.headset-icon {
+  font-size: 2rem;
+}
+
+.widget-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.phone-number {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  margin-top: 4px;
+}
+
+.white-arrow-decor {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  transform: rotate(135deg);
+  opacity: 0.4;
+  font-size: 1.2rem;
+}
+
+/* --- New Sidebar WhatsApp Card Elements --- */
+.whatsapp-chat-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.wa-card-header {
+  background-color: var(--whatsapp-green);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+}
+
+.wa-header-icon {
+  display: flex;
+  align-items: center;
+}
+
+.wa-header-meta h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.wa-header-meta p {
+  margin: 2px 0 0 0;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.wa-card-body {
+  padding: 20px;
+  background-color: rgb(8, 32, 8);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wa-welcome-msg {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin: 0;
+  background-color: var(--white);
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 3px solid var(--whatsapp-green);
+}
+
+.wa-action-btn {
+  background-color: var(--whatsapp-green);
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.wa-action-btn:hover {
+  background-color: var(--whatsapp-green-hover);
+}
+
+/* --- Right Side Body Elements --- */
+.visa-details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.workspace-preview-holder {
+  width: 100%;
+  height: 240px;
+  background-color: #f1f5f9;
+  background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+
+.intro-text-block h2 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.intro-text-block p {
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.services-three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-feature-card {
+  background-color: var(--bg-light-blue);
+  border-radius: 6px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.feature-icon-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #0a2c13;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 20px auto;
+}
+
+.service-feature-card h4 {
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+  color: var(--text-dark);
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-feature-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.visa-footer-bar {
+  text-align: center;
+  margin-top: 60px;
+  padding: 25px 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- Floating Actions Fixed Widgets --- */
+.floating-action-widgets {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.passport-overlay-tag {
+    background-color: #0156ab !important;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.whatsapp-bubble-widget {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  pointer-events: auto;
+  background-color: var(--whatsapp-green);
+  color: var(--white);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.whatsapp-bubble-widget:hover {
+  background-color: var(--whatsapp-green-hover);
+  transform: scale(1.06);
+}
+
+.scroll-top-widget {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  pointer-events: auto;
+  background-color: #012819;
+  color: var(--white);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.scroll-top-widget:hover {
+  background-color: var(--primary-plum-hover);
+}
+
+/* --- Responsive Media Viewport Splitting --- */
+@media (max-width: 992px) {
+  .visa-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .services-three-column-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-feature-card h4 {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-three-column-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}

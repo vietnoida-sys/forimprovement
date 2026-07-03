@@ -1,0 +1,342 @@
+/* Color Variables */
+:root {
+  --brand-purple: #012819;     /* Exact Purple from screenshot */
+  --brand-green: #012819;      /* Dark Green Brand Color */
+  --brand-dark: #2C1B2A;       /* Routes Section Dark Background */
+  --text-gray-dark: #333333;
+  --text-gray-light: #666666;
+  --border-color: #e5e7eb;
+  --white: #ffffff;
+}
+
+/* Container Settings */
+.study-abroad-container {
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: var(--text-gray-dark);
+}
+
+.max-width-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* ==========================================
+   SECTION 1: Banner Layout
+   ========================================== */
+.banner-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.banner-image-side {
+  background-color: #f3e8ff;
+  min-height: 240px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-lucide-icon {
+  width: 120px;
+  height: 120px;
+  stroke-width: 1;
+  color: var(--brand-purple);
+}
+
+.banner-text-side {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.banner-text-side h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #1a202c;
+  line-height: 1.3;
+}
+
+.purple-highlight {
+  color: var(--brand-purple);
+}
+
+.banner-text-side p {
+  color: var(--text-gray-light);
+  margin: 0 0 28px 0;
+  font-size: 1rem;
+}
+
+/* Buttons (Premium Style) */
+.btn-primary {
+  background-color: #012819;
+  color: var(--white);
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #012819;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #012819;
+  color: var(--white);
+  margin-bottom: 35px;
+  font-weight: 500;
+  padding: 12px 36px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #012819;
+  transform: translateY(-1px);
+  box-shadow: #012819;
+}
+
+.center-btn-wrapper {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.section-title-center {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title-center h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #2d3748;
+  margin: 0;
+}
+
+.italic-bold {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* ==========================================
+   IMAGE CARDS & INFINITE SCROLLER (Full Image Fix)
+   ========================================== */
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 15px 0;
+}
+
+/* Edges transition shadows */
+.slider-wrapper::before,
+.slider-wrapper::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+.slider-wrapper::before { left: 0; background: linear-gradient(to right, #f9fafb, transparent); }
+.slider-wrapper::after { right: 0; background: linear-gradient(to left, #f9fafb, transparent); }
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: scrollContinuous 40s linear infinite;
+}
+
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Exact Card Setup from Image */
+.logo-card {
+  flex: 0 0 240px; 
+  height: 95px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.logo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
+}
+
+/* Logo Fix: ensures image is 100% visible and uncropped */
+.logo-image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px; /* Perfectly balances logo bounds inside card */
+  box-sizing: border-box;
+}
+
+.university-logo {
+  width: 150%;
+  height: 150%;
+  object-fit: contain; /* Restricts stretching, keeps absolute proportions */
+}
+
+@keyframes scrollContinuous {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================
+   SECTION 3: International Routes
+   ========================================== */
+.dark-bg-section {
+  background-color: var(--brand-dark);
+  color: var(--white);
+  padding: 80px 16px;
+  margin-top: 50px;
+}
+
+.dark-section-title {
+  text-align: center;
+  font-size: 1.85rem;
+  font-weight: 400;
+  margin: 0 0 56px 0;
+  line-height: 1.4;
+}
+
+.lime-highlight {
+  color: #a3e635;
+}
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.route-card {
+  position: relative;
+  background: linear-gradient(to right, var(--white), #fffdfa);
+  color: #333333;
+  padding: 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.route-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5);
+}
+
+.icon-box {
+  background-color: var(--white);
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.route-icon {
+  width: 26px;
+  height: 26px;
+  color: #012819;
+}
+
+.route-card-title {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #2d3748;
+  transition: color 0.2s ease;
+}
+
+.route-card:hover .route-card-title {
+  color:#012819;
+}
+
+.corner-cut {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  background-color:#012819;
+  transform: translate(16px, 16px) rotate(45deg);
+  pointer-events: none;
+}
+
+.route-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================== */
+@media screen and (min-width: 768px) {
+  .routes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .banner-card {
+    flex-direction: row;
+  }
+
+  .routes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dark-section-title {
+    font-size: 2.5rem;
+  }
+}

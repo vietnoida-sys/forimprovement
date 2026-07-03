@@ -1,0 +1,800 @@
+/* ==========================================================================
+   CSS CUSTOM VARIABLES & RESET BASE
+   ========================================================================== */
+:root {
+  --primary-color: #1a73e8;
+  --primary-hover: #1557b0;
+  --success-color: #27ae60;
+  --warning-color: #e67e22;
+  --text-dark: #2d3748;
+  --text-light: #718096;
+  --bg-light: #f7fafc;
+  --border-color: #e2e8f0;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --section-gap: clamp(2rem, 5vw, 4rem);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+}
+
+.comp-univ-page-wrapper {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.comp-univ-page-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem 1.25rem;
+}
+
+/* ==========================================================================
+   SPLIT HERO SECTION
+   ========================================================================== */
+.comp-univ-hero-section {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 3rem 0;
+  margin-bottom: var(--section-gap);
+}
+
+.comp-univ-hero-content-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.comp-univ-badge {
+  background-color: #e8f0fe;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.comp-univ-hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #012819;
+  margin: 0;
+}
+
+.comp-univ-hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.comp-univ-hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.comp-univ-hero-stat-box {
+  background: white;
+  padding: 1.2rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.comp-univ-hero-stat-box strong {
+  display: block;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.comp-univ-hero-stat-box span {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comp-univ-hero-image-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.comp-univ-hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.comp-univ-hero-main-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.comp-univ-floating-card {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.comp-univ-floating-card-icon {
+  font-size: 1.5rem;
+}
+
+.comp-univ-floating-card h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.comp-univ-floating-card p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   SELECTOR & SEARCH PANEL
+   ========================================================================== */
+.comp-univ-selector-panel {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--section-gap);
+}
+
+.comp-univ-tab-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comp-univ-tab-btn {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-light);
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+
+.comp-univ-tab-btn:hover {
+  color: var(--text-dark);
+  background: #f7fafc;
+}
+
+.comp-univ-tab-btn.comp-univ-active {
+  background: #e8f0fe;
+  color: var(--primary-color);
+}
+
+.comp-univ-search-container {
+  margin-bottom: 1.5rem;
+}
+
+.comp-univ-search-bar {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: #f8fafc;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comp-univ-search-bar:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+  background: white;
+}
+
+.comp-univ-selection-tray-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.85rem;
+}
+
+.comp-univ-selection-chip-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-color);
+}
+
+.comp-univ-select-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.comp-univ-select-chip:hover {
+  border-color: var(--primary-color);
+  background: #f1f3f5;
+}
+
+.comp-univ-select-chip.comp-univ-active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.comp-univ-action-indicator {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   SECTION HEADER & MARGINS
+   ========================================================================== */
+.comp-univ-section-margin {
+  margin-bottom: var(--section-gap);
+}
+
+.comp-univ-section-header {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: #012819;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   SIDE-BY-SIDE SNAPSHOT CARDS
+   ========================================================================== */
+.comp-univ-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.comp-univ-comparison-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-sizing: border-box;
+}
+
+.comp-univ-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.comp-univ-card-flag {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.comp-univ-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.comp-univ-overall-badge {
+  background: #fff3cd;
+  color: #856404;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.comp-univ-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.comp-univ-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.comp-univ-detail-row span {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.comp-univ-detail-row strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   DYNAMIC PROGRESS BARS
+   ========================================================================== */
+.comp-univ-container-box {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.comp-univ-progress-bar-item {
+  margin-bottom: 1.25rem;
+}
+
+.comp-univ-progress-bar-item:last-child {
+  margin-bottom: 0;
+}
+
+.comp-univ-progress-bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.comp-univ-progress-bar-bg {
+  background: #edf2f7;
+  height: 12px;
+  border-radius: 50px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.comp-univ-progress-bar-fill {
+  background: var(--primary-color);
+  height: 100%;
+  border-radius: 50px;
+}
+
+/* ==========================================================================
+   DEEP FEATURE MATRIX (TABLE)
+   ========================================================================== */
+.comp-univ-table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.comp-univ-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 650px; /* Forces readable table spacing on mobile screens */
+}
+
+.comp-univ-table-th {
+  background: #f7fafc;
+  color: var(--text-dark);
+  font-weight: 700;
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+.comp-univ-table-th-header {
+  background: #f7fafc;
+  color: var(--text-dark);
+  font-weight: 700;
+  padding: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.comp-univ-table-tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.comp-univ-table-tr:hover {
+  background-color: #f8fafc;
+}
+
+.comp-univ-table-td-left {
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background: #fafbfe;
+  width: 250px;
+}
+
+.comp-univ-table-td {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.comp-univ-stars-wrapper {
+  color: #f1c40f;
+  font-size: 1.15rem;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.comp-univ-stars-wrapper-no-margin {
+  color: #f1c40f;
+  font-size: 1.15rem;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+/* ==========================================================================
+   SUMMARY & HIGHLIGHTS GRID
+   ========================================================================== */
+.comp-univ-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.comp-univ-summary-container {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  box-sizing: border-box;
+}
+
+.comp-univ-winner-header, .comp-univ-analysis-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.comp-univ-winner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comp-univ-winner-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.comp-univ-winner-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.comp-univ-winner-value-green {
+  color: var(--success-color);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.comp-univ-winner-value-blue {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.comp-univ-analysis-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.comp-univ-analysis-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin: 0 0 1.25rem 0;
+  flex-grow: 1;
+}
+
+.comp-univ-ai-tag {
+  align-self: flex-start;
+  background: #012819;
+  color: #f1f3f5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   FAQ SECTION
+   ========================================================================== */
+.comp-univ-faq-box {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.comp-univ-faq-box:last-child {
+  margin-bottom: 0;
+}
+
+.comp-univ-faq-question {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.comp-univ-faq-answer {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ==========================================================================
+   CALL TO ACTION CARD
+   ========================================================================== */
+.comp-univ-cta-card {
+  background: #012819;
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(26, 115, 232, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.comp-univ-cta-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.comp-univ-cta-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 0 0.5rem 0;
+  opacity: 0.9;
+}
+
+.comp-univ-cta-button {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50px;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MEDIA QUERIES (iPhone, iPad, Laptops)
+   ========================================================================== */
+
+/* Tablet Landscape and Small Desktops (Up to 1024px) */
+@media (max-width: 1024px) {
+  .comp-univ-hero-section {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+}
+
+/* Portrait Tablets / iPads (Up to 768px) */
+@media (max-width: 768px) {
+  .comp-univ-hero-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    
+
+  .comp-univ-hero-content-left {
+    align-items: center;
+  }
+
+  .comp-univ-hero-stats-row {
+    max-width: 500px;
+  }
+
+  .comp-univ-hero-image-right {
+    order: -1; /* Display image above text for optimal flow */
+    padding-top: 50px;
+  }
+  }
+
+  .comp-univ-floating-card {
+    left: 50%;
+    transform: translateX(-50%) !important;
+    bottom: -15px;
+    white-space: nowrap;
+  }
+
+  .comp-univ-grid-layout {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+/* Mobile Devices / iPhones / Small Screens (Up to 480px) */
+@media (max-width: 480px) {
+  .comp-univ-page-container {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .comp-univ-hero-section {
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .comp-univ-hero-stats-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .comp-univ-hero-stat-box {
+    padding: 0.85rem;
+  }
+
+  .comp-univ-selector-panel {
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .comp-univ-tab-container {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .comp-univ-tab-btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .comp-univ-search-bar {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .comp-univ-selection-chip-wrapper {
+    max-height: 180px;
+  }
+
+  .comp-univ-select-chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .comp-univ-comparison-card {
+    padding: 1.25rem;
+  }
+
+  .comp-univ-card-flag {
+    font-size: 2rem;
+  }
+
+  .comp-univ-card-title {
+    font-size: 1.05rem;
+  }
+
+  .comp-univ-container-box {
+    padding: 1.25rem;
+  }
+
+  .comp-univ-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comp-univ-summary-container {
+    padding: 1.25rem;
+  }
+
+  .comp-univ-faq-box {
+    padding: 1rem;
+  }
+
+  .comp-univ-faq-question {
+    font-size: 0.95rem;
+  }
+
+  .comp-univ-faq-answer {
+    font-size: 0.85rem;
+  }
+
+  .comp-univ-cta-card {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* Extra Thin Screens / iPhone SE (Below 360px) */
+@media (max-width: 359px) {
+  .comp-univ-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .comp-univ-floating-card {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .comp-univ-floating-card-icon {
+    font-size: 1.15rem;
+  }
+}

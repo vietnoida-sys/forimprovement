@@ -1,0 +1,305 @@
+.partner-page{
+  background:#f7f9fc;
+  font-family:'Poppins',sans-serif;
+  color:#333;
+}
+
+/* =========================
+   Banner
+========================= */
+
+.partner-banner{
+  height:500px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.45)
+  ),
+  url("https://images.unsplash.com/photo-1562774053-701939374585");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.banner-content{
+  padding:30px 50px;
+  backdrop-filter: blur(6px);
+}
+
+.banner-content h1{
+  color:#fff;
+  font-size:5rem;
+  font-weight:700;
+  letter-spacing:2px;
+  margin:0;
+  text-transform:uppercase;
+}
+
+.banner-content p{
+  color:#fff;
+  margin-top:15px;
+  font-size:18px;
+  font-weight:300;
+}
+
+/* =========================
+   Main Section
+========================= */
+
+.partner-section{
+  width:95%;
+  max-width:1400px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+/* =========================
+   Country Section
+========================= */
+
+.country-section{
+  margin-bottom:100px;
+  animation:fadeUp .8s ease;
+}
+
+.country-title{
+  text-align:center;
+  font-size:2.5rem;
+  font-weight:700;
+  color:#012819;
+  margin-bottom:10px;
+  position:relative;
+}
+
+.country-title::after{
+  content:'';
+  width:120px;
+  height:4px;
+  background:#012819;
+  display:block;
+  margin:15px auto 0;
+}
+
+.country-subtitle{
+  text-align:center;
+  color:#666;
+  margin-bottom:35px;
+  font-size:15px;
+}
+
+/* =========================
+   Table Container
+========================= */
+
+.table-container{
+  background:#fff;
+  overflow-x:auto;
+  border:1px solid #e8edf3;
+
+  box-shadow:
+  0 8px 30px rgba(0,0,0,0.08);
+}
+
+.uni-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+/* Header */
+
+.uni-table thead{
+  background:#012819;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+
+.uni-table th{
+  color:#fff;
+  padding:18px 24px;
+  text-align:left;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+
+/* Body */
+
+.uni-table td{
+  padding:18px 24px;
+  border-bottom:1px solid #edf1f5;
+}
+
+.uni-table tbody tr{
+  transition:.3s ease;
+}
+
+.uni-table tbody tr:nth-child(even){
+  background:#fafbfd;
+}
+
+.uni-table tbody tr:hover{
+  background:#eef9f2;
+  transform:scale(1.002);
+}
+
+/* =========================
+   University Info
+========================= */
+
+.uni-info{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.uni-logo-box{
+  width:75px;
+  height:75px;
+  min-width:75px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#fff;
+  border:1px solid #e6e6e6;
+  padding:1px;
+
+  transition:.3s;
+}
+
+.uni-logo-box:hover{
+  transform:scale(1.05);
+}
+
+.uni-logo-box img{
+  width:100%;
+  height:100%;
+  border-radius: 100px;
+  object-fit:contain;
+  
+}
+
+.uni-logo-box {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 8px;
+    border-radius: 100px;
+    transition: .3s;
+}
+
+.uni-link{
+  text-decoration:none;
+  color:#222;
+  font-size:16px;
+  font-style:italic;
+  font-weight:600;
+  transition:.3s;
+}
+
+.uni-link:hover{
+  color:#012819;
+  text-decoration:underline;
+}
+
+.uni-name{
+  font-size:80px;
+  font-weight:600;
+}
+
+/* Serial Number */
+
+.uni-table td:first-child{
+  width:90px;
+  font-weight:600;
+  color:#012819;
+}
+
+/* =========================
+   Animation
+========================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media(max-width:992px){
+
+  .banner-content h1{
+    font-size:3.5rem;
+  }
+
+  .country-title{
+    font-size:2rem;
+  }
+}
+
+@media(max-width:768px){
+
+  .partner-banner{
+    height:280px;
+  }
+
+  .banner-content{
+    padding:20px;
+  }
+
+  .banner-content h1{
+    font-size:2.2rem;
+    letter-spacing:1px;
+  }
+
+  .banner-content p{
+    font-size:14px;
+  }
+
+  .country-title{
+    font-size:1.8rem;
+  }
+
+  .partner-section{
+    width:100%;
+    padding:50px 10px;
+  }
+
+  .uni-table th,
+  .uni-table td{
+    padding:12px;
+    font-size:14px;
+  }
+
+  .uni-logo-box{
+    width:55px;
+    height:55px;
+    min-width:55px;
+  }
+
+  .uni-link{
+    font-size:14px;
+  }
+}

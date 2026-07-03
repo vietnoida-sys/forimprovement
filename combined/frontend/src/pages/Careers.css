@@ -1,0 +1,262 @@
+/* Font and Base Reset */
+.careers-container {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: black;
+  background-color: #f8fafc;
+}
+
+/* --- 1. Global Corporate Hero --- */
+.careers-hero-global {
+  position: relative;
+  height: 460px;
+  background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1500&q=80'); /* Travel & Passport themed high-res stock photo */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.hero-overlay-global {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content-global {
+  padding-left: 8%;
+  max-width: 800px;
+  color: #012819;
+}
+
+.hero-badge {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: black !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-content-global h1 {
+  font-size: 3.8rem;
+  margin: 15px 0 10px 0;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin: 0 0 25px 0;
+  color: #012819;
+  line-height: 1.6;
+ 
+}
+
+/* --- 2. Welcome Layout --- */
+.careers-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px 20px 20px;
+  text-align: center;
+}
+
+.careers-main h2 {
+  font-size: 2.4rem;
+  color: #012819 !important;
+  margin-bottom: 25px;
+}
+
+.content-wrapper-global {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: white;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow:#012819 !important;
+  text-align: left;
+  border-top: 4px solid #012819 !important; /* Trust blue line */
+}
+
+.badge-icon-global {
+  background: #eff6ff;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* --- 3. Visa Perks Section --- */
+.visa-perks-section {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.visa-perks-section h3, .divisions-section h3 {
+  font-size: 2rem;
+  color: #012819 !important;
+  margin-bottom: 40px;
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.perk-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+  border: 1px solid #012819;
+  text-align: left;
+}
+
+.perk-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  margin-left:75px;
+}
+
+.perk-card h4 {
+  font-size: 1.25rem;
+  margin: 10px 0;
+  color: #012819;
+}
+
+.perk-card p {
+  color: #012819;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- 4. Divisions Section --- */
+.divisions-section {
+  background-color: #03160a;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin: 60px 0;
+}
+
+.divisions-section h3 {
+  color: white 
+}
+
+.divisions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.div-card {
+  background: rgba(7, 51, 18, 0);
+  border: 1px solid rgba(10, 65, 27, 0.1);
+  padding: 30px 20px;
+  border-radius: 12px;
+}
+
+.div-card span {
+  font-size: 2.2rem;
+}
+
+.div-card h5 {
+  font-size: 1.2rem;
+  margin: 15px 0 10px 0;
+  color: #012819; /* Soft blue accent */
+}
+
+.div-card p {
+  color: #cbe1d4;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- 5. Open Positions UI --- */
+.job-card-global {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 14px;
+  border-left: 5px solid #38bdf8; /* Blue brand marker */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.job-card-global:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.apply-btn-global {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.apply-btn-global:hover {
+  background-color: #012819;
+}
+
+.tag.dept {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+/* --- 6. Form Dropdown Tweaks --- */
+.modal-select {
+  padding: 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.submit-btn-global {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submit-btn-global:hover {
+  background: #1d4ed8;
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+  .hero-content-global h1 { font-size: 2.4rem; }
+  .content-wrapper-global { flex-direction: column; text-align: center; }
+  .job-card-global { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .apply-btn-global { width: 100%; text-align: center; }
+}

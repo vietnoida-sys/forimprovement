@@ -1,0 +1,455 @@
+:root {
+  --primary-green: rgb(7, 44, 7);
+  --accent-green: rgb(3, 17, 3);
+  --bg-light: #f4f7f9;
+  --text-main: #333333;
+  --border-color: #e2e8f0;
+}
+
+.scholarship-portal {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-main);
+  background-color: #fcfcfc;
+  min-height: 100vh;
+}
+
+.phone-btn {
+  margin-right: 60px;
+}
+
+/* Section */
+.search-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+/* WhatsApp Top Button */
+.whatsapp-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.img {
+  border-radius: 100px;
+}
+
+.whatsapp-btn img {
+  width: 20px;
+   animation: moveBtn 2s infinite;
+}
+@keyframes moveBtn {
+  0%   { transform: translateX(-5); }
+  25%  { transform: translateX(-10px); }
+  50%  { transform: translateX(5px); }
+  75%  { transform: translateX(-5px); }
+  100% { transform: translateX(5); }
+}
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgb(6, 44, 6);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .whatsapp-top {
+    justify-content: center;
+    width:60%;
+    margin-left: 85px;
+  }
+
+  .whatsapp-btn span {
+    display: none;
+  }
+
+  .whatsapp-btn {
+    padding: 10px;
+    border-radius: 50%;
+  }
+}
+
+/* Hero Banner Layout */
+.hero-banner {
+  background-image:  url('https://images.pexels.com/photos/8106684/pexels-photo-8106684.jpeg');
+
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-color: #f3f4f6;
+  color: #1a202c;
+  padding: 250px 6%;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: bannerScale 1.5s ease-out forwards;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+ 
+}
+.whatsapp-top {
+ 
+  color: white;
+ 
+
+}
+@keyframes moveBtn {
+  0%   { transform: translateX(-5); }
+  25%  { transform: translateX(-10px); }
+  50%  { transform: translateX(5px); }
+  75%  { transform: translateX(-5px); }
+  100% { transform: translateX(5); }
+}
+.breadcrumb {
+  font-size: 0.95rem;
+  opacity: 0.9;
+   color:rgb(5, 26, 12);
+}
+
+/* Filter Bar Container configurations */
+.filter-container {
+  max-width: 1200px;
+  margin: -30px auto 30px auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.filter-bar {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.filter-select, .filter-input {
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.filter-select {
+  flex: 1;
+  background-color: #fff;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-input {
+  flex: 2;
+}
+
+.reset-btn {
+  background-color: var(--accent-green);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background-color: var(--primary-green);
+}
+
+/* Accordion Outer Containers */
+.accordion-container {
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
+}
+
+.accordion-item {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  border: 1px solid #edf2f7;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.accordion-item.active {
+  border-color: var(--primary-green);
+}
+
+.accordion-header {
+  background-color: #ffffff;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion-item.active .accordion-header {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.institution-title {
+  font-size: 1.15rem;
+  font-weight: 400;
+  
+}
+
+.arrow-icon {
+  font-size: 0.85rem;
+}
+
+.accordion-content {
+  border-top: 1px solid var(--border-color);
+  background: #fdfdfd;
+}
+
+/* Cards Responsive Grid Wrapper */
+.scholarships-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 24px;
+}
+
+.scholarship-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.scholarship-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Color Circle badge properties matching image theme */
+.merit-icon { background-color: #e6f4ea; }
+.vc-icon { background-color: #fef7e0; }
+.global-icon { background-color: #e8f0fe; }
+.pg-icon { background-color: #fce8e6; }
+
+.header-title-group h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #1a202c;
+  line-height: 1.3;
+}
+
+.value-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #137333;
+  margin-top: 2px;
+}
+
+.card-description {
+  font-size: 0.88rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+/* Card inner details configuration metadata list */
+.card-meta {
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meta-item {
+  display: flex;
+  font-size: 0.85rem;
+}
+
+.meta-label {
+  color: #718096;
+  width: 95px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.meta-value {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* Dark action buttons layout configuration */
+.card-action-btn {
+  background-color: #031103;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.card-action-btn:hover {
+  background-color: var(--primary-green);
+}
+
+/* Main Load/Show More controls styling */
+.show-more-container {
+  text-align: center;
+  margin: 30px 0 60px 0;
+
+}
+
+.show-more-btn {
+  background: none;
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+}
+
+.show-more-btn:hover {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.no-data, .no-results {
+  padding: 30px;
+  color: #718096;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1200px) {
+  .scholarships-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .scholarships-card-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}
+
+
+.whatsapp-top {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Phone Button */
+.phone-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: Green;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding-left: 20px;
+}
+
+.phone-btn img {
+  width: 18px;
+}
+
+.phone-btn:hover {
+  transform: scale(1.05);
+
+  background-color:rgb(0, 34, 255);
+}
+
+/* WhatsApp Button */
+
+
+
+
+

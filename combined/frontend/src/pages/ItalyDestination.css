@@ -1,0 +1,494 @@
+/* ==========================================================================
+   DESIGN TOKENS — Italy Theme (hero only changed)
+   ========================================================================= */
+:root {
+  --ita-green:        #012819;   /* Italian flag green */
+  --ita-green-dark:   #012819;
+  --ita-red:          #012819;   /* Italian flag red */
+  --ita-red-dark:     #012819;
+  --ita-white:        #ffffff;
+
+  /* Below vars kept same as original values */
+  --ita-corporate-purple:   #012819;
+  --ita-deep-purple-hover:  #012819;
+  --ita-text-dark-slate:    #2b3641;
+  --ita-text-body-gray:     #515e6d;
+  --ita-ui-border-light:    #e2e8f0;
+  --ita-card-bg-subtle:     #f8fafc;
+  --ita-wa-green:           #012819;
+  --ita-wa-dark-green:      #128C7E;
+
+  --ita-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   ANIMATIONS (hero only)
+   ========================================================================= */
+@keyframes itaFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes itaShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes itaBannerIn {
+  from { transform: scale(1.04); opacity: 0.85; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes itaWaPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==========================================================================
+   PAGE WRAPPER
+   ========================================================================= */
+.ita-page-wrapper {
+  background-color: var(--ita-white);
+  color: var(--ita-text-dark-slate);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   HERO BANNER — Italy themed (CHANGED SECTION)
+   ========================================================================= */
+.ita-hero-banner {
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 60px 8%;
+  background: url('https://images.pexels.com/photos/12533097/pexels-photo-12533097.jpeg') no-repeat center center;
+  background-size: cover;
+
+  animation: itaBannerIn 1.4s ease-out forwards;
+}
+
+/* Dark overlay */
+.ita-hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+ 
+  z-index: 1;
+}
+
+/* Italian tricolor bottom stripe: green | white | red */
+.ita-hero-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 5px;
+
+  z-index: 2;
+}
+
+.ita-hero-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  animation: itaFadeUp 0.7s ease-out;
+}
+
+.ita-hero-left {
+  color: var(--ita-white);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ita-hero-title {
+  font-size: 3.25rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+
+  /* Green-to-white shimmer */
+  background: linear-gradient(90deg, #ffffff 25%, #a8ffcc 50%, #ffffff 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: itaShimmer 4s linear infinite;
+}
+
+.ita-breadcrumb {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  flex-wrap: wrap;
+}
+
+.ita-split-arrow {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.ita-hero-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ita-flag-wrap {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ita-flag-emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.3));
+  transition: var(--ita-transition);
+}
+
+.ita-flag-emoji:hover {
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* ==========================================================================
+   MAIN GRID — same as original
+   ========================================================================= */
+.ita-main-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 4%;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 50px;
+}
+
+/* ==========================================================================
+   SIDEBAR — same as original
+   ========================================================================= */
+.ita-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ita-call-card {
+  background-color: rgb(9, 41, 9);
+  color: var(--ita-white);
+  padding: 24px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ita-call-label {
+  display: block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.ita-phone-link {
+  color: var(--ita-white);
+  text-decoration: none;
+  font-size: 1.45rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ita-wa-card {
+  border: 1px solid var(--ita-ui-border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  background: var(--ita-white);
+}
+
+.ita-wa-header {
+  background-color: var(--ita-wa-dark-green);
+  color: var(--ita-white);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ita-wa-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ita-wa-meta h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.ita-wa-meta p {
+  font-size: 0.8rem;
+  margin: 2px 0 0 0;
+  opacity: 0.85;
+}
+
+.ita-wa-body {
+  padding: 24px;
+  background: var(--ita-white);
+}
+
+.ita-wa-body p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ita-text-body-gray);
+  margin: 0 0 24px 0;
+}
+
+.ita-wa-btn {
+  display: block;
+  background-color: var(--ita-wa-green);
+  color: var(--ita-white);
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.ita-wa-btn:hover {
+  transform: translateY(-2px);
+  background-color: #22c35e;
+}
+
+/* ==========================================================================
+   CONTENT PANEL — same as original
+   ========================================================================= */
+.ita-content-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.ita-section-title {
+  font-size: 2.1rem;
+  color: var(--ita-text-dark-slate);
+  margin: 0 0 16px 0;
+  font-weight: 500;
+}
+
+.ita-section-para {
+  font-size: 1.05rem;
+  color: var(--ita-text-body-gray);
+  line-height: 1.75;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   FEATURE CARDS — same as original
+   ========================================================================= */
+.ita-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ita-feature-card {
+  background-color: var(--ita-card-bg-subtle);
+  border-radius: 6px;
+  padding: 40px 24px;
+  text-align: center;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.ita-icon-badge {
+  width: 64px;
+  height: 64px;
+  background-color: rgb(9, 41, 9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+
+.ita-icon-graphic {
+  font-size: 1.6rem;
+  color: var(--ita-white);
+}
+
+.ita-card-title {
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
+}
+
+.ita-card-text {
+  font-size: 0.95rem;
+  color: var(--ita-text-body-gray);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CTA BLOCK — same as original
+   ========================================================================= */
+.ita-cta-block {
+  border-top: 1px solid var(--ita-ui-border-light);
+  padding-top: 45px;
+}
+
+.ita-cta-tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ita-cta-heading {
+  font-size: 2.5rem;
+  color: var(--ita-text-dark-slate);
+  margin: 0 0 24px 0;
+}
+
+.ita-cta-lead {
+  font-size: 1.25rem;
+  margin: 0 0 12px 0;
+}
+
+.ita-cta-sub {
+  color: var(--ita-text-body-gray);
+  margin: 0 0 35px 0;
+}
+
+.ita-btn-row {
+  display: flex;
+  gap: 20px;
+}
+
+.ita-primary-btn {
+  display: inline-block;
+  background-color: rgb(9, 41, 9);
+  color: var(--ita-white);
+  padding: 15px 36px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+}
+
+.ita-primary-btn:hover {
+  background-color: var(--ita-deep-purple-hover);
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP — same as original
+   ========================================================================= */
+.ita-wa-bubble {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  color: var(--ita-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 99;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE — same as original
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .ita-main-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ita-hero-banner {
+    text-align: center;
+    padding: 50px 5%;
+  }
+
+  .ita-hero-inner {
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .ita-hero-right {
+    display: none;
+  }
+
+  .ita-breadcrumb {
+    justify-content: center;
+  }
+
+  .ita-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ita-btn-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ita-primary-btn {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ita-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .ita-section-title {
+    font-size: 1.7rem;
+  }
+
+  .ita-cta-heading {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ita-hero-banner {
+    min-height: 220px;
+    padding: 36px 4%;
+  }
+
+  .ita-hero-title {
+    font-size: 2rem;
+  }
+}

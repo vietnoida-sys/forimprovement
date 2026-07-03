@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+.faq-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-heading-wrapper {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.faq-heading-wrapper h2 {
+  color: #323b49; /* Slate grey color */
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.purple-italic {
+  color:#012819;;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.faq-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* Image wrapper layout ratio */
+  gap: 50px;
+  align-items: center;
+}
+
+/* =========================================
+   LEFT SIDE ARTWORK (CIRCLES + IMAGE)
+   ========================================= */
+.faq-left-artwork {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.faq-student-img {
+  position: relative;
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+  z-index: 3;
+}
+
+/* =========================================
+   RIGHT SIDE ACCORDION STYLING
+   ========================================= */
+.faq-accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e2dee6;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+/* Header standard style (Inactive State) */
+.faq-header {
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(to right, #ffffff, #fffcfd);
+  transition: background 0.3s ease;
+}
+
+.faq-question {
+  color: #323b49;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Inactive Plus Icon outline circle */
+.faq-toggle-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #c7b9cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #012819;;
+  font-size: 11px;
+  transition: all 0.3s ease;
+}
+
+/* Active State Styles (Khulne par purple background) */
+.faq-item.active {
+  border-color: #012819;;
+  box-shadow: 0 4px 15px rgba(138, 10, 111, 0.1);
+}
+
+.faq-item.active .faq-header {
+  background: #012819;; /* Solid Purple Background */
+}
+
+.faq-item.active .faq-question {
+  color: #ffffff; /* White text when active */
+}
+
+.faq-item.active .faq-toggle-icon {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #012819;; /* Inner minus sign colored purple */
+}
+
+/* Body content configuration */
+.faq-body {
+  padding: 20px 25px;
+  background-color: #ffffff;
+  border-top: 1px solid #f3eff6;
+}
+
+.faq-item {
+    padding: 18px 24px;
+    display: inline !important;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.faq-answer {
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive Controls */
+@media (max-width: 992px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .faq-left-artwork {
+    height: 380px;
+  }
+}

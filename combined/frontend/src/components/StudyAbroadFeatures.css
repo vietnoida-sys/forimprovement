@@ -1,0 +1,404 @@
+:root {
+  --purple-primary: #012819;;
+  --purple-dark: #012819;;
+  --purple-light: #EAD6E6;
+  --purple-bg-banner: #012819;
+  --text-main: #2D3748;
+  --text-body: #616E7C;
+  --card-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.features-page-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fcfcfd;
+}
+
+/* ===================================================
+   HERO BANNER & FINDER SECTION (As per Screenshots)
+   =================================================== */
+.hero-finder-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.finder-flex-row {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Left Card with Student Image */
+.finder-left-card {
+  background-color: #012819;;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #ffffff;
+  padding: 30px;
+  position: relative;
+  flex: 1;
+}
+
+.finder-img-wrap {
+  width: 45%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.finder-img-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.finder-text-wrap {
+  width: 55%;
+  padding-left: 20px;
+}
+
+.finder-text-wrap h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.finder-text-wrap p {
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+}
+
+.btn-shortlist {
+  background-color: #ffffff;
+  color: #012819;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-shortlist:hover {
+  background-color: #f0f0f0;
+}
+
+/* Right Content Area */
+.finder-right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.finder-right-content .sub-title {
+  color: #012819;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.finder-right-content h1 {
+  font-size: 2.2rem;
+  color: var(--text-main);
+  margin: 0 0 20px 0;
+  font-weight: 400;
+}
+
+.finder-right-content h1 span {
+  color: #012819;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.course-finder-box {
+  background-color: #edf2f7;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.course-finder-box p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 1rem;
+  padding-right: 50px;
+}
+
+.course-finder-box .bg-number {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #012819;
+  opacity: 0.8;
+}
+
+.btn-click-here {
+  background-color: #012819;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-click-here:hover {
+  background-color: #012819;
+}
+
+/* Bottom Location Banner */
+.location-consultant-banner {
+  background: linear-gradient(#012819,#012819), 
+              url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200') no-repeat center/cover;
+  color: #ffffff;
+  padding: 50px 30px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.location-consultant-banner h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0 0 15px 0;
+}
+
+.location-consultant-banner h3 span {
+  color: #c6f6d5; /* Light greenish highlight for "Study Abroad Consultant" */
+  font-style: italic;
+}
+
+.location-consultant-banner p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* Responsive for Hero Section */
+@media screen and (min-width: 768px) {
+  .finder-flex-row {
+    flex-direction: row;
+  }
+}
+
+
+/* ===================================================
+   STEPPER CIRCLES HOVER COLOR FILL BORDER ANIMATION
+   =================================================== */
+.steps-section {
+  padding: 60px 20px 20px 20px;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header-center .sub-tag {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #a0aec0;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.section-header-center h2 {
+  font-size: 2.1rem;
+  color: #1a202c;
+  font-weight: 400;
+  margin: 0;
+}
+
+.purple-highlight {
+  color: #012819;
+}
+
+.italic-bold {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  justify-items: center;
+}
+
+.step-circle-card {
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.circle-animation-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-ring-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-180deg);
+}
+
+.animated-ring-svg circle {
+  fill: none;
+  stroke-width: 4;
+  stroke-dasharray: 148 300; 
+  stroke-linecap: round;
+}
+
+.bg-ring {
+  stroke: var(--purple-light);
+}
+
+.fill-ring {
+  stroke: var(--purple-primary);
+  stroke-dashoffset: 148;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-circle-card:hover .fill-ring {
+  stroke-dashoffset: 0;
+}
+
+.circle-image-inner {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.circle-image-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.step-circle-card:hover .circle-image-inner img {
+  transform: scale(1.08);
+}
+
+.step-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 12px 0 0 0;
+}
+
+
+/* ==========================================
+   WHY CHOOSE US SIDE-BY-SIDE GRID CARDS
+   ========================================== */
+.why-choose-section {
+  padding: 40px 20px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-horizontal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-horizontal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(125, 0, 64, 0.08);
+}
+
+.benefit-img-side {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.benefit-img-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.benefit-text-side {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.benefit-text-side h3 {
+  font-size: 1.25rem;
+  color: #1a202c;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.benefit-text-side p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .benefit-horizontal-card {
+    flex-direction: row;
+    height: 220px;
+  }
+
+  .benefit-img-side {
+    width: 220px;
+    height: 100%;
+  }
+}

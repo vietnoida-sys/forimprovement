@@ -1,0 +1,635 @@
+:root {
+  --purple-primary:      #012819;
+  --text-main:           #2D3748;
+  --text-body:           #616E7C;
+  --green-primary:       #012819;
+  --green-accent:        #c9f270;
+}
+
+/* ── Global reset ─────────────────────────────────────── */
+.layouts-container,
+.layouts-container *,
+.layouts-container *::before,
+.layouts-container *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.layouts-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: var(--text-main);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ── Shared Typography ────────────────────────────────── */
+.section-title-dark {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 36px;
+  padding: 0 16px;
+  line-height: 1.35;
+}
+.section-title-dark span {
+  color: #fff820 ; 
+  font-style: italic;
+  font-weight: 600;
+}
+
+.section-title-light {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  color: var(--text-main);
+  font-weight: 400;
+  margin-bottom: 48px;
+  padding: 0 16px;
+  line-height: 1.35;
+}
+.section-title-light span {
+  color: #012819;
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SHARED SLIDER STRUCTURE
+   ══════════════════════════════════════════════════════════ */
+.slider-outer-wrapper {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 54px;
+}
+
+.visits-slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.visits-slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  align-items: stretch;
+}
+
+/* Arrow Buttons */
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  color: #012819;
+  border: 2px solid #012819;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.slider-arrow-btn:hover {
+  background-color: #012819;
+  color: #ffffff;
+}
+.left-arrow  { left: 0; }
+.right-arrow { right: 0; }
+
+/* Dot indicators */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+  padding: 0 16px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.dot-active {
+  background-color: var(--green-accent);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 1: SUCCESS STORIES
+   ══════════════════════════════════════════════════════════ */
+.success-stories-section {
+background: #1a202c;
+
+  padding: 60px 20px 50px;
+  width: 100%;
+}
+
+/* Arrow override for dark bg */
+.success-stories-section .slider-arrow-btn {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+.success-stories-section .slider-arrow-btn:hover {
+  background-color: #ffffff;
+  color: #012819;
+  border-color: #ffffff;
+}
+
+/* Story card wrapper — width driven by JS inline style */
+.story-card-wrapper {
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-shrink: 0;
+  min-height: 100%;
+}
+
+.testimonial-cards {
+  position: relative;
+  background-image: url(../assets/testimonialbackgroundimage.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+
+  border: 1px solid rgba(236, 234, 240, 0.9);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 320px;
+  min-height: 420px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 24px 18px 0;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 242, 112, 0.4);
+}
+
+.testimonial-details {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 12px 18px 14px;
+  background-color: #1a202c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(236, 234, 240, 0.35);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.testimonial-name {
+  color: #edf0ee;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.video-thumbnail-box {
+  margin-top: 10px;
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background-color: #012819;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--green-accent)
+}
+
+.circular-video-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+.circular-video-frame video,
+.circular-video-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-btn-overlay {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background-color: #012819;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 5;
+}
+.testimonial-card:hover .circular-video-frame { transform: scale(1.05); }
+.testimonial-card:hover .play-btn-overlay {
+  transform: scale(1.1);
+  background-color: #ffffff;
+  color: #012819;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 2: UNIVERSITY VISITS
+   ══════════════════════════════════════════════════════════ */
+.university-visits-section {
+  background-color: #f8fafc;
+  padding: 70px 20px 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+.university-visits-section .section-title-dark {
+  color: var(--text-main);
+}
+.university-visits-section .section-title-dark span {
+  color: #012819;
+}
+.university-visits-section .dot {
+  background-color: rgba(1, 40, 25, 0.2);
+}
+.university-visits-section .dot-active {
+  background-color: #012819;
+}
+
+/* Visit card wrapper — width driven by JS inline style */
+.visit-card-wrapper {
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+.visit-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.visit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.visit-img-banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.visit-img-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.visit-card:hover .visit-img-banner img { transform: scale(1.04); }
+
+.visit-info-body {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.visit-info-body h3 {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.meta-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: var(--text-body);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.meta-info-row .icon {
+  font-size: 1rem;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.btn-read-more-visit {
+  margin-top: 16px;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  align-self: center;
+}
+.btn-read-more-visit span.arrow-circle-visit {
+  background-color: #012819;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  transition: transform 0.2s ease;
+}
+.visit-card:hover .btn-read-more-visit {
+  background-color: #012819;
+  color: #ffffff;
+}
+.visit-card:hover .btn-read-more-visit span.arrow-circle-visit {
+  background-color: #ffffff;
+  color: #012819;
+  transform: translateX(2px);
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 3: HOW IT WORKS — TIMELINE
+   ══════════════════════════════════════════════════════════ */
+.how-it-works-section {
+  padding: 80px 20px;
+  background: #fafbfc;
+  width: 100%;
+}
+
+.timeline-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.timeline-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.icon-circle-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--purple-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(1, 40, 25, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.timeline-step.active .icon-circle-wrapper { background: #012819; }
+.icon-circle-wrapper .step-icon {
+  font-size: 2rem;
+  color: var(--purple-primary);
+  transition: transform 0.4s, color 0.4s;
+}
+.timeline-step.active .icon-circle-wrapper .step-icon { color: #ffffff; }
+
+.step-number-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--purple-primary);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+.timeline-step.active .step-number-badge { background-color: #012819; }
+
+.timeline-step:hover .icon-circle-wrapper {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(1, 40, 25, 0.18);
+  border-color: #012819;
+}
+.timeline-step:hover .icon-circle-wrapper .step-icon { transform: scale(1.1); }
+
+.step-content-box {
+  margin-top: 18px;
+  padding: 0 12px;
+}
+.step-content-box h4 {
+  font-size: 1.05rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.step-content-box p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS — ALL DEVICES
+   ══════════════════════════════════════════════════════════
+
+   Device reference:
+   iPhone SE          : 375px
+   iPhone 14          : 390px
+   iPhone 14 Plus     : 430px
+   iPad Mini          : 768px
+   iPad Air           : 820px
+   iPad Pro 11"       : 1024px
+   iPad Pro 12.9"     : 1024px (same, different DPR)
+   Laptop             : 1280px+
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Desktop & iPad Pro landscape (1025px+) ─── */
+@media screen and (min-width: 1025px) {
+  .timeline-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 66px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    border-top: 2px dashed #cbd5e1;
+    z-index: 1;
+  }
+  .timeline-step:nth-child(even) { margin-top: 40px; }
+}
+
+/* ── iPad Pro portrait & landscape (768px – 1024px) ─── */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .success-stories-section   { padding: 50px 16px 40px; }
+  .university-visits-section { padding: 55px 16px 40px; }
+  .how-it-works-section      { padding: 60px 24px; }
+
+  /* Slider arrow spacing */
+  .slider-outer-wrapper { padding: 0 48px; }
+  .slider-arrow-btn     { width: 40px; height: 40px; font-size: 1rem; }
+
+  /* Timeline: 2-column grid on iPad */
+  .timeline-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+    max-width: 700px;
+  }
+
+  .visit-img-banner { height: 185px; }
+
+  /* Tighten card body text */
+  .visit-info-body        { padding: 18px 16px 16px; }
+  .visit-info-body h3     { font-size: 1.05rem; margin-bottom: 12px; }
+  .meta-info-row          { font-size: 0.84rem; gap: 8px; }
+
+  /* Story card sizing */
+  .video-thumbnail-box   { width: 260px; height: 260px; background-color: transparent; border: 2px solid var(--green-accent); }
+  .circular-video-frame   { width: 100%; height: 100%; border: none; }
+  .testimonial-card       { padding: 24px 14px 78px; max-width: 280px; min-height: 380px; height: 100%; }
+  .testimonial-name       { font-size: 1rem; }
+}
+
+/* ── iPad Mini only (768px – 810px) ─── */
+@media screen and (min-width: 768px) and (max-width: 810px) {
+  .slider-outer-wrapper { padding: 0 42px; }
+
+  .visit-img-banner { height: 170px; }
+  .visit-info-body h3 { font-size: 1rem; }
+
+  .video-thumbnail-box   { width: 220px; height: 220px; background-color: transparent; border: 2px solid var(--green-accent); }
+  .circular-video-frame { width: 100%; height: 100%; border: none; }
+  .testimonial-card     { max-width: 260px; }
+}
+
+/* ── Tablet Portrait — small (576px – 767px) ─── */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .success-stories-section   { padding: 44px 14px 36px; }
+  .university-visits-section { padding: 50px 14px 36px; }
+  .how-it-works-section      { padding: 50px 16px; }
+
+  .slider-outer-wrapper { padding: 0 42px; }
+  .slider-arrow-btn     { width: 38px; height: 38px; font-size: 0.95rem; }
+
+  .visit-img-banner     { height: 170px; }
+  .visit-info-body      { padding: 16px 14px 14px; }
+  .meta-info-row        { font-size: 0.83rem; }
+
+  .video-thumbnail-box   { width: 200px; height: 200px; background-color: transparent; border: 2px solid var(--green-accent); }
+  .circular-video-frame { width: 100%; height: 100%; border: none; }
+  .testimonial-card     { padding: 22px 14px 78px; }
+  .testimonial-name     { font-size: 0.98rem; margin-top: 10px; }
+}
+
+/* ── Mobile landscape helper ─── */
+@media screen and (max-height: 500px) and (min-width: 576px) {
+  .success-stories-section   { padding: 30px 12px 24px; }
+  .university-visits-section { padding: 30px 12px 24px; }
+  .how-it-works-section      { padding: 30px 12px; }
+  .slider-outer-wrapper      { padding: 0 40px; }
+}
+
+/* ── Mobile (< 576px) ─── */
+@media screen and (max-width: 575px) {
+  .success-stories-section   { padding: 36px 12px 28px; }
+  .university-visits-section { padding: 40px 12px 28px; }
+  .how-it-works-section      { padding: 44px 14px; }
+
+  .slider-outer-wrapper { padding: 0 36px; }
+  .slider-arrow-btn     { width: 34px; height: 34px; font-size: 0.85rem; }
+
+  .visit-img-banner     { height: 165px; }
+  .visit-info-body      { padding: 16px 14px 14px; }
+  .visit-info-body h3   { font-size: 1rem; margin-bottom: 10px; }
+  .meta-info-row        { font-size: 0.82rem; gap: 8px; margin-bottom: 8px; }
+
+  .video-thumbnail-box   { width: 160px; height: 160px; background-color: transparent; border: 2px solid var(--green-accent); }
+  .testimonial-card     { padding: 22px 12px 78px; max-width: 100%; min-height: 340px; height: 100%; }
+  .circular-video-frame { width: 100%; height: 100%; border: none; }
+  .testimonial-name      { font-size: 1rem; margin-top: 10px; }
+
+  .icon-circle-wrapper       { width: 88px; height: 88px; }
+  .icon-circle-wrapper .step-icon { font-size: 1.7rem; }
+  .step-content-box h4  { font-size: 0.98rem; }
+  .step-content-box p   { font-size: 0.87rem; }
+
+  .slider-dots  { gap: 6px; margin-top: 20px; }
+  .dot          { width: 7px; height: 7px; }
+  .dot-active   { width: 20px; }
+}
+
+/* ── Very small phones (< 360px) ─── */
+@media screen and (max-width: 359px) {
+  .slider-outer-wrapper { padding: 0 30px; }
+  .slider-arrow-btn     { width: 28px; height: 28px; font-size: 0.75rem; }
+  .circular-video-frame { width: 95px; height: 95px; }
+  .visit-img-banner     { height: 145px; }
+}

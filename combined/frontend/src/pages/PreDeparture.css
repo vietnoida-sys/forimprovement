@@ -1,0 +1,340 @@
+:root {
+  --primary-purple: #012819;
+  --text-dark: #2d3748;
+  --text-muted: #5a6a85;
+  --bg-light: #f8fafc;
+  --border-color: #e2e8f0;
+  --white: #ffffff;
+  --whatsapp-green: #25d366;
+}
+
+.visa-page-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.6;
+  padding-top: 0px;
+}
+
+/* Hero Section Banner */
+.PreDeparture-visa-hero-banner {
+ background-image: url('https://images.pexels.com/photos/10397064/pexels-photo-10397064.jpeg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-color: #f3f4f6;
+  color: #1a202c;
+  padding: 1px 6%;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: bannerScale 1.5s ease-out forwards;
+
+}
+
+.hero-content-left {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-content-left h2 {
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  
+}
+
+.current-page {
+  font-weight: 500;
+}
+
+/* Layout Structural System */
+.visa-main-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.visa-grid-container {
+  display: flex;
+  gap: 40px;
+}
+
+/* Layout Side Panel Styles */
+.visa-sidebar {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Contact Expert Widget Block */
+.appointment-call-widget-banner {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.widget-banner-image-placeholder {
+  background: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400') no-repeat center/cover;
+  height: 200px;
+  position: relative;
+}
+
+.purple-call-overlay {
+  position: absolute;
+  inset: 0;
+  background: #012819;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.purple-call-overlay p {
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+}
+
+.phone-number-banner {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: transform 0.2s ease;
+}
+
+.phone-number-banner:hover {
+  transform: scale(1.03);
+}
+
+/* Form Alternate WhatsApp Panel Layout */
+.whatsapp-chat-card-panel {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.wa-panel-header h4 {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  color: #1a202c;
+}
+
+.purple-underline-decor {
+  width: 40px;
+  height: 3px;
+  background-color: #012819;
+  margin-bottom: 20px;
+}
+
+.wa-panel-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.whatsapp-form-tag-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--whatsapp-green);
+  color: var(--white);
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: #012819;
+  transition: background-color 0.2s ease;
+}
+
+.whatsapp-form-tag-btn-primary:hover {
+  background-color: #20ba5a;
+}
+
+/* Right Content Structure Rules */
+.visa-details-body {
+  flex: 1;
+}
+
+.shortlist-intro-header h3 {
+  font-size: 1.8rem;
+  color: #012819;
+  margin: 0 0 15px 0;
+}
+
+.shortlist-intro-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 35px;
+}
+
+/* Feature Grid Content Columns */
+.services-three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 45px;
+}
+
+.service-feature-card-premium {
+  background: var(--white);
+  border: 1px solid #edf2f7;
+  border-radius: 8px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.purple-icon-circle-badge {
+  width: 50px;
+  height: 50px;
+  background-color: #012819;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+}
+
+.service-feature-card-premium h4 {
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+  color: #1a202c;
+}
+
+.service-feature-card-premium p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Detailed Information & Checkbox Blocks */
+.admission-checklist-block h3 {
+  font-size: 1.6rem;
+  margin: 0 0 15px 0;
+  color: #012819;
+}
+
+.checklist-lead-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.checklist-subheading {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #012819;
+}
+
+.custom-checkmark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+}
+
+.custom-checkmark-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.blue-check-icon {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: #012819;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Bottom Text Partnership Panel Area */
+.university-partners-panel {
+  border-top: 1px solid var(--border-color);
+  padding-top: 30px;
+}
+
+.checklist-closing-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Fixed Floating Icon UI Widget */
+.floating-action-widgets {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+}
+
+.whatsapp-bubble-widget {
+  width: 50px;
+  height: 50px;
+  background-color: var(--whatsapp-green);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #012819;
+  text-decoration: none;
+}
+
+/* Fluid Responsiveness Rules */
+@media (max-width: 992px) {
+
+.visa-page-container {
+ 
+  padding-top: 0px;
+}
+
+  .visa-grid-container {
+    flex-direction: column;
+  }
+  .visa-sidebar {
+    width: 100%;
+    flex: none;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+
+
+
+  .services-three-column-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-content-left h2 {
+    font-size: 1.7rem;
+  }
+}

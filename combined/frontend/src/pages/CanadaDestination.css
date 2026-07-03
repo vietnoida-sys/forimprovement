@@ -1,0 +1,562 @@
+:root {
+  --brand-green: #012819;
+  --brand-dark-green: #012819;
+  --text-dark: #333333;
+  --text-muted: #555555;
+  --border-color: #e0e0e0;
+  --wa-green: #012819;
+  --wa-dark-green: #012819;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   KEYFRAMES / ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bannerScale {
+  from {
+    background-size: 110% auto;
+  }
+  to {
+    background-size: 100% auto;
+  }
+}
+
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: #012819;
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* ==========================================================================
+   GLOBAL LAYOUT & CONTAINERS
+   ========================================================================== */
+.destination-page-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.destination-page-container *,
+.destination-page-container *::before,
+.destination-page-container *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HEADER BANNER (WITH ZOOM ANIMATION)
+   ========================================================================== */
+.destination-hero-header {
+  background-image: url('https://images.pexels.com/photos/3744699/pexels-photo-3744699.jpeg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-color: #f3f4f6;
+  color: #012819;
+  padding: 140px 6%;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: bannerScale 1.5s ease-out forwards;
+}
+
+.hero-overlay-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+  gap: 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+
+
+.breadcrumb-nav {
+  font-size: 0.95rem;
+  color: #2d3748;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+.hero-badge-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.canada-round-flag-badge {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.canada-round-flag-badge:hover {
+  transform: rotate(15deg) scale(1.15);
+}
+
+/* ==========================================================================
+   MAIN CONTENT & SIDEBAR GRID
+   ========================================================================== */
+.destination-main-layout-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  padding: 40px 6%;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.destination-sidebar-area {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Sidebar Call Box Layouts */
+.sidebar-call-box {
+  background-color: var(--brand-green);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(11, 58, 26, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.sidebar-call-box:hover {
+  background-color: var(--brand-dark-green);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(6, 32, 15, 0.25);
+}
+
+.sidebar-call-box p {
+  margin: 0 0 10px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  opacity: 0.9;
+}
+
+.sidebar-phone-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-phone-link:hover {
+  opacity: 0.85;
+}
+
+/* Sidebar WhatsApp Card styles */
+.sidebar-whatsapp-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.sidebar-whatsapp-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.whatsapp-card-header {
+  background-color: var(--wa-dark-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+}
+
+.whatsapp-header-text h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.whatsapp-header-text p {
+  margin: 2px 0 0 0;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.whatsapp-card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.whatsapp-welcome-message {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.whatsapp-chat-now-btn {
+  display: block;
+  background-color: #012819;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.whatsapp-chat-now-btn:hover {
+  background-color: #1ebe57;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+/* ==========================================================================
+   RIGHT SIDE MAIN CONTENT PANELS
+   ========================================================================== */
+.destination-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.content-info-block h2 {
+  color: #1a202c;
+  font-size: 1.75rem;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.content-info-block p {
+  color: var(--text-muted);
+  margin: 0;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   HIGHLIGHTS FEATURE CARDS
+   ========================================================================== */
+.highlights-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 15px;
+}
+
+.highlight-feature-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 26px;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.highlight-feature-card:hover {
+  background-color: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-6px);
+}
+
+.feature-card-icons-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.feature-icon-circle {
+  width: 48px;
+  height: 48px;
+  background-color: #e6f4ea;
+  color: var(--brand-green);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+/* Micro-interaction: swap card and icon colors on hover */
+.highlight-feature-card:hover .feature-icon-circle {
+  background-color: var(--brand-green);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.highlight-feature-card h3 {
+  font-size: 1.2rem;
+  color: #1a202c;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.highlight-feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   LOWER PAGE EXPLORER CTA SECTION
+   ========================================================================== */
+.explorer-footer-cta-section {
+  margin-top: 25px;
+  border-top: 1px solid #edf2f7;
+  padding: 40px 0 0 0;
+}
+
+.cta-sub-tagline {
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  color: #718096;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.explorer-footer-cta-section h2 {
+  font-size: 2.1rem;
+  color: #1a365d;
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+.cta-lead-heading-text {
+  font-size: 1.2rem;
+  color: #2d3748;
+  margin: 0 0 12px 0;
+}
+
+.cta-sub-supporting-text {
+  color: #718096;
+  margin: 0 0 30px 0;
+}
+
+.cta-action-buttons-group {
+  display: flex;
+  gap: 16px;
+}
+
+.cta-button.cta-green-btn {
+  display: inline-block;
+  background-color: var(--brand-green);
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  transition: var(--transition-smooth);
+  z-index: 1;
+}
+
+/* Shimmer overlay animation effect on hover */
+.cta-button.cta-green-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s ease;
+  z-index: -1;
+}
+
+.cta-button.cta-green-btn:hover {
+  background-color: var(--brand-dark-green);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(11, 58, 26, 0.3);
+}
+
+.cta-button.cta-green-btn:hover::after {
+  left: 125%;
+}
+
+/* ==========================================================================
+   STICKY FLOATING WHATSAPP ACTION BUTTON
+   ========================================================================== */
+.floating-sticky-widgets-container {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 100;
+}
+
+.floating-whatsapp-bubble {
+  width: 56px;
+  height: 56px;
+  background-color: var(--wa-green);
+  color: #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  animation: whatsappPulse 2s infinite;
+}
+
+.floating-whatsapp-bubble:hover {
+  transform: scale(1.12) rotate(15deg);
+  background-color: #20ba5a;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .destination-main-layout-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    padding: 30px 4%;
+  }
+
+  .destination-hero-header {
+    padding: 100px 4%;
+    min-height: 300px;
+  }
+
+  .hero-text-content h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .destination-main-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 30px 4%;
+  }
+  
+  .destination-hero-header {
+    padding: 60px 5%;
+    min-height: auto;
+    background-position: center center;
+    animation: none; /* Turn off image zoom on tiny rendering fields to boost performance */
+  }
+
+  .hero-overlay-flex {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .breadcrumb-nav {
+    justify-content: center;
+  }
+
+  .hero-text-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .explorer-footer-cta-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .cta-action-buttons-group {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .cta-button.cta-green-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+  
+  .destination-sidebar-area {
+    order: 2; /* Content layout reads cleaner with info first on stack mobile devices */
+  }
+  
+  .destination-content-container {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .destination-hero-header {
+    padding: 45px 4%;
+  }
+
+  .hero-text-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .content-info-block h2 {
+    font-size: 1.4rem;
+  }
+
+  .explorer-footer-cta-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .floating-sticky-widgets-container {
+    bottom: 15px;
+    left: 15px;
+  }
+}

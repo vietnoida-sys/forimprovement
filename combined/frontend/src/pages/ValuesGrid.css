@@ -1,0 +1,101 @@
+/* Container styling */
+.values-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #012819; /* Matching the exact green from your screenshots */
+  font-family: 'Georgia', serif; /* Gives it that clean, elegant serif heading look */
+  color: #ffffff;
+  padding: 80px 40px;
+  box-sizing: border-box;
+}
+
+.values-container * {
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.values-header {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+.values-main-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  letter-spacing: -0.03em;
+}
+
+.values-company-subtitle {
+  font-family: system-ui, sans-serif;
+  font-size: 1.1rem;
+  color: #a3e635; /* Subtle bright green/yellow text highlight */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* 2-Column Grid Layout */
+.values-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px 60px; /* Vertical and horizontal gap */
+}
+
+/* Individual Grid Item Card */
+.value-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* Light blue icon circle wrapper */
+.value-icon-circle {
+  width: 76px;
+  height: 76px;
+  background-color: #D1EAF5; /* Sky blue background from screenshot */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Keeps circle from distorting */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Inside SVG Icon formatting */
+.value-icon {
+  width: 36px;
+  height: 36px;
+}
+
+/* Core text contents */
+.value-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.value-card-title {
+  font-family: system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.value-card-desc {
+  font-family: system-ui, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #E2E8F0; /* Clean readable off-white text */
+  margin: 0;
+}
+
+/* Responsive breakpoint for large screens */
+@media (min-width: 992px) {
+  .values-grid {
+    grid-template-columns: 1fr 1fr; /* Side-by-side 2-column look */
+  }
+}

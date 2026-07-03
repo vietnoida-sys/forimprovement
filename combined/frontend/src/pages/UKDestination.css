@@ -1,0 +1,459 @@
+:root {
+  --corporate-purple: #800060;
+  --deep-purple-hover: #600048;
+  --text-dark-slate: #2b3641;
+  --text-body-gray: #515e6d;
+  --ui-border-light: #e2e8f0;
+  --card-bg-subtle: #f8fafc;
+  --white: #ffffff;
+  --wa-green: #25D366;
+  --wa-dark-green: #128C7E;
+}
+
+/* Base Reset & Box Sizing Safeguard */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.global-destination-wrapper {
+  background-color: var(--white);
+  color: var(--text-dark-slate);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  width: 100%;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling on all devices */
+}
+
+/* ==========================================================================
+   SECTION 1: HERO BANNER DESIGN (Fluid & Responsive)
+   ========================================================================== */
+.dynamic-hero-banners {
+
+  padding: 30px 6%; /* Balanced spacing alignment */
+  background-image: url('https://images.pexels.com/photos/7807857/pexels-photo-7807857.jpeg');
+
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-color: #f3f4f6;
+  color: #1a202c;
+  padding: 140px 6%;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: bannerScale 1.5s ease-out forwards;
+}
+
+/* Smooth dark overlay added to ensure text is ALWAYS readable on mobile backgrounds */
+.dynamic-hero-banners::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+ 
+  z-index: 1;
+}
+
+.hero-grid-max {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  z-index: 2;
+}
+
+.hero-left-content {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Precise layout flow gap between components */
+  flex: 1;
+ 
+}
+
+.hero-main-title {
+  /* Fluid typography: auto scales between 2.25rem and 3.25rem based on screen size */
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+/* Modern Pill Badge Look for Breadcrumbs */
+.navigation-breadcrumbs {
+  font-size: 0.85rem;
+  display: inline-flex; /* Ensures it occupies only necessary space */
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 6px;
+  opacity: 0.95;
+  background-color: rgba(18, 140, 126, 0.2); /* Smart subtle branding background overlay */
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(18, 140, 126, 0.35);
+  padding: 6px 14px;
+  border-radius: 30px; /* Perfect pill badge design */
+  width: fit-content;
+}
+
+.hero-right-graphic {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.avatar-mask-container {
+  width: clamp(80px, 10vw, 120px);
+  height: clamp(80px, 10vw, 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country-large-emoji {
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+}
+
+/* ==========================================================================
+   SECTION 2: MASTER STRUCTURAL INTERACTION GRID
+   ========================================================================== */
+.master-content-layout-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(30px, 5vw, 60px) 4%;
+  display: grid;
+  /* Fixed structural desktop definition that defaults correctly without overlap side-effects */
+  grid-template-columns: 320px 1fr;
+  gap: clamp(24px, 4vw, 50px);
+}
+
+.fixed-width-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.callback-cta-container {
+  background-color: rgb(6, 59, 6);
+  color: var(--white);
+  padding: 24px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.cta-meta-text {
+  display: block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.phone-interactive-anchor {
+  color: var(--white);
+  text-decoration: none;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+/* WhatsApp Advisor Card Layout */
+.sidebar-whatsapp-card {
+  border: 1px solid var(--ui-border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  background: var(--white);
+  width: 100%;
+}
+
+.wa-card-header {
+  background-color: var(--wa-dark-green);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.wa-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wa-header-text h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.wa-header-text p {
+  font-size: 0.8rem;
+  margin: 2px 0 0 0;
+  opacity: 0.85;
+}
+
+.wa-card-body {
+  padding: 24px;
+  background: var(--white);
+}
+
+.wa-card-body p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-body-gray);
+  margin: 0 0 24px 0;
+}
+
+.wa-action-btn {
+  display: block;
+  background-color: var(--wa-green);
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.wa-action-btn:hover {
+  transform: translateY(-2px);
+  background-color: #22c35e;
+}
+
+/* ==========================================================================
+   RIGHT CONTENT LAYOUT STYLING
+   ========================================================================== */
+.variable-content-panel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 5vw, 45px);
+  width: 100%;
+}
+
+.copywriting-block .section-header-title {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  color: var(--text-dark-slate);
+  margin: 0 0 16px 0;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.copywriting-block .section-body-paragraph {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: var(--text-body-gray);
+  line-height: 1.75;
+  text-align: justify;
+}
+
+/* Dynamic Triple Column Grid Section using auto-fit instead of fixed columns */
+.dynamic-triple-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.structural-feature-card {
+  background-color: var(--card-bg-subtle);
+  border-radius: 6px;
+  padding: clamp(24px, 4vw, 40px) 24px;
+  text-align: center;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures uniform height on desktop grids */
+}
+
+.purple-icon-globe-badge {
+  width: 64px;
+  height: 64px;
+  background-color: rgb(8, 36, 8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  flex-shrink: 0;
+}
+
+.badge-unicode-graphic {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.card-headline-title {
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
+}
+
+.card-descriptive-text {
+  font-size: 0.95rem;
+  color: var(--text-body-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Lower End Call To Action Elements */
+.lower-conversion-cta-block {
+  border-top: 1px solid var(--ui-border-light);
+  padding-top: 45px;
+}
+
+.meta-tracking-tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.cta-block-main-heading {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--text-dark-slate);
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+.cta-block-bold-lead {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  margin: 0 0 12px 0;
+}
+
+.cta-block-subsidiary-text {
+  color: var(--text-body-gray);
+  margin: 0 0 35px 0;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.cta-dual-action-row {
+  display: flex;
+  flex-wrap: wrap; /* Prevents overflow if button texts are long */
+  gap: 20px;
+}
+
+.primary-conversion-btn-anchor {
+  display: inline-block;
+  background-color: rgb(5, 39, 5);
+  color: var(--white);
+  padding: 15px 36px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+  text-align: center;
+}
+
+.primary-conversion-btn-anchor:hover {
+  background-color: var(--deep-purple-hover);
+}
+
+/* Floating Action Buttons Layout Fixes */
+.fixed-chat-trigger-bubble {
+  position: fixed;
+  bottom: clamp(15px, 3vw, 30px);
+  left: clamp(15px, 3vw, 30px);
+  width: clamp(48px, 6vw, 56px);
+  height: clamp(48px, 6vw, 56px);
+  background-color: #25d366;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 99;
+  text-decoration: none;
+}
+
+.fixed-scroll-to-top-button {
+  position: fixed;
+  bottom: clamp(15px, 3vw, 30px);
+  right: clamp(15px, 3vw, 30px);
+  width: clamp(40px, 5vw, 48px);
+  height: clamp(40px, 5vw, 48px);
+  background-color: var(--corporate-purple);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99;
+}
+
+/* ==========================================================================
+   ADVANCED LAYOUT BREAKPOINTS (Clean Overrides)
+   ========================================================================== */
+
+/* Laptops and Tablets (Turns Grid into Stack without text squeeze) */
+@media (max-width: 1024px) {
+  .master-content-layout-grid {
+    grid-template-columns: 1fr; /* Clean linear block collapse sequence */
+    gap: 40px;
+  }
+
+  .dynamic-hero-banner {
+    text-align: center;
+    background-position: center;
+  }
+
+  .hero-grid-max {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-right-graphic {
+    display: none; /* Cleans visual noise on mobile devices */
+  }
+
+  .navigation-breadcrumbs {
+    justify-content: center;
+  }
+}
+
+/* Small Tablets and Mobile Devices */
+@media (max-width: 768px) {
+  .cta-dual-action-row {
+    flex-direction: column; /* Buttons stack perfectly vertically */
+    gap: 12px;
+  }
+
+  .primary-conversion-btn-anchor {
+    width: 100%; /* Accessible tap target zone on mobile devices */
+  }
+}
+
+/* Extra Small Devices & Foldables */
+@media (max-width: 480px) {
+  .copywriting-block .section-body-paragraph {
+    text-align: left; /* Soft fallback for extra tiny displays */
+  }
+
+  .wa-card-header {
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

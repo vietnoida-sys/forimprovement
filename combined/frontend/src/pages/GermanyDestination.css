@@ -1,0 +1,690 @@
+/* ==========================================================================
+   DESIGN TOKENS — Germany / DEU Theme
+   German Flag Colors: Black (#1a1a1a), Red (#DD0000), Gold (#FFCC00)
+   ========================================================================= */
+:root {
+  --deu-black:       #012819;   /* German flag black */
+  --deu-black-soft:  #012819;
+  --deu-red:         #CC0000;   /* German flag red */
+  --deu-red-dark:    #aa0000;
+  --deu-gold:        #FFCC00;   /* German flag gold */
+  --deu-gold-dark:   #e6b800;
+  --deu-gold-muted:  #b8960a;
+  --deu-steel:       #3d4a5c;   /* Steel blue-grey — industrial Germany */
+  --deu-steel-light: #eef1f5;
+
+  /* Text */
+  --deu-txt-dark:    #012819;
+  --deu-txt-muted:   #56606d;
+
+  /* UI */
+  --deu-border:      #e0e4ea;
+  --deu-white:       #ffffff;
+
+  /* WhatsApp */
+  --deu-wa-green:    #012819;
+  --deu-wa-dark:     #128C7E;
+
+  --deu-transition:  all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================= */
+@keyframes deuFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes deuWaPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes deuShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes deuBannerIn {
+  from { transform: scale(1.05); opacity: 0.8; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes deuPulseDot {
+  0%   { transform: scale(0.95); opacity: 1; }
+  50%  { transform: scale(1.18); opacity: 0.65; }
+  100% { transform: scale(0.95); opacity: 1; }
+}
+
+/* ==========================================================================
+   PAGE WRAPPER
+   ========================================================================= */
+.deu-page-wrapper {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--deu-txt-dark);
+  line-height: 1.65;
+  background-color: var(--deu-white);
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.deu-page-wrapper *,
+.deu-page-wrapper *::before,
+.deu-page-wrapper *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HERO BANNER
+   ========================================================================= */
+.deu-hero-banner {
+  background: url('https://images.pexels.com/photos/9930672/pexels-photo-9930672.jpeg') no-repeat center center;
+  background-size: cover;
+
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  padding: 60px 6%;
+  width: 100%;
+  animation: deuBannerIn 1.4s ease-out forwards;
+}
+
+/* Dark overlay — left heavy, right light */
+.deu-hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+ 
+  z-index: 1;
+}
+
+/* German tricolor stripe at bottom: black | red | gold */
+.deu-hero-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+
+  z-index: 2;
+}
+
+.deu-hero-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  animation: deuFadeUp 0.7s ease-out;
+}
+
+.deu-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deu-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+
+  /* Gold shimmer on white base */
+  background: linear-gradient(90deg, #ffffff 25%, var(--deu-gold) 50%, #ffffff 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: deuShimmer 4s linear infinite;
+}
+
+.deu-breadcrumb {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.deu-arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
+.deu-hero-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.deu-flag-emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+  transition: var(--deu-transition);
+}
+
+.deu-flag-emoji:hover {
+  transform: rotate(6deg) scale(1.1);
+}
+
+/* ==========================================================================
+   MAIN GRID
+   ========================================================================= */
+.deu-main-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 48px;
+  padding: 52px 6%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================= */
+.deu-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* Call Card */
+.deu-call-card {
+  background: #012819 !important;
+  color: var(--deu-white);
+  padding: 26px 22px;
+  border-radius: 10px;
+  text-align: center;
+  border-left: 4px solid var(--deu-gold);
+  box-shadow: 0 6px 22px rgba(28, 28, 28, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--deu-transition);
+}
+
+.deu-call-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(28, 28, 28, 0.35);
+}
+
+.deu-call-card p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.deu-phone-link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.deu-phone-link:hover {
+  color: #ffe566;
+}
+
+/* WhatsApp Card */
+.deu-wa-card {
+  background: var(--deu-white);
+  border: 1px solid var(--deu-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: var(--deu-transition);
+}
+
+.deu-wa-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+.deu-wa-header {
+  background-color: #f8f9fc;
+  border-bottom: 1px solid var(--deu-border);
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.deu-wa-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--deu-txt-dark);
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.deu-wa-status {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.75rem;
+  background-color: #e6f9ed;
+  color: #15803d;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.deu-pulse-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--deu-wa-green);
+  border-radius: 50%;
+  display: inline-block;
+  animation: deuPulseDot 1.8s infinite ease-in-out;
+}
+
+.deu-wa-body {
+  padding: 24px;
+}
+
+.deu-wa-intro {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.92rem;
+  color: var(--deu-txt-muted);
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+.deu-wa-highlight {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  border-left: 3px solid var(--deu-green);
+  padding: 12px 15px;
+  font-size: 0.88rem;
+  color: var(--deu-txt-dark);
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 22px;
+  line-height: 1.55;
+}
+
+.deu-wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--deu-wa-green);
+  color: var(--deu-white);
+  text-decoration: none;
+  padding: 13px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.22);
+}
+
+.deu-wa-btn:hover {
+  background-color: #1ebe57;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================= */
+.deu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+}
+
+/* Info Blocks */
+.deu-info-block h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #012819;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+}
+
+/* German tricolor divider under headings */
+.deu-divider {
+  width: 60px;
+  height: 4px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+ 
+}
+
+.deu-info-block p {
+  color: var(--deu-txt-muted);
+  font-size: 1.05rem;
+  margin: 0 0 14px 0;
+  text-align: justify;
+  line-height: 1.78;
+}
+
+/* Nested sub-sections */
+.deu-nested-block {
+  margin-top: 22px;
+}
+
+.deu-nested-block h3 {
+  font-size: 1.15rem;
+  color: var(--deu-steel);
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.deu-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.deu-bullet-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: var(--deu-txt-muted);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.deu-bullet-list li::before {
+  content: "•";
+  color: black;
+  font-size: 1.4rem;
+  position: absolute;
+  left: 4px;
+  top: -4px;
+}
+
+/* ==========================================================================
+   FEATURE CARDS
+   ========================================================================= */
+.deu-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.deu-feature-card {
+  background-color: var(--deu-steel-light);
+  border: 1px solid #dce1e9;
+  border-radius: 10px;
+  padding: 30px 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--deu-transition);
+}
+
+/* Red top accent bar on hover */
+.deu-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.deu-feature-card:hover::before {
+  opacity: 1;
+}
+
+.deu-feature-card:hover {
+  background-color: var(--deu-white);
+  border-color: #c8cfd9;
+  box-shadow: 0 12px 30px rgba(28, 28, 28, 0.1);
+  transform: translateY(-5px);
+}
+
+.deu-icon-circle {
+  width: 58px;
+  height: 58px;
+  background-color:White;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 18px auto;
+  box-shadow: 0 4px 12px rgba(28, 28, 28, 0.2);
+  transition: var(--deu-transition);
+}
+
+.deu-feature-card:hover .deu-icon-circle {
+  background: rgb(13, 36, 13);
+
+}
+
+.deu-feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--deu-black);
+  margin: 0 0 10px 0;
+}
+
+.deu-feature-card p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  color: black;
+  margin: 0;
+  line-height: 1.62;
+}
+
+/* ==========================================================================
+   CTA SECTION
+   ========================================================================= */
+.deu-cta-section {
+  border-top: 2px solid #e2e6ec;
+  padding-top: 42px;
+}
+
+.deu-cta-tagline {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: var(--deu-gold-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.deu-cta-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--deu-black);
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+}
+
+.deu-cta-lead {
+  font-size: 1.15rem;
+  color: #2d3748;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.deu-cta-sub {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--deu-txt-muted);
+  font-size: 0.98rem;
+  line-height: 1.66;
+  margin: 0 0 30px 0;
+}
+
+.deu-btn-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.deu-primary-btn {
+  display: inline-block;
+  background: #012819;
+  color: var(--deu-white);
+  text-decoration: none;
+  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 0.87rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  border-radius: 7px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 14px rgba(28, 28, 28, 0.22);
+  transition: var(--deu-transition);
+}
+
+.deu-primary-btn:hover {
+  background: rgb(4, 24, 4);
+  transform: translateY(-2px);
+
+
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUBBLE
+   ========================================================================= */
+.deu-floating-wrap {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+}
+
+.deu-wa-bubble {
+  width: 56px;
+  height: 56px;
+
+  color: var(--deu-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  animation: deuWaPulse 2.2s infinite;
+  transition: var(--deu-transition);
+}
+
+.deu-wa-bubble:hover {
+  transform: scale(1.12);
+  background-color: #20c75a;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .deu-main-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 5%;
+  }
+
+  .deu-hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .deu-hero-right {
+    display: none;
+  }
+
+  .deu-breadcrumb {
+    justify-content: center;
+  }
+
+  .deu-btn-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .deu-primary-btn {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .deu-hero-banner {
+    min-height: 260px;
+    padding: 44px 5%;
+  }
+
+  .deu-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .deu-info-block h2 {
+    font-size: 1.55rem;
+  }
+
+  .deu-info-block p {
+    text-align: left;
+  }
+
+  .deu-cta-heading {
+    font-size: 1.6rem;
+  }
+
+  .deu-floating-wrap {
+    bottom: 18px;
+    left: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deu-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .deu-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deu-wa-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .deu-hero-banner {
+    min-height: 220px;
+    padding: 34px 4%;
+  }
+}

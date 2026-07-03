@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* ─── GLOBAL RESET & TOKENS ─── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  --green-core: #012819;
+  --gold-brand: #C5A244;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* ===== 1. HERO SECTION SETUP ===== */
+.heros {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
+                    url("https://images.pexels.com/photos/33798798/pexels-photo-33798798.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 6%;
+  gap: 50px;
+  width: 100%;
+}
+
+.heros-left {
+  flex: 1.2;
+}
+
+.heros-left h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 4.5vw, 50px);
+  line-height: 1.25;
+  color: rgb(11, 41, 11);
+  font-weight: 800;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold-brand);
+}
+
+.heros-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+/* ─── HERO CALL TO ACTIONS ─── */
+.hero-action-btns {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.whatsapp-btn2, .phone-btn-animated {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: none;
+}
+
+.whatsapp-btn2 {
+  background: #25D366;
+  color: white;
+}
+.whatsapp-btn2:hover {
+  background: #1ebd54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* 📞 Shaking Animation */
+.phone-btn-animated {
+  background: var(--green-core);
+  color: white;
+  animation: phoneShake 2s infinite ease-in-out;
+}
+.phone-btn-animated:hover {
+  background: #02472d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(1, 40, 25, 0.3);
+}
+
+@keyframes phoneShake {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  5%, 15%, 25% { transform: rotate(-5deg) scale(1.02); }
+  10%, 20% { transform: rotate(5deg) scale(1.02); }
+  30% { transform: rotate(0deg) scale(1); }
+}
+
+/* ===== 2. HEROS RIGHT - FLAGS GRID ===== */
+.heros-right {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  background:transparent;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--green-core);
+
+  border: 1px solid #eef3f0;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(19, 42, 32, 0.08);
+  border-color: var(--gold-brand);
+}
+
+.card img {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 8px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== 3. WHY CHOOSE US FEATURES SECTION ===== */
+.whys-container {
+  padding: 90px 6%;
+  background: #fdfdfd;
+  text-align: center;
+}
+
+.whys-container h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 38px);
+  margin-bottom: 45px;
+  color: var(--green-core);
+  font-weight: 700;
+}
+
+.why-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  padding: 35px 25px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #eef3f0;
+  box-shadow: 0 6px 20px rgba(19, 42, 32, 0.04);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-align: left;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-brand);
+  box-shadow: 0 12px 30px rgba(19, 42, 32, 0.1);
+}
+
+.why-icon {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 18px;
+  margin-left: 95px;
+}
+
+.why-card h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--green-core);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.why-card p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #5f6f67;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   4. DEVICE-SPECIFIC MEDIA BREAKPOINTS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Laptop Screens */
+@media (max-width: 1200px) {
+  .heros { padding: 60px 4%; gap: 35px; }
+  .heros-right { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
+  .why-container { gap: 24px; }
+}
+
+/* Tablet Screens */
+@media (max-width: 992px) {
+  .heros {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 5%;
+  }
+  .hero-action-btns { justify-content: center; }
+  .heros-right {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 25px;
+  }
+  .why-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Small Tablets / Large Phones */
+@media (max-width: 768px) {
+  .heros-right {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+}
+
+/* ===== FIXED MOBILE PHONES (STRICT 3 COLUMNS GRID VIEW) ===== */
+@media (max-width: 576px) {
+  .heros { 
+    padding: 40px 16px; 
+    gap: 25px; 
+  }
+  
+  .hero-action-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .whatsapp-btn2, .phone-btn-animated { width: 100%; }
+
+  /* 👇 FIXED: Flags will now explicitly stay 3 in a row on mobile screen boundaries */
+  .heros-right {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 8px; /* Compact padding for small screens */
+    margin-top: 15px;
+  }
+  
+  /* Compact styling so 3 cards fit beautifully without breaking text alignment */
+  .card { 
+    padding: 10px 4px; 
+    font-size: 11px; 
+    border-radius: 8px; 
+  }
+  .card img { 
+    width: 32px; 
+    height: 32px; 
+    margin-bottom: 4px; 
+  }
+
+  .why-container { grid-template-columns: 1fr; gap: 20px; }
+  .why-card { text-align: center; padding: 30px 20px; }
+}
+
+/* Ultra Small Devices (e.g., iPhone SE) */
+@media (max-width: 360px) {
+  .heros-right {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .card {
+    font-size: 10px;
+    padding: 8px 2px;
+  }
+  .card img {
+    width: 28px;
+    height: 28px;
+  }
+}

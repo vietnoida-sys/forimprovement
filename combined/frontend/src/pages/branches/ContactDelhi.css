@@ -1,0 +1,444 @@
+/* =========================================
+   GOOGLE FONT
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f4f7f6;
+}
+
+.contact-page{
+  width:100%;
+  overflow-x:hidden;
+  background:
+    linear-gradient(to bottom,#f4f7f6,#ffffff);
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.Delhi-contact-hero{
+ background-image: url('https://images.pexels.com/photos/30710004/pexels-photo-30710004.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  color: #1a202c;
+  padding: 200px 8%;
+  position:  relative;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: bannerScale 1.5s ease-out forwards;
+}
+
+.hero-overlay{
+  text-align:center;
+  color:#fff;
+  padding:20px;
+}
+
+.hero-overlay h1{
+  font-size:64px;
+  font-weight:800;
+  margin-bottom:12px;
+  letter-spacing:1px;
+}
+
+.hero-overlay p{
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* =========================================
+   MAIN WRAPPER
+========================================= */
+
+.contact-wrapper{
+  width:90%;
+  max-width:1250px;
+  margin:auto;
+  padding:90px 0;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.contact-heading{
+  text-align:center;
+  margin-bottom:65px;
+}
+
+.contact-heading span{
+  color:#012819;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.contact-heading h2{
+  font-size:52px;
+  color:#012819;
+  margin-top:14px;
+  font-weight:700;
+}
+
+.contact-heading h2 strong{
+  color:#0d8c63;
+}
+
+/* =========================================
+   WHATSAPP CARD
+========================================= */
+
+.whatsapp-card{
+  width:100%;
+  background:#fff;
+
+  padding:45px;
+  border-radius:24px;
+
+  box-shadow:
+    0 10px 35px rgba(1,40,25,0.08);
+
+  margin-bottom:70px;
+
+  position:relative;
+  overflow:hidden;
+
+  transition:0.4s ease;
+}
+
+.whatsapp-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:6px;
+
+  background:linear-gradient(to right,#012819,#0d8c63);
+}
+
+.whatsapp-card:hover{
+  transform:translateY(-6px);
+}
+
+.whatsapp-top{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.whatsapp-icon{
+  width:78px;
+  height:78px;
+
+  background:linear-gradient(135deg,#012819,#0d8c63);
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:#fff;
+  font-size:34px;
+
+  box-shadow:
+    0 10px 25px rgba(1,40,25,0.25);
+}
+
+.whatsapp-top h3{
+  font-size:30px;
+  color:#012819;
+  font-weight:700;
+}
+
+.whatsapp-top p{
+  color:#666;
+  font-size:15px;
+  margin-top:4px;
+}
+
+.whatsapp-text{
+  margin:30px 0;
+  color:#555;
+  line-height:1.9;
+  font-size:16px;
+}
+
+.whatsapp-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:15px 34px;
+
+  background:linear-gradient(135deg,#012819,#0d8c63);
+
+  color:#fff;
+  text-decoration:none;
+
+  border-radius:12px;
+
+  font-size:16px;
+  font-weight:600;
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 8px 20px rgba(1,40,25,0.18);
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 12px 28px rgba(1,40,25,0.25);
+}
+
+/* =========================================
+   INFO GRID
+========================================= */
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+
+  margin-bottom:70px;
+}
+
+/* =========================================
+   INFO CARD
+========================================= */
+
+.info-card{
+  background:#fff;
+
+  padding:38px 28px;
+
+  border-radius:22px;
+
+  text-align:center;
+
+  position:relative;
+  overflow:hidden;
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+}
+
+.info-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:5px;
+
+  background:linear-gradient(to right,#012819,#0d8c63);
+
+  transform:scaleX(0);
+  transition:0.4s ease;
+}
+
+.info-card:hover::before{
+  transform:scaleX(1);
+}
+
+.info-card:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    0 18px 38px rgba(1,40,25,0.12);
+}
+
+.info-icon{
+  width:80px;
+  height:80px;
+
+  margin:auto;
+  margin-bottom:24px;
+
+  border-radius:50%;
+
+  background:linear-gradient(135deg,#012819,#0d8c63);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:#fff;
+  font-size:30px;
+
+  box-shadow:
+    0 10px 25px rgba(1,40,25,0.22);
+}
+
+.info-card h4{
+  font-size:24px;
+  color:#012819;
+  margin-bottom:14px;
+  font-weight:700;
+}
+
+.info-card p{
+  color:#666;
+  font-size:15px;
+  line-height:1.9;
+}
+
+/* =========================================
+   MAP SECTION
+========================================= */
+
+.map-box{
+  width:100%;
+  height:500px;
+
+  border-radius:26px;
+  overflow:hidden;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.08);
+
+  border:6px solid #fff;
+}
+
+.map-box iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1100px){
+
+  .info-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:768px){
+
+  .contact-hero{
+    height:300px;
+  }
+
+  .hero-overlay h1{
+    font-size:42px;
+  }
+
+  .hero-overlay p{
+    font-size:15px;
+  }
+
+  .contact-wrapper{
+    width:92%;
+    padding:65px 0;
+  }
+
+  .contact-heading h2{
+    font-size:36px;
+  }
+
+  .whatsapp-card{
+    padding:30px 24px;
+    border-radius:18px;
+  }
+
+  .whatsapp-top{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .whatsapp-top h3{
+    font-size:24px;
+  }
+
+  .whatsapp-icon{
+    width:70px;
+    height:70px;
+    font-size:28px;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .info-card{
+    padding:32px 22px;
+  }
+
+  .map-box{
+    height:350px;
+    border-radius:18px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .hero-overlay h1{
+    font-size:34px;
+  }
+
+  .contact-heading h2{
+    font-size:30px;
+  }
+
+  .whatsapp-btn{
+    width:100%;
+  }
+
+}
+/* =========================================
+   DESKTOP ONLY FIX (>=1024px)
+========================================= */
+
+@media (min-width: 1024px){
+
+  .whatsapp-card{
+    max-width: 520px;   /* card ko limit karo */
+    margin: 0 auto 70px; /* center align */
+    padding: 50px;
+  }
+
+  .whatsapp-top{
+    align-items: center;
+  }
+
+  .whatsapp-text{
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .whatsapp-btn{
+    width: fit-content; /* full width na ho */
+  }
+
+}
