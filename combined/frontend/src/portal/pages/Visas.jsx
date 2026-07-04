@@ -82,7 +82,7 @@ export default function Visas() {
       </div>
 
       <div className="card">
-        {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
+        {error && <div style={{ padding: 16, color: "#f5edec" }}>{error}</div>}
         {!loading && !error && (
           <table className="data-table">
             <thead><tr><th>Student</th><th>Status</th><th>Interview date</th><th>Approval date</th><th></th></tr></thead>

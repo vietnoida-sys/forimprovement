@@ -16,7 +16,7 @@ export default function StatCard({ icon: Icon, label, value, tint = "indigo" }) 
           display: flex;
           align-items: center;
           gap: 14px;
-          background: var(--white);
+          background: transparent;
           border: 1px solid var(--slate-200);
           border-radius: var(--radius-lg);
           padding: 18px 20px;
@@ -32,10 +32,10 @@ export default function StatCard({ icon: Icon, label, value, tint = "indigo" }) 
           justify-content: center;
           flex-shrink: 0;
         }
-        .tint-indigo { background: #eceeff; color: var(--indigo-600); }
-        .tint-amber { background: var(--amber-100); color: var(--amber-500); }
-        .tint-teal { background: var(--teal-100); color: var(--teal-500); }
-        .tint-red { background: var(--red-100); color: var(--red-500); }
+        .tint-indigo { background: transparent; color: var(--indigo-600); }
+        .tint-amber { background: transparent; color: var(--amber-500); }
+        .tint-teal { background: transparent; color: var(--teal-500); }
+        .tint-red { background: transparent; color: var(--red-500); }
         .stat-value {
           font-family: var(--font-display);
           font-size: 22px;

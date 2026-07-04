@@ -133,7 +133,7 @@ a { color: var(--indigo-600); text-decoration: none; }
 
 .card {
   background: var(--white);
-  border: 1px solid var(--slate-200);
+  border: 1px solid #f3f8f6;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
 }
@@ -150,7 +150,7 @@ a { color: var(--indigo-600); text-decoration: none; }
   flex: 1;
   min-width: 180px;
   padding: 8px 12px;
-  border: 1px solid var(--slate-300);
+  border: 1px solid var #012819;
   border-radius: var(--radius-md);
   font-size: 13.5px;
 }

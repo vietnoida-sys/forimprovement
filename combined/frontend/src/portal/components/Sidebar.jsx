@@ -97,7 +97,7 @@ export default function Sidebar({ open, onClose }) {
         .sidebar {
           width: 250px;
           background: #012819;
-          color: #b9c0d4;
+          color: #edeef1;
           height: 100dvh;
           overflow-y: auto;
           position: fixed;
@@ -111,7 +111,7 @@ export default function Sidebar({ open, onClose }) {
           align-items: center;
           gap: 10px;
           padding: 20px 16px 16px 20px;
-          color: var(--white);
+          color: #edeef1;
           font-family: var(--font-display);
           font-weight: 800;
           font-size: 17px;
@@ -125,26 +125,26 @@ export default function Sidebar({ open, onClose }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--white);
+          color: #edeef1;
           flex-shrink: 0;
         }
         .sidebar-close {
           display: none;
           border: none;
           background: transparent;
-          color: #b9c0d4;
+          color: #edeef1;
           padding: 6px;
           border-radius: var(--radius-sm);
           flex-shrink: 0;
         }
-        .sidebar-close:hover { background: #012819; color: var(--white); }
+        .sidebar-close:hover { background: #012819; color: #edeef1; }
         .nav { padding: 6px 12px 24px; }
         .nav-group { margin-top: 16px; }
         .nav-group-label {
           font-size: 10.5px;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          color: #5c6584;
+          color: #edeef1;;
           padding: 0 10px 6px;
           font-weight: 700;
         }
@@ -156,13 +156,13 @@ export default function Sidebar({ open, onClose }) {
           border-radius: var(--radius-md);
           font-size: 13.5px;
           font-weight: 500;
-          color: #b9c0d4 !important;
+          color: #edeef1; !important;
           margin-bottom: 2px;
         }
         .nav .nav-item:hover { background: #105a3e; color: var(--white) !important; }
         .nav .nav-item.active {
           background: #10744d;
-          color: var(--white) !important;
+          color: #edeef1; !important;
           box-shadow: inset 3px 0 0 var(--amber-500);
         }
         @media (max-width: 900px) {

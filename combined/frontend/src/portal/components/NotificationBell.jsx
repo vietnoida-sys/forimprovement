@@ -162,7 +162,7 @@ export default function NotificationBell() {
         .notif-markall {
           border: none;
           background: transparent;
-          color: var(--indigo-600);
+          color: white;
           font-size: 11.5px;
           font-weight: 600;
         }

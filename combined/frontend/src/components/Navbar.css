@@ -445,8 +445,11 @@ ul {
 }
 
 .profile-arrow {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
+  color: rgba(10, 82, 28, 0.7);
+  font-size: 12px;
+  height: 12px;
+  width: 12px;
+  
   transition: transform 0.3s;
 }
 
@@ -837,17 +840,25 @@ ul {
   }
 
   .profile-btn {
+    content:"profile";
+    color:white;
     padding: 3px 10px 3px 3px;
     border-radius: 20px;
+     height: 56px;
+     width: 60px;
+    background-color: transparent;
   }
 
   .profile-name {
     display: none;
   }
 
-  .profile-arrow {
-    display: none;
-  }
+ .profile-arrow {
+          height: 100px;
+        width: 100px;
+  object-fit: contain;   /* keep icon ratio */
+  display: inline-block;
+}
 
   .login-btn {
     padding: 6px 14px;
@@ -1049,7 +1060,7 @@ ul {
   }
 
   .profile-arrow {
-    display: none;
+   
   }
 
   /* Mobile-copy dropdowns: position relative to their own icon inside navbar */
