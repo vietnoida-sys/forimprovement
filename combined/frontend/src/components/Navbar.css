@@ -179,7 +179,7 @@ ul {
 ========================================= */
 .login-btn {
   padding: 8px 18px;
-  background-color: #012819;
+  background-color: #67a872;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -192,7 +192,7 @@ ul {
 }
 
 .login-btn:hover {
-  background-color: #15571a;
+  background-color: #0ca71c;
 }
 
 /* =========================================
@@ -213,14 +213,14 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ece917;
-  background-color:#012819;
+  color: #636111;
+  background-color:rgb(212, 216, 211);
   font-size: 17px;
   transition: 0.3s;
 }
 
 .notif-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background-color:white;
 }
 
 .notif-badge {
@@ -278,7 +278,7 @@ ul {
 .notif-markall {
   border: none;
   background: transparent;
-  color: #25D366;
+  color: #092c16;
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
@@ -424,8 +424,8 @@ ul {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+ 
   border-radius: 22px;
   padding: 4px 12px 4px 4px;
   cursor: pointer;
@@ -433,7 +433,7 @@ ul {
 }
 
 .profile-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: transparent;
 }
 
 .profile-name {
@@ -447,15 +447,13 @@ ul {
 .profile-arrow {
   color: rgba(10, 82, 28, 0.7);
   font-size: 12px;
-  height: 12px;
-  width: 12px;
+  height: 42px;
+  width: 42px;
   
   transition: transform 0.3s;
 }
 
-.profile-arrow.rotated {
-  transform: rotate(180deg);
-}
+
 
 /* =========================================
    PROFILE DROPDOWN
