@@ -298,8 +298,10 @@ function Navbar() {
               setNotifOpen(false);
             }}
           >
+            
             <span className="profile-name">Profile</span>
-            <FiChevronDown className={`profile-arrow ${profileOpen ? "rotated" : ""}`} />
+            <img src="https://img.magnific.com/premium-vector/round-man-character-mockup-icon-flat-color-round-man-icon-blue-tshirt-brown-hair-character-template-vector-icon_774778-2418.jpg?semt=ais_hybrid&w=740&q=80" alt="Profile" className={`profile-arrow ${profileOpen ? "rotated" : ""}`} />
+           
           </button>
 
           {/* PROFILE DROPDOWN */}

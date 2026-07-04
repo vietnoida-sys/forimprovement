@@ -109,7 +109,7 @@ export default function UsersPage() {
           </select>
         </div>
 
-        {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
+        {error && <div style={{ padding: 16, color: "#012819" }}>{error}</div>}
 
         {!loading && !error && (
           <table className="data-table">

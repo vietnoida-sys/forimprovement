@@ -8,7 +8,7 @@ import api from "../api/axiosClient";
 import StatCard from "../components/StatCard";
 import { useAuth } from "../context/AuthContext";
 
-const PIE_COLORS = ["#6b7280", "#e0a63a", "#6472e0", "#4f5fd9", "#2aa896", "#157a6a"];
+const PIE_COLORS = ["#6b7280", "#e0a63a", "#64e06e", "#4fd96d", "#2aa896", "#157a6a"];
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -46,7 +46,7 @@ export default function Dashboard() {
           <StatCard icon={GraduationCap} label="Total Universities" value={stats.totalUniversities} tint="amber" />
           <StatCard icon={FileText} label="Applications Submitted" value={stats.totalApplications} tint="amber" />
           <StatCard icon={FolderCheck} label="Pending Documents" value={stats.pendingDocuments} tint="red" />
-          <StatCard icon={CalendarClock} label="Upcoming Appointments" value={stats.upcomingAppointments} tint="indigo" />
+          <StatCard icon={CalendarClock} label="Upcoming Appointments" value={stats.upcomingAppointments} tint="#012819" />
           <StatCard icon={Plane} label="Visa Approved" value={stats.visaApprovedCount} tint="teal" />
           <StatCard icon={Wallet} label="Revenue Generated" value={`$${stats.revenueGenerated?.toLocaleString()}`} tint="teal" />
         </div>
@@ -77,7 +77,7 @@ export default function Dashboard() {
         <div className="card">
           <h3 style={{ padding: "18px 20px 0" }}>Lead conversion rate</h3>
           <div style={{ padding: "30px 20px 20px", textAlign: "center" }}>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 42, color: "var(--indigo-600)" }}>
+            <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 42, color: "#012819" }}>
               {stats?.leadConversionRate || "0.0"}%
             </div>
             <p style={{ color: "var(--slate-500)", fontSize: 13.5, marginTop: 8 }}>

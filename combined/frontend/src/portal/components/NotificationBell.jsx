@@ -157,12 +157,12 @@ export default function NotificationBell() {
           border-bottom: 1px solid var(--slate-200);
           font-size: 13px;
           font-weight: 700;
-          color: var(--slate-900);
+          color: white;
         }
         .notif-markall {
           border: none;
           background: transparent;
-          color: var(--indigo-600);
+          color: white;
           font-size: 11.5px;
           font-weight: 600;
         }
