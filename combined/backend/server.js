@@ -28,9 +28,13 @@ app.use("/api/visas", require("./routes/visaRoutes"));
 app.use("/api/appointments", require("./routes/appointmentRoutes"));
 app.use("/api/dashboard", require("./routes/dashboardRoutes"));
 app.use("/api/notifications", require("./routes/notificationRoutes"));
+// Public, unauthenticated endpoints used by the VietWorldGate marketing site
+// — these feed straight into the same CRM/Leads + notification system as
+// everything else here.
 app.use("/api/public-inquiries", require("./routes/publicInquiryRoutes"));
+app.use("/api/consultations", require("./routes/consultationRoutes"));
 
-app.get("/", (req, res) => res.json({ status: "EduAdmin API running" }));
+app.get("/", (req, res) => res.json({ status: "VietWorldGate + EduAdmin API running" }));
 
 // 404 handler
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));

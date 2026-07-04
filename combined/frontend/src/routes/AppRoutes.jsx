@@ -49,6 +49,8 @@ import ComparisonPage from "../pages/CompareUniversity";
 import Abroadcostcalculator from "../pages/Abroadcostcalculator";
 import StudentDashbaord from "../pages/StudentDashbaord";
 import { AuthProvider, useAuth } from "../portal/context/AuthContext";
+import ConsultationForm from "../pages/Consultationform";
+
 function AppRoutes() {
   return (
    
@@ -101,6 +103,7 @@ function AppRoutes() {
           <Route path="/studentdashbaord" element={<StudentDashbaord/>} />
           {/* EduAdmin CRM + Student Portal — mounted at /portal */}
           <Route path="/portal/*" element={<PortalApp />} />
+          <Route path="/consultationform"  element={<ConsultationForm />} />
          
       </Routes>
         </AuthProvider>
