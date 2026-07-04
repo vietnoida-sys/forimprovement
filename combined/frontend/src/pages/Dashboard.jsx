@@ -116,14 +116,12 @@ function Dashboard() {
                 Get free counselling for study abroad, visa guidance,
                 admission process, and career opportunities abroad.
               </p>
-              <a
-                href="https://wa.me/7982295530?text=Hello%20I%20want%20to%20know%20about%20study%20abroad"
-                target="_blank"
-                rel="noreferrer"
-                className="whatsapp-btn"
-              >
-                CONTACT NOW
-              </a>
+              <Link
+                to="/consultationform"
+                 className="whatsapp-btn"
+                 >
+                Book Free Consultation
+                  </Link>
             </div>
           </motion.div>
         </div>

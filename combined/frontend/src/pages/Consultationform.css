@@ -1,0 +1,171 @@
+.cf-card {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cf-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 24px;
+  background: #f7f7f8;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cf-header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.cf-header-icon {
+  color: #111827;
+}
+
+.cf-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cf-field-full {
+  grid-column: 1 / -1;
+}
+
+.cf-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.cf-required {
+  color: #2563eb;
+}
+
+.cf-input {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #111827;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cf-input::placeholder {
+  color: #9ca3af;
+}
+
+.cf-input:focus {
+  border-color: #0f2e1d;
+  box-shadow: 0 0 0 3px rgba(15, 46, 29, 0.1);
+}
+
+.cf-input-error {
+  border-color: #dc2626;
+}
+
+.cf-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cf-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 36px;
+  cursor: pointer;
+  color: #374151;
+}
+
+.cf-select:invalid {
+  color: #9ca3af;
+}
+
+.cf-select-wrap svg {
+  position: absolute;
+  right: 12px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.cf-error-text {
+  font-size: 12px;
+  color: #dc2626;
+}
+
+.cf-banner {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.cf-banner-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.cf-banner-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.cf-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #0f2e1d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cf-submit:hover:not(:disabled) {
+  background: #143b26;
+}
+
+.cf-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .cf-grid {
+    grid-template-columns: 1fr;
+  }
+  .cf-card {
+    margin: 16px;
+  }
+}

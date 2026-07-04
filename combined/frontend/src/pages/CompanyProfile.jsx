@@ -65,19 +65,19 @@ export default function CompanyProfile() {
     <>
       <Navbar />
 
-      <div className="profile-container">
+      <div className="cp-profile-container">
 
         {/* HERO BANNER */}
         <motion.header
-          className="hero-banner"
+          className="cp-hero-banner"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="hero-content"></div>
+          <div className="cp-hero-content"></div>
 
           <motion.div
-            className="hero-image-container"
+            className="cp-hero-image-container"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -92,11 +92,11 @@ export default function CompanyProfile() {
         </motion.header>
 
         {/* MAIN LAYOUT */}
-        <div className="main-layout">
+        <div className="cp-main-layout">
 
           {/* SIDEBAR */}
           <motion.aside
-            className="sidebar-nav"
+            className="cp-sidebar-nav"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -114,7 +114,7 @@ export default function CompanyProfile() {
                   >
                     <Link
                       to={item.link}
-                      className="sidebar-link-anchor"
+                      className="cp-sidebar-link-anchor"
                       style={{
                         textDecoration: "none",
                         color: "inherit",
@@ -124,10 +124,10 @@ export default function CompanyProfile() {
                         width: "100%",
                       }}
                     >
-                      <span className="menu-icon">{item.icon}</span>
-                      <span className="menu-text">{item.name}</span>
+                      <span className="cp-menu-icon">{item.icon}</span>
+                      <span className="cp-menu-text">{item.name}</span>
                       {activeTab === item.name && (
-                        <span className="arrow-indicator">&gt;</span>
+                        <span className="cp-arrow-indicator">&gt;</span>
                       )}
                     </Link>
                   </motion.li>
@@ -137,35 +137,35 @@ export default function CompanyProfile() {
           </motion.aside>
 
           {/* CONTENT AREA */}
-          <main className="content-area">
+          <main className="cp-content-area">
 
             {/* TOP SECTION */}
             <FadeUp>
-              <div className="top-grid">
+              <div className="cp-top-grid">
 
-                <section className="overview-main-card">
-                  <div className="card-header-icon"><FaClipboardList /></div>
+                <section className="cp-overview-main-card">
+                  <div className="cp-card-header-icon"><FaClipboardList /></div>
                   <h2>Overview</h2>
                   <p>
                     Innovative Institute is a leading educational organization
                     committed to providing quality education and career guidance
                     to students.
                   </p>
-                  <button className="know-more-btn">Know More →</button>
+                  <button className="cp-know-more-btn">Know More →</button>
                 </section>
 
-                <div className="stats-grid">
+                <div className="cp-stats-grid">
                   {stats.map(function(stat, index) {
                     return (
                       <motion.div
                         key={index}
-                        className="stat-card"
+                        className="cp-stat-card"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.12 }}
                         viewport={{ once: true, amount: 0.3 }}
                       >
-                        <div className="stat-icon">{stat.icon}</div>
+                        <div className="cp-stat-icon">{stat.icon}</div>
                         <h3>{stat.number}</h3>
                         <p>{stat.label}</p>
                       </motion.div>
@@ -178,18 +178,18 @@ export default function CompanyProfile() {
 
             {/* MIDDLE SECTION */}
             <FadeUp delay={0.1}>
-              <div className="middle-grid">
+              <div className="cp-middle-grid">
 
-                <div className="mission-vision-wrapper">
-                  <div className="inner-info-card">
-                    <div className="info-icon green-bg"><FaBullseye /></div>
+                <div className="cp-mission-vision-wrapper">
+                  <div className="cp-inner-info-card">
+                    <div className="cp-info-icon green-bg"><FaBullseye /></div>
                     <div>
                       <h4>Our Mission</h4>
                       <p>To deliver world-class education and training that empowers students.</p>
                     </div>
                   </div>
-                  <div className="inner-info-card">
-                    <div className="info-icon green-bg"><FaEye /></div>
+                  <div className="cp-inner-info-card">
+                    <div className="cp-info-icon green-bg"><FaEye /></div>
                     <div>
                       <h4>Our Vision</h4>
                       <p>To be a global leader in education and career development.</p>
@@ -197,9 +197,9 @@ export default function CompanyProfile() {
                   </div>
                 </div>
 
-                <section className="values-card">
-                  <div className="values-header">
-                    <span className="value-icon-main"><FaGem /></span>
+                <section className="cp-values-card">
+                  <div className="cp-values-header">
+                    <span className="cp-value-icon-main"><FaGem /></span>
                     <h4>Our Values</h4>
                   </div>
                   <ul>
@@ -211,13 +211,13 @@ export default function CompanyProfile() {
                   </ul>
                 </section>
 
-                <blockquote className="quote-box">
-                  <span className="quote-mark">"</span>
+                <blockquote className="cp-quote-box">
+                  <span className="cp-quote-mark">"</span>
                   <p>
                     Our commitment is to build a brighter future for every
                     student through quality education and global opportunities.
                   </p>
-                  <div className="quote-bg-icon"><FaBuilding /></div>
+                  <div className="cp-quote-bg-icon"><FaBuilding /></div>
                 </blockquote>
 
               </div>
@@ -225,11 +225,11 @@ export default function CompanyProfile() {
 
             {/* BOTTOM SECTION */}
             <FadeUp delay={0.1}>
-              <div className="bottom-grid">
+              <div className="cp-bottom-grid">
 
-                <section className="offers-section">
+                <section className="cp-offers-section">
                   <h3>What We Offer</h3>
-                  <div className="offers-row">
+                  <div className="cp-offers-row">
                     {[
                       { icon: <FaLightbulb />, title: "Career Guidance", desc: "Expert counseling for the right career path." },
                       { icon: <FaCogs />, title: "Skill Development", desc: "Industry-oriented training and workshops." },
@@ -239,13 +239,13 @@ export default function CompanyProfile() {
                       return (
                         <motion.div
                           key={i}
-                          className="offer-item"
+                          className="cp-offer-item"
                           initial={{ opacity: 0, y: 25 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: i * 0.1 }}
                           viewport={{ once: true, amount: 0.2 }}
                         >
-                          <div className="offer-icon purple-light">{offer.icon}</div>
+                          <div className="cp-offer-icon purple-light">{offer.icon}</div>
                           <div>
                             <h5>{offer.title}</h5>
                             <p>{offer.desc}</p>
@@ -256,7 +256,7 @@ export default function CompanyProfile() {
                   </div>
                 </section>
 
-                <div className="get-in-touch-card">
+                <div className="cp-get-in-touch-card">
                   <h4>Get in Touch</h4>
                   <p>Have questions or need more information? We are here to help!</p>
                   <a
@@ -267,7 +267,7 @@ export default function CompanyProfile() {
                   >
                     Contact us →
                   </a>
-                  <div className="headphone-bg-icon"><FaHeadphones /></div>
+                  <div className="cp-headphone-bg-icon"><FaHeadphones /></div>
                 </div>
 
               </div>
