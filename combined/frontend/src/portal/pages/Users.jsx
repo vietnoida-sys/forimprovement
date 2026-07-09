@@ -87,7 +87,69 @@ export default function UsersPage() {
   };
 
   return (
-    <div>
+    <div className="users-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .users-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .users-page .toolbar {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .users-page .toolbar .search-input {
+          flex: 1;
+          min-width: 200px;
+        }
+        .users-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .users-page .data-table {
+          min-width: 680px;
+        }
+        @media (max-width: 768px) {
+          .users-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .users-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .users-page .toolbar {
+            flex-direction: column;
+          }
+          .users-page .toolbar select,
+          .users-page .toolbar .search-input {
+            width: 100%;
+          }
+          .users-page .field-row {
+            flex-direction: column;
+          }
+        }
+        @media (max-width: 480px) {
+          .users-page h1 {
+            font-size: 1.25rem;
+          }
+          .users-page p {
+            font-size: 13px;
+          }
+          .users-page .data-table {
+            font-size: 12.5px;
+          }
+          .users-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>User Management</h1>
@@ -112,32 +174,34 @@ export default function UsersPage() {
         {error && <div style={{ padding: 16, color: "#012819" }}>{error}</div>}
 
         {!loading && !error && (
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Name</th><th>Email</th><th>Role</th><th>Phone</th><th>Status</th><th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((u) => (
-                <tr key={u._id}>
-                  <td>{u.name}</td>
-                  <td>{u.email}</td>
-                  <td style={{ textTransform: "capitalize" }}>{u.role}</td>
-                  <td>{u.phone || "—"}</td>
-                  <td><StatusBadge status={u.status} /></td>
-                  <td>
-                    <div style={{ display: "flex", gap: 4 }}>
-                      <button className="icon-btn" title="Edit" onClick={() => openEdit(u)}><Pencil size={15} /></button>
-                      <button className="icon-btn" title="Toggle status" onClick={() => handleToggleStatus(u)}><Power size={15} /></button>
-                      <button className="icon-btn" title="Reset password" onClick={() => setResetTarget(u)}><KeyRound size={15} /></button>
-                      <button className="icon-btn danger" title="Delete" onClick={() => handleDelete(u)}><Trash2 size={15} /></button>
-                    </div>
-                  </td>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th><th>Email</th><th>Role</th><th>Phone</th><th>Status</th><th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filtered.map((u) => (
+                  <tr key={u._id}>
+                    <td>{u.name}</td>
+                    <td>{u.email}</td>
+                    <td style={{ textTransform: "capitalize" }}>{u.role}</td>
+                    <td>{u.phone || "—"}</td>
+                    <td><StatusBadge status={u.status} /></td>
+                    <td>
+                      <div style={{ display: "flex", gap: 4 }}>
+                        <button className="icon-btn" title="Edit" onClick={() => openEdit(u)}><Pencil size={15} /></button>
+                        <button className="icon-btn" title="Toggle status" onClick={() => handleToggleStatus(u)}><Power size={15} /></button>
+                        <button className="icon-btn" title="Reset password" onClick={() => setResetTarget(u)}><KeyRound size={15} /></button>
+                        <button className="icon-btn danger" title="Delete" onClick={() => handleDelete(u)}><Trash2 size={15} /></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && filtered.length === 0 && !error && <div className="empty-state">No users match your search.</div>}
       </div>

@@ -88,30 +88,33 @@ export default function NotificationBell() {
       </button>
 
       {open && (
-        <div className="notif-panel">
-          <div className="notif-panel-header">
-            <span>Notifications</span>
-            {unread > 0 && (
-              <button className="notif-markall" onClick={handleMarkAll}>Mark all read</button>
-            )}
+        <>
+          <div className="notif-backdrop" onClick={() => setOpen(false)} />
+          <div className="notif-panel">
+            <div className="notif-panel-header">
+              <span>Notifications</span>
+              {unread > 0 && (
+                <button className="notif-markall" onClick={handleMarkAll}>Mark all read</button>
+              )}
+            </div>
+            <div className="notif-panel-list">
+              {items.length === 0 && <div className="notif-empty">No notifications yet.</div>}
+              {items.map((n) => (
+                <button key={n._id} className={`notif-item ${n.read ? "" : "unread"}`} onClick={() => handleItemClick(n)}>
+                  <div className="notif-item-title">{n.title}</div>
+                  <div className="notif-item-msg">{n.message}</div>
+                  <div className="notif-item-time">{timeAgo(n.createdAt)}</div>
+                </button>
+              ))}
+            </div>
+            <button
+              className="notif-viewall"
+              onClick={() => { setOpen(false); navigate("/portal/notifications"); }}
+            >
+              View all
+            </button>
           </div>
-          <div className="notif-panel-list">
-            {items.length === 0 && <div className="notif-empty">No notifications yet.</div>}
-            {items.map((n) => (
-              <button key={n._id} className={`notif-item ${n.read ? "" : "unread"}`} onClick={() => handleItemClick(n)}>
-                <div className="notif-item-title">{n.title}</div>
-                <div className="notif-item-msg">{n.message}</div>
-                <div className="notif-item-time">{timeAgo(n.createdAt)}</div>
-              </button>
-            ))}
-          </div>
-          <button
-            className="notif-viewall"
-            onClick={() => { setOpen(false); navigate("/portal/notifications"); }}
-          >
-            View all
-          </button>
-        </div>
+        </>
       )}
 
       <style>{`
@@ -135,6 +138,9 @@ export default function NotificationBell() {
           align-items: center;
           justify-content: center;
           line-height: 1;
+        }
+        .notif-backdrop {
+          display: none;
         }
         .notif-panel {
           position: absolute;
@@ -195,6 +201,51 @@ export default function NotificationBell() {
           color: var(--indigo-600);
         }
         .notif-viewall:hover { background: var(--slate-100); }
+
+        /* ── RESPONSIVE: tablet ── */
+        @media (max-width: 768px) {
+          .notif-panel {
+            width: 300px;
+            max-width: 90vw;
+          }
+        }
+
+        /* ── RESPONSIVE: mobile — panel becomes a centered sheet with backdrop ── */
+        @media (max-width: 480px) {
+          .notif-backdrop {
+            display: block;
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,41,0.35);
+            z-index: 199;
+          }
+          .notif-panel {
+            position: fixed;
+            top: 64px;
+            left: 10px;
+            right: 10px;
+            width: auto;
+            max-width: none;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+          }
+          .notif-panel-list {
+            max-height: none;
+            flex: 1;
+            overflow-y: auto;
+          }
+          .notif-panel-header {
+            padding: 14px 16px;
+            font-size: 14px;
+          }
+          .notif-item {
+            padding: 12px 16px;
+          }
+          .notif-item-title { font-size: 13px; }
+          .notif-item-msg { font-size: 12.5px; }
+          .notif-viewall { padding: 12px; font-size: 13px; }
+        }
       
 }
 `}</style>

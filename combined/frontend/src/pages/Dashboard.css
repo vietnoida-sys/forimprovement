@@ -713,3 +713,20 @@ body{
   }
 
 }
+/* Replace old profile-arrow styles with these */
+.profile-video {
+  width: 40px;    /* Adjust size to match your design */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the video fills the circle */
+  cursor: pointer;
+}
+
+/* Ensure the wrapper handles the click properly */
+.profile-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+}

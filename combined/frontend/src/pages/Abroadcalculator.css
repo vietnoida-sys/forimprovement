@@ -21,8 +21,8 @@
   --gold-light: #E2C06A;
 
   --bg:         #111613;
-  --surface:    #181E19;
-  --card:       #1E2720;
+ 
+  
   --card-2:     #232E25;
   --border:     #2C3D2E;
   --border-light: #3A4E3C;
@@ -51,7 +51,7 @@ html { font-size: 16px; }
 ::-webkit-scrollbar-thumb { background: var(--green-700); border-radius: 3px; }
 
 /* ── APP SHELL ──────────────────────────── */
-.app {
+.ac-cost-app {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 20px 60px;
@@ -59,7 +59,7 @@ html { font-size: 16px; }
 }
 
 /* ── HEADER HERO SECTION ────────────────── */
-.header {
+.ac-cost-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,12 +70,12 @@ html { font-size: 16px; }
   margin: 0 auto;
 }
 
-.header-content {
+.ac-cost-header-content {
   flex: 1.2;
   text-align: left;
 }
 
-.header-content::after {
+.ac-cost-header-content::after {
   content: '';
   display: block;
   width: 80px;
@@ -85,14 +85,14 @@ html { font-size: 16px; }
   margin: 28px 0 0;
 }
 
-.header-image-container {
+.ac-cost-header-image-container {
   flex: 0.8;
   display: flex;
   justify-content: center;
   max-width: 440px;
 }
 
-.header-hero-image {
+.ac-cost-header-hero-image {
   width: 100%;
   height: auto;
   max-height: 240px;
@@ -102,7 +102,7 @@ html { font-size: 16px; }
   border: 3px solid var(--green-600);
 }
 
-.header-eyebrow {
+.ac-cost-header-eyebrow {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -112,7 +112,7 @@ html { font-size: 16px; }
   margin-bottom: 14px;
 }
 
-.header-title {
+.ac-cost-header-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
@@ -121,9 +121,9 @@ html { font-size: 16px; }
   letter-spacing: -0.5px;
 }
 
-.accent { color: var(--gold); }
+.ac-cost-accent { color: var(--gold); }
 
-.header-sub {
+.ac-cost-header-sub {
   margin-top: 12px;
   font-size: 1rem;
   color: #2D4E33;
@@ -132,31 +132,31 @@ html { font-size: 16px; }
 
 /* Responsive adjustment for small screens */
 @media (max-width: 768px) {
-  .header {
+  .ac-cost-header {
     flex-direction: column;
     text-align: center;
     gap: 28px;
     padding: 32px 20px;
   }
-  .header-content {
+  .ac-cost-header-content {
     text-align: center;
   }
-  .header-content::after {
+  .ac-cost-header-content::after {
     margin: 24px auto 0;
   }
-  .header-sub {
+  .ac-cost-header-sub {
     margin: 12px auto 0;
   }
-  .header-image-container {
+  .ac-cost-header-image-container {
     max-width: 100%;
   }
-  .header-hero-image {
+  .ac-cost-header-hero-image {
     max-height: 180px;
   }
 }
 
 /* ── LAYOUT ─────────────────────────────── */
-.layout {
+.ac-cost-layout {
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 24px;
@@ -164,11 +164,11 @@ html { font-size: 16px; }
 }
 
 @media (max-width: 960px) {
-  .layout { grid-template-columns: 1fr; }
+  .ac-cost-layout { grid-template-columns: 1fr; }
 }
 
 /* ── PANELS ─────────────────────────────── */
-.panel {
+.ac-cost-panel {
 
   border-radius: var(--radius-xl);
   padding: 28px;
@@ -176,10 +176,10 @@ html { font-size: 16px; }
 }
 
 /* ── SECTIONS ───────────────────────────── */
-.section { margin-bottom: 28px; }
-.section:last-child { margin-bottom: 0; }
+.ac-cost-section { margin-bottom: 28px; }
+.ac-cost-section:last-child { margin-bottom: 0; }
 
-.section-label {
+.ac-cost-section-label {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -193,13 +193,13 @@ html { font-size: 16px; }
 }
 
 /* ── COUNTRY GRID ───────────────────────── */
-.country-grid {
+.ac-cost-country-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 8px;
 }
 
-.country-btn {
+.ac-cost-country-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -216,24 +216,24 @@ html { font-size: 16px; }
   white-space: nowrap;
 }
 
-.country-btn:hover {
+.ac-cost-country-btn:hover {
   border-color: var(--green-500);
   background: #012819;
   color: var(--text-primary);
 }
 
-.country-btn.active {
+.ac-cost-country-btn.ac-cost-active {
   background: var(--green-700);
   border-color: var(--green-500);
   color: #fff;
   box-shadow: 0 0 0 1px var(--green-600), var(--shadow-sm);
 }
 
-.country-flag { font-size: 18px; line-height: 1; }
-.country-name { font-size: 12px; }
+.ac-cost-country-flag { font-size: 18px; line-height: 1; }
+.ac-cost-country-name { font-size: 12px; }
 
 /* ── SLIDER ─────────────────────────────── */
-.slider {
+.ac-cost-slider {
   -webkit-appearance: none;
   width: 100%;
   height: 4px;
@@ -248,7 +248,7 @@ html { font-size: 16px; }
   cursor: pointer;
 }
 
-.slider::-webkit-slider-thumb {
+.ac-cost-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
@@ -259,9 +259,9 @@ html { font-size: 16px; }
   transition: transform var(--transition);
 }
 
-.slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.ac-cost-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
-.slider-labels {
+.ac-cost-slider-labels {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
@@ -270,24 +270,24 @@ html { font-size: 16px; }
 }
 
 /* ── TOGGLE BUTTONS ─────────────────────── */
-.toggles-row {
+.ac-cost-toggles-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
 @media (max-width: 700px) {
-  .toggles-row { grid-template-columns: 1fr; }
+  .ac-cost-toggles-row { grid-template-columns: 1fr; }
 }
 
-.toggle-group {}
+.ac-cost-toggle-group {}
 
-.toggle-btns {
+.ac-cost-toggle-btns {
   display: flex;
   gap: 6px;
 }
 
-.toggle-btn {
+.ac-cost-toggle-btn {
   flex: 1;
   padding: 8px 6px;
   background: whitesmoke;
@@ -301,12 +301,12 @@ html { font-size: 16px; }
   font-family: 'Inter', sans-serif;
 }
 
-.toggle-btn:hover {
+.ac-cost-toggle-btn:hover {
   border-color: var(--green-500);
   color: var(--text-secondary);
 }
 
-.toggle-btn.active {
+.ac-cost-toggle-btn.ac-cost-active {
   background: var(--green-600);
   border-color: var(--green-500);
   color: #fff;
@@ -314,13 +314,13 @@ html { font-size: 16px; }
 }
 
 /* ── ITEM TOGGLES (checkbox list) ────────── */
-.item-toggles {
+.ac-cost-item-toggles {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.item-toggle {
+.ac-cost-item-toggle {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -332,14 +332,14 @@ html { font-size: 16px; }
   transition: all var(--transition);
 }
 
-.item-toggle:hover { border-color: var(--green-500); }
+.ac-cost-item-toggle:hover { border-color: var(--green-500); }
 
-.item-toggle.checked {
+.ac-cost-item-toggle.ac-cost-checked {
   border-color: var(--green-600);
   background: #012819;
 }
 
-.item-toggle input[type="checkbox"] {
+.ac-cost-item-toggle input[type="checkbox"] {
   width: 16px;
   height: 16px;
   accent-color: var(--green-600);
@@ -347,16 +347,16 @@ html { font-size: 16px; }
   flex-shrink: 0;
 }
 
-.item-toggle-label {
+.ac-cost-item-toggle-label {
   flex: 1;
   font-size: 13px;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
-.item-toggle.checked .item-toggle-label { color: var(--text-primary); }
+.ac-cost-item-toggle.ac-cost-checked .ac-cost-item-toggle-label { color: var(--text-primary); }
 
-.item-toggle-amount {
+.ac-cost-item-toggle-amount {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -364,19 +364,19 @@ html { font-size: 16px; }
 }
 
 /* ── SUMMARY PANEL ──────────────────────── */
-.summary-panel {
+.ac-cost-summary-panel {
   position: sticky;
   top: 20px;
 }
 
-.summary-header {
+.ac-cost-summary-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.summary-country {
+.ac-cost-summary-country {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 17px;
   font-weight: 700;
@@ -386,9 +386,9 @@ html { font-size: 16px; }
   gap: 8px;
 }
 
-.summary-flag { font-size: 22px; }
+.ac-cost-summary-flag { font-size: 22px; }
 
-.summary-duration {
+.ac-cost-summary-duration {
   font-size: 12px;
   color: whitesmoke;
   background: #012819;
@@ -398,7 +398,7 @@ html { font-size: 16px; }
 }
 
 /* ── TOTAL CARD ─────────────────────────── */
-.total-card {
+.ac-cost-total-card {
   background: linear-gradient(135deg, var(--green-800) 0%, var(--green-700) 100%);
   border: 1px solid var(--green-500);
   border-radius: var(--radius-lg);
@@ -410,7 +410,7 @@ html { font-size: 16px; }
   overflow: hidden;
 }
 
-.total-card::before {
+.ac-cost-total-card::before {
   content: '';
   position: absolute;
   top: -40px; right: -40px;
@@ -419,7 +419,7 @@ html { font-size: 16px; }
   background: rgba(201,168,76,.08);
 }
 
-.total-label {
+.ac-cost-total-label {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -428,7 +428,7 @@ html { font-size: 16px; }
   margin-bottom: 10px;
 }
 
-.total-amount {
+.ac-cost-total-amount {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 700;
@@ -438,15 +438,15 @@ html { font-size: 16px; }
   margin-bottom: 8px;
 }
 
-.total-sub {
+.ac-cost-total-sub {
   font-size: 12px;
   color: var(--green-300);
 }
 
 /* ── COST TAGS ──────────────────────────── */
-.tags-section { margin-bottom: 24px; }
+.ac-cost-tags-section { margin-bottom: 24px; }
 
-.tag-count {
+.ac-cost-tag-count {
   background: var(--green-600);
   color: #fff;
   font-size: 10px;
@@ -457,7 +457,7 @@ html { font-size: 16px; }
   text-transform: none;
 }
 
-.tags-list {
+.ac-cost-tags-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -466,7 +466,7 @@ html { font-size: 16px; }
   padding-right: 4px;
 }
 
-.cost-tag {
+.ac-cost-cost-tag {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -477,15 +477,15 @@ html { font-size: 16px; }
   transition: border-color var(--transition);
 }
 
-.cost-tag:hover { border-color: #7a3535; }
+.ac-cost-cost-tag:hover { border-color: #7a3535; }
 
-.cost-tag-label {
+.ac-cost-cost-tag-label {
   flex: 1;
   font-size: 12px;
   color: white;
 }
 
-.cost-tag-amount {
+.ac-cost-cost-tag-amount {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -493,7 +493,7 @@ html { font-size: 16px; }
 }
 
 /* ── DELETE BUTTON ──────────────────────── */
-.delete-btn {
+.ac-cost-delete-btn {
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -511,7 +511,7 @@ html { font-size: 16px; }
   line-height: 1;
 }
 
-.delete-btn:hover {
+.ac-cost-delete-btn:hover {
   background: rgba(180,60,60,.35);
   border-color: #c06060;
   color: #ff8080;
@@ -519,7 +519,7 @@ html { font-size: 16px; }
 }
 
 /* ── EMPTY STATE ────────────────────────── */
-.empty-state {
+.ac-cost-empty-state {
   text-align: center;
   padding: 24px;
   color: var(--text-muted);
@@ -530,16 +530,16 @@ html { font-size: 16px; }
 }
 
 /* ── BREAKDOWN BARS ─────────────────────── */
-.breakdown-section { margin-bottom: 24px; }
+.ac-cost-breakdown-section { margin-bottom: 24px; }
 
-.breakdown-row {
+.ac-cost-breakdown-row {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 8px;
 }
 
-.breakdown-label {
+.ac-cost-breakdown-label {
   width: 130px;
   font-size: 11px;
   color: #012819;
@@ -549,7 +549,7 @@ html { font-size: 16px; }
   text-overflow: ellipsis;
 }
 
-.breakdown-bar-wrap {
+.ac-cost-breakdown-bar-wrap {
   flex: 1;
   height: 6px;
   background: #9eb5a1;
@@ -557,7 +557,7 @@ html { font-size: 16px; }
   overflow: hidden;
 }
 
-.breakdown-bar {
+.ac-cost-breakdown-bar {
   height: 100%;
   background: linear-gradient(90deg, var(--green-600), var(--green-400));
   border-radius: 3px;
@@ -565,7 +565,7 @@ html { font-size: 16px; }
   min-width: 2px;
 }
 
-.breakdown-pct {
+.ac-cost-breakdown-pct {
   width: 38px;
   font-size: 11px;
   color: #012819;
@@ -574,7 +574,7 @@ html { font-size: 16px; }
 }
 
 /* ── FORMULA BOX ────────────────────────── */
-.formula-box {
+.ac-cost-formula-box {
   background: #012819;
   border: 1px solid var(--border);
   border-left: 3px solid var(--green-600);
@@ -582,7 +582,7 @@ html { font-size: 16px; }
   padding: 16px 18px;
 }
 
-.formula-title {
+.ac-cost-formula-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -593,7 +593,7 @@ html { font-size: 16px; }
   text-align: center;
 }
 
-.formula-code {
+.ac-cost-formula-code {
   font-family: 'Space Grotesk', monospace;
   font-size: 13px;
   color: var(--green-300);
@@ -602,7 +602,7 @@ html { font-size: 16px; }
 }
 
 /* ── FLAG IMAGES (FOR WINDOWS/CROSS-PLATFORM RENDERING) ── */
-.inline-flag {
+.ac-cost-inline-flag {
   width: 18px;
   height: 12px;
   object-fit: cover;
@@ -614,7 +614,7 @@ html { font-size: 16px; }
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
 
-.country-flag-img {
+.ac-cost-country-flag-img {
   width: 20px;
   height: 14px;
   object-fit: cover;
@@ -625,7 +625,7 @@ html { font-size: 16px; }
   flex-shrink: 0;
 }
 
-.summary-flag-img {
+.ac-cost-summary-flag-img {
   width: 24px;
   height: 16px;
   object-fit: cover;
@@ -637,7 +637,7 @@ html { font-size: 16px; }
   flex-shrink: 0;
 }
 
-.label-with-flag {
+.ac-cost-label-with-flag {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;

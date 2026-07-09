@@ -85,7 +85,66 @@ export default function Leads() {
   };
 
   return (
-    <div>
+    <div className="leads-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .leads-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .leads-page .toolbar {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .leads-page .toolbar .search-input {
+          flex: 1;
+          min-width: 180px;
+        }
+        .leads-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .leads-page .data-table {
+          min-width: 720px;
+        }
+        @media (max-width: 768px) {
+          .leads-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .leads-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .leads-page .toolbar {
+            flex-direction: column;
+          }
+          .leads-page .toolbar select,
+          .leads-page .toolbar .search-input {
+            width: 100%;
+          }
+          .leads-page .field-row {
+            flex-direction: column;
+          }
+        }
+        @media (max-width: 480px) {
+          .leads-page h1 {
+            font-size: 1.25rem;
+          }
+          .leads-page .data-table {
+            font-size: 12.5px;
+          }
+          .leads-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Lead Management</h1>
@@ -106,44 +165,46 @@ export default function Leads() {
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
 
         {!loading && !error && (
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Name</th><th>Contact</th><th>Country</th><th>Status</th><th>Assigned to</th><th>Follow-up</th><th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((l) => (
-                <tr key={l._id}>
-                  <td>{l.name}</td>
-                  <td>{l.email || l.phone || "—"}</td>
-                  <td>{l.interestedCountry || "—"}</td>
-                  <td>
-                    <select
-                      value={l.status}
-                      onChange={(e) => handleStatusChange(l, e.target.value)}
-                      style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}
-                    >
-                      {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </td>
-                  <td>{l.assignedTo?.name || <span style={{ color: "var(--slate-500)" }}>Unassigned</span>}</td>
-                  <td>
-                    {l.followUpDate
-                      ? new Date(l.followUpDate).toLocaleDateString()
-                      : "—"}
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", gap: 4 }}>
-                      <button className="icon-btn" title="Assign counsellor" onClick={() => setAssignTarget(l)}><UserPlus size={15} /></button>
-                      <button className="icon-btn" title="Edit" onClick={() => openEdit(l)}><Pencil size={15} /></button>
-                      <button className="icon-btn danger" title="Delete" onClick={() => handleDelete(l)}><Trash2 size={15} /></button>
-                    </div>
-                  </td>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th><th>Contact</th><th>Country</th><th>Status</th><th>Assigned to</th><th>Follow-up</th><th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filtered.map((l) => (
+                  <tr key={l._id}>
+                    <td>{l.name}</td>
+                    <td>{l.email || l.phone || "—"}</td>
+                    <td>{l.interestedCountry || "—"}</td>
+                    <td>
+                      <select
+                        value={l.status}
+                        onChange={(e) => handleStatusChange(l, e.target.value)}
+                        style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}
+                      >
+                        {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+                      </select>
+                    </td>
+                    <td>{l.assignedTo?.name || <span style={{ color: "var(--slate-500)" }}>Unassigned</span>}</td>
+                    <td>
+                      {l.followUpDate
+                        ? new Date(l.followUpDate).toLocaleDateString()
+                        : "—"}
+                    </td>
+                    <td>
+                      <div style={{ display: "flex", gap: 4 }}>
+                        <button className="icon-btn" title="Assign counsellor" onClick={() => setAssignTarget(l)}><UserPlus size={15} /></button>
+                        <button className="icon-btn" title="Edit" onClick={() => openEdit(l)}><Pencil size={15} /></button>
+                        <button className="icon-btn danger" title="Delete" onClick={() => handleDelete(l)}><Trash2 size={15} /></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && filtered.length === 0 && !error && <div className="empty-state">No leads found.</div>}
       </div>

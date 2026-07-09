@@ -159,22 +159,22 @@ const avg = (min, max) => Math.round((min + max) / 2);
 
 const CostTag = ({ label, amount, onDelete, isIncome }) => (
   <motion.div 
-    className="cost-tag"
+    className="ac-cost-cost-tag"
     initial={{ opacity: 0, y: 15, scale: 0.95 }}
     animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0, y: -15, scale: 0.95 }}
     transition={{ duration: 0.2 }}
     layout
   >
-    <span className="cost-tag-label">{label}</span>
+    <span className="ac-cost-cost-tag-label">{label}</span>
     <span
-      className="cost-tag-amount"
+      className="ac-cost-cost-tag-amount"
       style={isIncome ? { color: "#4CAF50" } : {}}
     >
       {isIncome ? "−" : ""}
       {fmt(amount)}
     </span>
-    <button className="delete-btn" onClick={onDelete} title="Remove this cost">
+    <button className="ac-cost-delete-btn" onClick={onDelete} title="Remove this cost">
       ×
     </button>
   </motion.div>
@@ -246,8 +246,8 @@ export default function Abroadcostcalculator() {
     return {
       visa: { 
         label: (
-          <span className="label-with-flag">
-            <img src={`https://flagcdn.com/w40/${country.code}.png`} className="inline-flag" alt="" /> Visa Fee
+          <span className="ac-cost-label-with-flag">
+            <img src={`https://flagcdn.com/w40/${country.code}.png`} className="ac-cost-inline-flag" alt="" /> Visa Fee
           </span>
         ), 
         amount: visaFee 
@@ -270,16 +270,16 @@ export default function Abroadcostcalculator() {
       consultancy: { label: "Consultancy", amount: consultancy },
       tuition: {
         label: (
-          <span className="label-with-flag">
-            Tuition (<img src={`https://flagcdn.com/w40/${country.code}.png`} className="inline-flag" alt="" /> PhD per year)
+          <span className="ac-cost-label-with-flag">
+            Tuition (<img src={`https://flagcdn.com/w40/${country.code}.png`} className="ac-cost-inline-flag" alt="" /> PhD per year)
           </span>
         ),
         amount: tuition,
       },
       stipend: {
         label: (
-          <span className="label-with-flag">
-            <img src={`https://flagcdn.com/w40/${country.code}.png`} className="inline-flag" alt="" /> PhD Stipend × {months} mo (₹{phdData ? phdData.min.toLocaleString("en-IN") : 0}–{phdData ? phdData.max.toLocaleString("en-IN") : 0}/mo)
+          <span className="ac-cost-label-with-flag">
+            <img src={`https://flagcdn.com/w40/${country.code}.png`} className="ac-cost-inline-flag" alt="" /> PhD Stipend × {months} mo (₹{phdData ? phdData.min.toLocaleString("en-IN") : 0}–{phdData ? phdData.max.toLocaleString("en-IN") : 0}/mo)
           </span>
         ),
         amount: stipendMonthly * months,
@@ -309,16 +309,16 @@ export default function Abroadcostcalculator() {
   return (
     <>
       <Navbar />
-      <div className="app">
+      <div className="ac-cost-app">
         {/* Header Hero Section */}
         <motion.header 
-          className="header"
+          className="ac-cost-header"
           initial="initial"
           animate="animate"
         >
-          <div className="header-content">
+          <div className="ac-cost-header-content">
             <motion.div 
-              className="header-eyebrow"
+              className="ac-cost-header-eyebrow"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -326,15 +326,15 @@ export default function Abroadcostcalculator() {
               Company Abroad Planner
             </motion.div>
             <motion.h1 
-              className="header-title"
+              className="ac-cost-header-title"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Abroad Cost <span className="accent">Calculator</span>
+              Abroad Cost <span className="ac-cost-accent">Calculator</span>
             </motion.h1>
             <motion.p 
-              className="header-sub"
+              className="ac-cost-header-sub"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -344,7 +344,7 @@ export default function Abroadcostcalculator() {
             </motion.p>
           </div>
           <motion.div 
-            className="header-image-container"
+            className="ac-cost-header-image-container"
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
@@ -352,41 +352,41 @@ export default function Abroadcostcalculator() {
             <img 
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" 
               alt="Students planning their study abroad budget" 
-              className="header-hero-image"
+              className="ac-cost-header-hero-image"
             />
           </motion.div>
         </motion.header>
 
-        <div className="layout">
+        <div className="ac-cost-layout">
           {/* LEFT: Controls */}
           <motion.div 
-            className="panel controls-panel"
+            className="ac-cost-panel ac-cost-controls-panel"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             {/* Country Selector */}
             <motion.section 
-              className="section"
+              className="ac-cost-section"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <div className="section-label">Destination Country</div>
-              <div className="country-grid">
+              <div className="ac-cost-section-label">Destination Country</div>
+              <div className="ac-cost-country-grid">
                 {Object.entries(COUNTRIES).map(([key, c]) => (
                   <motion.button
                     key={key}
-                    className={`country-btn${
-                      selectedCountry === key ? " active" : ""
+                    className={`ac-cost-country-btn${
+                      selectedCountry === key ? " ac-cost-active" : ""
                     }`}
                     onClick={() => setSelectedCountry(key)}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
-                    <img src={`https://flagcdn.com/w40/${c.code}.png`} className="country-flag-img" alt="" />
-                    <span className="country-name">{c.label}</span>
+                    <img src={`https://flagcdn.com/w40/${c.code}.png`} className="ac-cost-country-flag-img" alt="" />
+                    <span className="ac-cost-country-name">{c.label}</span>
                   </motion.button>
                 ))}
               </div>
@@ -394,14 +394,14 @@ export default function Abroadcostcalculator() {
 
             {/* Duration */}
             <motion.section 
-              className="section"
+              className="ac-cost-section"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
             >
-              <div className="section-label">
+              <div className="ac-cost-section-label">
                 Duration:{" "}
-                <span className="accent">{months} months</span>
+                <span className="ac-cost-accent">{months} months</span>
               </div>
               <motion.input
                 type="range"
@@ -409,11 +409,11 @@ export default function Abroadcostcalculator() {
                 max={24}
                 value={months}
                 onChange={(e) => setMonths(Number(e.target.value))}
-                className="slider"
+                className="ac-cost-slider"
                 whileHover={{ scaleY: 1.25 }}
                 transition={{ duration: 0.15 }}
               />
-              <div className="slider-labels">
+              <div className="ac-cost-slider-labels">
                 <span>1 month</span>
                 <span>24 months</span>
               </div>
@@ -421,17 +421,17 @@ export default function Abroadcostcalculator() {
 
             {/* Toggles */}
             <motion.section 
-              className="section toggles-row"
+              className="ac-cost-section ac-cost-toggles-row"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
               {/* Traveller Type */}
-              <div className="toggle-group">
-                <div className="section-label">Traveller Type</div>
-                <div className="toggle-btns">
+              <div className="ac-cost-toggle-group">
+                <div className="ac-cost-section-label">Traveller Type</div>
+                <div className="ac-cost-toggle-btns">
                   <motion.button
-                    className={`toggle-btn${!isStudent ? " active" : ""}`}
+                    className={`ac-cost-toggle-btn${!isStudent ? " ac-cost-active" : ""}`}
                     onClick={() => setIsStudent(false)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -439,7 +439,7 @@ export default function Abroadcostcalculator() {
                     Tourist / Work
                   </motion.button>
                   <motion.button
-                    className={`toggle-btn${isStudent ? " active" : ""}`}
+                    className={`ac-cost-toggle-btn${isStudent ? " ac-cost-active" : ""}`}
                     onClick={() => setIsStudent(true)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -450,11 +450,11 @@ export default function Abroadcostcalculator() {
 
                 {/* Study level — shown only when Student is selected */}
                 {isStudent && (
-                  <div className="toggle-btns" style={{ marginTop: "6px" }}>
+                  <div className="ac-cost-toggle-btns" style={{ marginTop: "6px" }}>
                     
                     <motion.button
-                      className={`toggle-btn${
-                        studyType === "phd" ? " active" : ""
+                      className={`ac-cost-toggle-btn${
+                        studyType === "phd" ? " ac-cost-active" : ""
                       }`}
                       onClick={() => setStudyType("phd")}
                       whileHover={{ scale: 1.02 }}
@@ -492,7 +492,7 @@ export default function Abroadcostcalculator() {
                       <strong>
                         ₹{PHD_STIPENDS[selectedCountry]?.min.toLocaleString("en-IN")} – ₹{PHD_STIPENDS[selectedCountry]?.max.toLocaleString("en-IN")}/mo
                       </strong>{" "}
-                      in <img src={`https://flagcdn.com/w40/${country.code}.png`} className="inline-flag" alt="" /> <strong>{country.label}</strong>.{" "}
+                      in <img src={`https://flagcdn.com/w40/${country.code}.png`} className="ac-cost-inline-flag" alt="" /> <strong>{country.label}</strong>.{" "}
                       <span style={{opacity:0.8}}>{PHD_STIPENDS[selectedCountry]?.note}</span>
                     </motion.div>
                   )}
@@ -500,12 +500,12 @@ export default function Abroadcostcalculator() {
               </div>
 
               {/* Accommodation */}
-              <div className="toggle-group">
-                <div className="section-label">Accommodation</div>
-                <div className="toggle-btns">
+              <div className="ac-cost-toggle-group">
+                <div className="ac-cost-section-label">Accommodation</div>
+                <div className="ac-cost-toggle-btns">
                   <motion.button
-                    className={`toggle-btn${
-                      roomType === "shared" ? " active" : ""
+                    className={`ac-cost-toggle-btn${
+                      roomType === "shared" ? " ac-cost-active" : ""
                     }`}
                     onClick={() => setRoomType("shared")}
                     whileHover={{ scale: 1.02 }}
@@ -514,8 +514,8 @@ export default function Abroadcostcalculator() {
                     Shared
                   </motion.button>
                   <motion.button
-                    className={`toggle-btn${
-                      roomType === "private" ? " active" : ""
+                    className={`ac-cost-toggle-btn${
+                      roomType === "private" ? " ac-cost-active" : ""
                     }`}
                     onClick={() => setRoomType("private")}
                     whileHover={{ scale: 1.02 }}
@@ -527,12 +527,12 @@ export default function Abroadcostcalculator() {
               </div>
 
               {/* Flight Type */}
-              <div className="toggle-group">
-                <div className="section-label">Flight Type</div>
-                <div className="toggle-btns">
+              <div className="ac-cost-toggle-group">
+                <div className="ac-cost-section-label">Flight Type</div>
+                <div className="ac-cost-toggle-btns">
                   <motion.button
-                    className={`toggle-btn${
-                      tripType === "one-way" ? " active" : ""
+                    className={`ac-cost-toggle-btn${
+                      tripType === "one-way" ? " ac-cost-active" : ""
                     }`}
                     onClick={() => setTripType("one-way")}
                     whileHover={{ scale: 1.02 }}
@@ -541,8 +541,8 @@ export default function Abroadcostcalculator() {
                     One-way
                   </motion.button>
                   <motion.button
-                    className={`toggle-btn${
-                      tripType === "round" ? " active" : ""
+                    className={`ac-cost-toggle-btn${
+                      tripType === "round" ? " ac-cost-active" : ""
                     }`}
                     onClick={() => setTripType("round")}
                     whileHover={{ scale: 1.02 }}
@@ -556,13 +556,13 @@ export default function Abroadcostcalculator() {
 
             {/* Cost Items Toggle */}
             <motion.section 
-              className="section"
+              className="ac-cost-section"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.25 }}
             >
-              <div className="section-label">Include / Exclude Costs</div>
-              <div className="item-toggles">
+              <div className="ac-cost-section-label">Include / Exclude Costs</div>
+              <div className="ac-cost-item-toggles">
                 {Object.entries(costs).map(([key, { label, amount }]) => {
                   // Hide student-only items for non-students
                   if (
@@ -582,7 +582,7 @@ export default function Abroadcostcalculator() {
                   return (
                     <motion.label
                       key={key}
-                      className={`item-toggle${items[key] ? " checked" : ""}`}
+                      className={`ac-cost-item-toggle${items[key] ? " ac-cost-checked" : ""}`}
                       whileHover={{ x: 4 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
@@ -591,9 +591,9 @@ export default function Abroadcostcalculator() {
                         checked={!!items[key]}
                         onChange={() => toggle(key)}
                       />
-                      <span className="item-toggle-label">{label}</span>
+                      <span className="ac-cost-item-toggle-label">{label}</span>
                       <span
-                        className="item-toggle-amount"
+                        className="ac-cost-item-toggle-amount"
                         style={
                           key === "stipend" ? { color: "red" } : {}
                         }
@@ -610,41 +610,41 @@ export default function Abroadcostcalculator() {
 
           {/* RIGHT: Summary */}
           <motion.div 
-            className="panel summary-panel"
+            className="ac-cost-panel ac-cost-summary-panel"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
           >
-            <div className="summary-header">
+            <div className="ac-cost-summary-header">
               <AnimatePresence mode="wait">
                 <motion.div 
                   key={selectedCountry}
-                  className="summary-country"
+                  className="ac-cost-summary-country"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <img src={`https://flagcdn.com/w40/${country.code}.png`} className="summary-flag-img" alt="" />
+                  <img src={`https://flagcdn.com/w40/${country.code}.png`} className="ac-cost-summary-flag-img" alt="" />
                   {COUNTRIES[selectedCountry].label}
                 </motion.div>
               </AnimatePresence>
-              <div className="summary-duration">
+              <div className="ac-cost-summary-duration">
                 {months} month{months !== 1 ? "s" : ""} stay
               </div>
             </div>
 
             {/* Total Ticker */}
             <motion.div 
-              className="total-card"
+              className="ac-cost-total-card"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.25 }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="total-label">Estimated Total Cost</div>
-              <div className="total-amount">{fmt(total)}</div>
-              <div className="total-sub">
+              <div className="ac-cost-total-label">Estimated Total Cost</div>
+              <div className="ac-cost-total-amount">{fmt(total)}</div>
+              <div className="ac-cost-total-sub">
                 {isPhd && items.stipend
                   ? "After PhD stipend deduction"
                   : "All selected items combined"}
@@ -652,17 +652,17 @@ export default function Abroadcostcalculator() {
             </motion.div>
 
             {/* Active Tags */}
-            <div className="tags-section">
-              <div className="section-label">
+            <div className="ac-cost-tags-section">
+              <div className="ac-cost-section-label">
                 Selected Costs{" "}
-                <span className="tag-count">{activeItems.length} items</span>
+                <span className="ac-cost-tag-count">{activeItems.length} items</span>
               </div>
               {activeItems.length === 0 ? (
-                <div className="empty-state">
+                <div className="ac-cost-empty-state">
                   No costs selected. Toggle items on the left.
                 </div>
               ) : (
-                <div className="tags-list">
+                <div className="ac-cost-tags-list">
                   <AnimatePresence mode="popLayout">
                     {activeItems.map(([key]) => (
                       <CostTag
@@ -680,8 +680,8 @@ export default function Abroadcostcalculator() {
 
             {/* Breakdown Bar */}
             {activeItems.length > 0 && (
-              <div className="breakdown-section">
-                <div className="section-label">Cost Breakdown</div>
+              <div className="ac-cost-breakdown-section">
+                <div className="ac-cost-section-label">Cost Breakdown</div>
                 <AnimatePresence mode="popLayout">
                   {activeItems.map(([key]) => {
                     const pct =
@@ -689,19 +689,19 @@ export default function Abroadcostcalculator() {
                     return (
                       <motion.div 
                         key={key} 
-                        className="breakdown-row"
+                        className="ac-cost-breakdown-row"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         layout
                         transition={{ duration: 0.2 }}
                       >
-                        <span className="breakdown-label">
+                        <span className="ac-cost-breakdown-label">
                           {costs[key].label}
                         </span>
-                        <div className="breakdown-bar-wrap">
+                        <div className="ac-cost-breakdown-bar-wrap">
                           <motion.div
-                            className="breakdown-bar"
+                            className="ac-cost-breakdown-bar"
                             initial={{ width: 0 }}
                             animate={{ width: `${Math.max(0, pct)}%` }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -714,7 +714,7 @@ export default function Abroadcostcalculator() {
                           />
                         </div>
                         <span
-                          className="breakdown-pct"
+                          className="ac-cost-breakdown-pct"
                           style={
                             key === "stipend" ? { color: "#4CAF50" } : {}
                           }
@@ -732,17 +732,17 @@ export default function Abroadcostcalculator() {
             {/* Formula */}
            {/* Formula & Apply Section */}
             <motion.div 
-              className="formula-box"
+              className="ac-cost-formula-box"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.35 }}
             >
-             <div className="formula-title">Contact Us</div>
+             <div className="ac-cost-formula-title">Contact Us</div>
              
 
               {/* Professional Apply CTA Button */}
               <div 
-                className="apply-cta-section" 
+                className="ac-cost-apply-cta-section" 
                 style={{ 
                   marginTop: "20px", 
                   borderTop: "1px solid rgba(255, 255, 255, 0.1)", 
