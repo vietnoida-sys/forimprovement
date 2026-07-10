@@ -142,18 +142,9 @@ export default function Auth() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="9999999999"
+                  placeholder="Phone Number"
                   required
                 />
-              </div>
-
-              <div className="field">
-                <label htmlFor="role">Role</label>
-                <select id="role" value={formData.role} onChange={handleChange}>
-                  <option value="counsellor">Counsellor</option>
-                  <option value="student">Student</option>
-                  <option value="admin">Admin</option>
-                </select>
               </div>
             </>
           )}
