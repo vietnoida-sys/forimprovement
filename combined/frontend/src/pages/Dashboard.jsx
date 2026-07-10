@@ -58,22 +58,17 @@ function Dashboard() {
       {/* HERO SECTION */}
       <section className="hero-section">
         <div className="hero-slider">
-         <video 
-  src={logo9} 
-  autoPlay 
-  loop 
-  muted 
-  playsInline 
- className="slide"
-/>
-        <video 
-  src= {logo9}
-  autoPlay 
-  loop 
-  muted 
-  playsInline 
- className="slide"
-/>
+        
+      <img
+            src="https://images.pexels.com/photos/7018490/pexels-photo-7018490.jpeg"
+            alt="Study Abroad"
+            className="slide"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070"
+            alt="University"
+            className="slide"
+          />
           <img
             src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070"
             alt="Students"
