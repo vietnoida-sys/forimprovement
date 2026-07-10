@@ -218,7 +218,7 @@ export default function Auth() {
           padding: 34px;
           width: 100%;
           max-width: 420px;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+          box-shadow: 0 20px 60px rgba(3, 3, 3, 0.35);
           box-sizing: border-box;
         }
         .auth-brand {
