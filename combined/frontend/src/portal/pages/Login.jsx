@@ -319,7 +319,7 @@ export default function Auth() {
           text-decoration: underline;
         }
         .toggle-link-btn:hover {
-          color: #050806;
+          color: #050706;
         }
         .hint { font-size: 12px; color: #64748b; margin-top: 22px; text-align: center; line-height: 1.5; }
         .hint code { background: #f1f5f9; padding: 2px 5px; border-radius: 4px; color: #334155; }
