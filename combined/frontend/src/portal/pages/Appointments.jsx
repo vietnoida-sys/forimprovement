@@ -72,7 +72,50 @@ export default function Appointments() {
   };
 
   return (
-    <div>
+    <div className="appointments-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .appointments-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .appointments-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .appointments-page .data-table {
+          min-width: 640px;
+        }
+        @media (max-width: 768px) {
+          .appointments-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .appointments-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+        @media (max-width: 480px) {
+          .appointments-page h1 {
+            font-size: 1.25rem;
+          }
+          .appointments-page p {
+            font-size: 13px;
+          }
+          .appointments-page .data-table {
+            font-size: 12.5px;
+          }
+          .appointments-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Appointment Management</h1>
@@ -84,31 +127,33 @@ export default function Appointments() {
       <div className="card">
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>Student</th><th>Counsellor</th><th>Date &amp; time</th><th>Meeting link</th><th>Status</th><th></th></tr></thead>
-            <tbody>
-              {items.map((a) => (
-                <tr key={a._id}>
-                  <td>{a.student?.name || "—"}</td>
-                  <td>{a.counsellor?.name || "—"}</td>
-                  <td>{new Date(a.dateTime).toLocaleString()}</td>
-                  <td>
-                    {a.meetingLink ? (
-                      <a href={a.meetingLink} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-                        <Video size={14} /> Join
-                      </a>
-                    ) : "—"}
-                  </td>
-                  <td>
-                    <select value={a.status} onChange={(e) => handleStatus(a, e.target.value)} style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}>
-                      <option>Scheduled</option><option>Completed</option><option>Cancelled</option>
-                    </select>
-                  </td>
-                  <td><button className="icon-btn danger" onClick={() => handleDelete(a)}><Trash2 size={15} /></button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>Student</th><th>Counsellor</th><th>Date &amp; time</th><th>Meeting link</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                {items.map((a) => (
+                  <tr key={a._id}>
+                    <td>{a.student?.name || "—"}</td>
+                    <td>{a.counsellor?.name || "—"}</td>
+                    <td>{new Date(a.dateTime).toLocaleString()}</td>
+                    <td>
+                      {a.meetingLink ? (
+                        <a href={a.meetingLink} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                          <Video size={14} /> Join
+                        </a>
+                      ) : "—"}
+                    </td>
+                    <td>
+                      <select value={a.status} onChange={(e) => handleStatus(a, e.target.value)} style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}>
+                        <option>Scheduled</option><option>Completed</option><option>Cancelled</option>
+                      </select>
+                    </td>
+                    <td><button className="icon-btn danger" onClick={() => handleDelete(a)}><Trash2 size={15} /></button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && items.length === 0 && !error && <div className="empty-state">No appointments booked yet.</div>}
       </div>

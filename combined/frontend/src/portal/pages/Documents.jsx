@@ -112,15 +112,74 @@ export default function Documents() {
   };
 
   return (
-    <div>
+    <div className="documents-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .documents-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .documents-page .page-header-actions {
+          display: flex;
+          gap: 8px;
+        }
+        .documents-page .toolbar {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .documents-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .documents-page .data-table {
+          min-width: 640px;
+        }
+        @media (max-width: 768px) {
+          .documents-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .documents-page .page-header-actions {
+            flex-direction: column;
+            width: 100%;
+          }
+          .documents-page .page-header-actions .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .documents-page .toolbar select {
+            width: 100%;
+          }
+        }
+        @media (max-width: 480px) {
+          .documents-page h1 {
+            font-size: 1.25rem;
+          }
+          .documents-page p {
+            font-size: 13px;
+          }
+          .documents-page .data-table {
+            font-size: 12.5px;
+          }
+          .documents-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Document Management</h1>
           <p>Review student documents, or share a document with one student or all students.</p>
         </div>
-        <div style={{ display: "flex", gap: 8 }}>
+        <div className="page-header-actions">
           <button className="btn btn-secondary" onClick={openShare}><Share2 size={16} /> Share with students</button>
-          <button className="btn btn-primary" onClick={openUpload}><Upload size={16} /> Upload on behalf of student</button>
+          <button className="btn btn-secondary" onClick={openUpload}><Upload size={16} /> Upload on behalf of student</button>
         </div>
       </div>
 
@@ -137,48 +196,50 @@ export default function Documents() {
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
 
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>Student</th><th>Type</th><th>File</th><th>Status</th><th></th></tr></thead>
-            <tbody>
-              {docs.map((d) => (
-                <tr key={d._id}>
-                  <td>
-                    {d.audience === "all" ? (
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "var(--indigo-600)", fontWeight: 600 }}>
-                        <UsersIcon size={14} /> All students
-                      </span>
-                    ) : (
-                      d.student?.name || "—"
-                    )}
-                    {d.uploadedBy && (
-                      <div style={{ fontSize: 11, color: "var(--slate-300)", marginTop: 2 }}>
-                        Shared by {d.uploadedBy?.name}
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>Student</th><th>Type</th><th>File</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                {docs.map((d) => (
+                  <tr key={d._id}>
+                    <td>
+                      {d.audience === "all" ? (
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "var(--indigo-600)", fontWeight: 600 }}>
+                          <UsersIcon size={14} /> All students
+                        </span>
+                      ) : (
+                        d.student?.name || "—"
+                      )}
+                      {d.uploadedBy && (
+                        <div style={{ fontSize: 11, color: "var(--slate-300)", marginTop: 2 }}>
+                          Shared by {d.uploadedBy?.name}
+                        </div>
+                      )}
+                    </td>
+                    <td>{d.title || d.type}</td>
+                    <td>
+                      <a href={`${API_ORIGIN}${d.fileUrl}`} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                        <Download size={14} /> {d.fileName}
+                      </a>
+                    </td>
+                    <td>
+                      <StatusBadge status={d.status} />
+                      {d.status === "Rejected" && d.rejectionReason && (
+                        <div style={{ fontSize: 11.5, color: "var(--slate-500)", marginTop: 3 }}>{d.rejectionReason}</div>
+                      )}
+                    </td>
+                    <td>
+                      <div style={{ display: "flex", gap: 4 }}>
+                        {!d.uploadedBy && d.status !== "Verified" && <button className="icon-btn" title="Verify" onClick={() => handleVerify(d)}><Check size={15} /></button>}
+                        {!d.uploadedBy && d.status !== "Rejected" && <button className="icon-btn" title="Reject / request re-upload" onClick={() => setRejectTarget(d)}><X size={15} /></button>}
+                        <button className="icon-btn danger" title="Delete" onClick={() => handleDelete(d)}><Trash2 size={15} /></button>
                       </div>
-                    )}
-                  </td>
-                  <td>{d.title || d.type}</td>
-                  <td>
-                    <a href={`${API_ORIGIN}${d.fileUrl}`} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-                      <Download size={14} /> {d.fileName}
-                    </a>
-                  </td>
-                  <td>
-                    <StatusBadge status={d.status} />
-                    {d.status === "Rejected" && d.rejectionReason && (
-                      <div style={{ fontSize: 11.5, color: "var(--slate-500)", marginTop: 3 }}>{d.rejectionReason}</div>
-                    )}
-                  </td>
-                  <td>
-                    <div style={{ display: "flex", gap: 4 }}>
-                      {!d.uploadedBy && d.status !== "Verified" && <button className="icon-btn" title="Verify" onClick={() => handleVerify(d)}><Check size={15} /></button>}
-                      {!d.uploadedBy && d.status !== "Rejected" && <button className="icon-btn" title="Reject / request re-upload" onClick={() => setRejectTarget(d)}><X size={15} /></button>}
-                      <button className="icon-btn danger" title="Delete" onClick={() => handleDelete(d)}><Trash2 size={15} /></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && docs.length === 0 && !error && <div className="empty-state">No documents uploaded yet.</div>}
       </div>

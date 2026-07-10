@@ -61,7 +61,53 @@ export default function Scholarships() {
   };
 
   return (
-    <div>
+    <div className="scholarships-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .scholarships-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .scholarships-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .scholarships-page .data-table {
+          min-width: 560px;
+        }
+        @media (max-width: 768px) {
+          .scholarships-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .scholarships-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .scholarships-page .field-row {
+            flex-direction: column;
+          }
+        }
+        @media (max-width: 480px) {
+          .scholarships-page h1 {
+            font-size: 1.25rem;
+          }
+          .scholarships-page p {
+            font-size: 13px;
+          }
+          .scholarships-page .data-table {
+            font-size: 12.5px;
+          }
+          .scholarships-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Scholarship Management</h1>
@@ -73,25 +119,27 @@ export default function Scholarships() {
       <div className="card">
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>Scholarship</th><th>University</th><th>Amount</th><th>Deadline</th><th></th></tr></thead>
-            <tbody>
-              {items.map((s) => (
-                <tr key={s._id}>
-                  <td style={{ fontWeight: 600 }}>{s.name}</td>
-                  <td>{s.university?.name || "Any university"}</td>
-                  <td>{s.currency || "USD"} {s.amount?.toLocaleString()}</td>
-                  <td>{s.deadline ? new Date(s.deadline).toLocaleDateString() : "—"}</td>
-                  <td>
-                    <div style={{ display: "flex", gap: 4 }}>
-                      <button className="icon-btn" onClick={() => openEdit(s)}><Pencil size={15} /></button>
-                      <button className="icon-btn danger" onClick={() => handleDelete(s)}><Trash2 size={15} /></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>Scholarship</th><th>University</th><th>Amount</th><th>Deadline</th><th></th></tr></thead>
+              <tbody>
+                {items.map((s) => (
+                  <tr key={s._id}>
+                    <td style={{ fontWeight: 600 }}>{s.name}</td>
+                    <td>{s.university?.name || "Any university"}</td>
+                    <td>{s.currency || "USD"} {s.amount?.toLocaleString()}</td>
+                    <td>{s.deadline ? new Date(s.deadline).toLocaleDateString() : "—"}</td>
+                    <td>
+                      <div style={{ display: "flex", gap: 4 }}>
+                        <button className="icon-btn" onClick={() => openEdit(s)}><Pencil size={15} /></button>
+                        <button className="icon-btn danger" onClick={() => handleDelete(s)}><Trash2 size={15} /></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && items.length === 0 && !error && <div className="empty-state">No scholarships yet.</div>}
       </div>

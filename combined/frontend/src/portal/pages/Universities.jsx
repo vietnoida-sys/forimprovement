@@ -64,7 +64,69 @@ export default function Universities() {
   };
 
   return (
-    <div>
+    <div className="universities-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .universities-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .universities-page .toolbar {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .universities-page .toolbar .search-input {
+          flex: 1;
+          min-width: 200px;
+        }
+        .universities-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .universities-page .data-table {
+          min-width: 600px;
+        }
+        @media (max-width: 768px) {
+          .universities-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .universities-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .universities-page .toolbar {
+            flex-direction: column;
+          }
+          .universities-page .toolbar select,
+          .universities-page .toolbar .search-input {
+            width: 100%;
+          }
+          .universities-page .field-row {
+            flex-direction: column;
+          }
+        }
+        @media (max-width: 480px) {
+          .universities-page h1 {
+            font-size: 1.25rem;
+          }
+          .universities-page p {
+            font-size: 13px;
+          }
+          .universities-page .data-table {
+            font-size: 12.5px;
+          }
+          .universities-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>University Management</h1>
@@ -84,25 +146,27 @@ export default function Universities() {
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
 
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>University</th><th>Country</th><th>City</th><th>Ranking</th><th></th></tr></thead>
-            <tbody>
-              {filtered.map((u) => (
-                <tr key={u._id}>
-                  <td style={{ fontWeight: 600 }}>{u.name}</td>
-                  <td>{u.country}</td>
-                  <td>{u.city || "—"}</td>
-                  <td>{u.ranking ? `#${u.ranking}` : "—"}</td>
-                  <td>
-                    <div style={{ display: "flex", gap: 4 }}>
-                      <button className="icon-btn" onClick={() => openEdit(u)}><Pencil size={15} /></button>
-                      <button className="icon-btn danger" onClick={() => handleDelete(u)}><Trash2 size={15} /></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>University</th><th>Country</th><th>City</th><th>Ranking</th><th></th></tr></thead>
+              <tbody>
+                {filtered.map((u) => (
+                  <tr key={u._id}>
+                    <td style={{ fontWeight: 600 }}>{u.name}</td>
+                    <td>{u.country}</td>
+                    <td>{u.city || "—"}</td>
+                    <td>{u.ranking ? `#${u.ranking}` : "—"}</td>
+                    <td>
+                      <div style={{ display: "flex", gap: 4 }}>
+                        <button className="icon-btn" onClick={() => openEdit(u)}><Pencil size={15} /></button>
+                        <button className="icon-btn danger" onClick={() => handleDelete(u)}><Trash2 size={15} /></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && filtered.length === 0 && !error && (
           <div className="empty-state"><GraduationCap size={28} style={{ marginBottom: 8, opacity: 0.5 }} /><br />No universities yet.</div>

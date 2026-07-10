@@ -80,7 +80,58 @@ export default function Applications() {
   };
 
   return (
-    <div>
+    <div className="applications-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .applications-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .applications-page .toolbar {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .applications-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .applications-page .data-table {
+          min-width: 640px;
+        }
+        @media (max-width: 768px) {
+          .applications-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .applications-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .applications-page .toolbar select {
+            width: 100%;
+          }
+        }
+        @media (max-width: 480px) {
+          .applications-page h1 {
+            font-size: 1.25rem;
+          }
+          .applications-page p {
+            font-size: 13px;
+          }
+          .applications-page .data-table {
+            font-size: 12.5px;
+          }
+          .applications-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Application Management</h1>
@@ -100,25 +151,27 @@ export default function Applications() {
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
 
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>Student</th><th>University</th><th>Course</th><th>Intake</th><th>Status</th><th></th></tr></thead>
-            <tbody>
-              {apps.map((a) => (
-                <tr key={a._id}>
-                  <td>{a.student?.name || "—"}</td>
-                  <td>{a.university?.name || "—"}</td>
-                  <td>{a.course?.name || "—"}</td>
-                  <td>{a.intake || "—"}</td>
-                  <td>
-                    <select value={a.status} onChange={(e) => handleStatusChange(a, e.target.value)} style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}>
-                      {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </td>
-                  <td><button className="icon-btn danger" onClick={() => handleDelete(a)}><Trash2 size={15} /></button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>Student</th><th>University</th><th>Course</th><th>Intake</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                {apps.map((a) => (
+                  <tr key={a._id}>
+                    <td>{a.student?.name || "—"}</td>
+                    <td>{a.university?.name || "—"}</td>
+                    <td>{a.course?.name || "—"}</td>
+                    <td>{a.intake || "—"}</td>
+                    <td>
+                      <select value={a.status} onChange={(e) => handleStatusChange(a, e.target.value)} style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}>
+                        {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+                      </select>
+                    </td>
+                    <td><button className="icon-btn danger" onClick={() => handleDelete(a)}><Trash2 size={15} /></button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && apps.length === 0 && !error && <div className="empty-state">No applications yet.</div>}
       </div>

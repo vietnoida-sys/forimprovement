@@ -46,7 +46,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 8px 5%;
+  padding: 8px ;
   position: fixed;
   top: 0;
   left: 0;
@@ -200,6 +200,7 @@ ul {
 ========================================= */
 .notif-wrapper {
   position: relative;
+  
 }
 
 .notif-btn {
@@ -418,6 +419,7 @@ ul {
 ========================================= */
 .profile-wrapper {
   position: relative;
+  
 }
 
 .profile-btn {
@@ -427,7 +429,7 @@ ul {
   background: transparent;
  
   border-radius: 22px;
-  padding: 4px 12px 4px 4px;
+ 
   cursor: pointer;
   transition: 0.3s;
 }
@@ -447,8 +449,8 @@ ul {
 .profile-arrow {
   color: rgba(10, 82, 28, 0.7);
   font-size: 12px;
-  height: 42px;
-  width: 42px;
+  height: 38px;
+  width: 38px;
   
   transition: transform 0.3s;
 }

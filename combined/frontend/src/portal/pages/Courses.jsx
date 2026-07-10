@@ -74,7 +74,69 @@ export default function Courses() {
   };
 
   return (
-    <div>
+    <div className="courses-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .courses-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .courses-page .toolbar {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .courses-page .toolbar .search-input {
+          flex: 1;
+          min-width: 200px;
+        }
+        .courses-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .courses-page .data-table {
+          min-width: 760px;
+        }
+        @media (max-width: 768px) {
+          .courses-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .courses-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+          .courses-page .toolbar {
+            flex-direction: column;
+          }
+          .courses-page .toolbar select,
+          .courses-page .toolbar .search-input {
+            width: 100%;
+          }
+          .courses-page .field-row {
+            flex-direction: column;
+          }
+        }
+        @media (max-width: 480px) {
+          .courses-page h1 {
+            font-size: 1.25rem;
+          }
+          .courses-page p {
+            font-size: 13px;
+          }
+          .courses-page .data-table {
+            font-size: 12.5px;
+          }
+          .courses-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Course Management</h1>
@@ -91,27 +153,29 @@ export default function Courses() {
         {error && <div style={{ padding: 16, color: "#b3413d" }}>{error}</div>}
 
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>Course</th><th>University</th><th>Level</th><th>Tuition</th><th>Duration</th><th>Intakes</th><th></th></tr></thead>
-            <tbody>
-              {filtered.map((c) => (
-                <tr key={c._id}>
-                  <td style={{ fontWeight: 600 }}>{c.name}</td>
-                  <td>{c.university?.name || "—"}</td>
-                  <td>{c.degreeLevel}</td>
-                  <td>{c.currency || "USD"} {c.tuitionFee?.toLocaleString()}</td>
-                  <td>{c.durationMonths} mo</td>
-                  <td>{(c.intakes || []).join(", ") || "—"}</td>
-                  <td>
-                    <div style={{ display: "flex", gap: 4 }}>
-                      <button className="icon-btn" onClick={() => openEdit(c)}><Pencil size={15} /></button>
-                      <button className="icon-btn danger" onClick={() => handleDelete(c)}><Trash2 size={15} /></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>Course</th><th>University</th><th>Level</th><th>Tuition</th><th>Duration</th><th>Intakes</th><th></th></tr></thead>
+              <tbody>
+                {filtered.map((c) => (
+                  <tr key={c._id}>
+                    <td style={{ fontWeight: 600 }}>{c.name}</td>
+                    <td>{c.university?.name || "—"}</td>
+                    <td>{c.degreeLevel}</td>
+                    <td>{c.currency || "USD"} {c.tuitionFee?.toLocaleString()}</td>
+                    <td>{c.durationMonths} mo</td>
+                    <td>{(c.intakes || []).join(", ") || "—"}</td>
+                    <td>
+                      <div style={{ display: "flex", gap: 4 }}>
+                        <button className="icon-btn" onClick={() => openEdit(c)}><Pencil size={15} /></button>
+                        <button className="icon-btn danger" onClick={() => handleDelete(c)}><Trash2 size={15} /></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && filtered.length === 0 && !error && <div className="empty-state">No courses yet.</div>}
       </div>

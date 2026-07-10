@@ -72,7 +72,51 @@ export default function Visas() {
   };
 
   return (
-    <div>
+    <div className="visas-page">
+      {/* Scoped responsive styles — only affects this page, nothing else changed */}
+      <style>{`
+        .visas-page .page-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .visas-page .table-responsive {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+          
+        .visas-page .data-table {
+          min-width: 560px;
+        }
+        @media (max-width: 768px) {
+          .visas-page .page-header {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .visas-page .page-header .btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+        @media (max-width: 480px) {
+          .visas-page h1 {
+            font-size: 1.25rem;
+          }
+          .visas-page p {
+            font-size: 13px;
+          }
+          .visas-page .data-table {
+            font-size: 12.5px;
+          }
+          .visas-page .icon-btn {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <div>
           <h1>Visa Management</h1>
@@ -84,24 +128,26 @@ export default function Visas() {
       <div className="card">
         {error && <div style={{ padding: 16, color: "#f5edec" }}>{error}</div>}
         {!loading && !error && (
-          <table className="data-table">
-            <thead><tr><th>Student</th><th>Status</th><th>Interview date</th><th>Approval date</th><th></th></tr></thead>
-            <tbody>
-              {visas.map((v) => (
-                <tr key={v._id}>
-                  <td>{v.student?.name || "—"}</td>
-                  <td>
-                    <select value={v.status} onChange={(e) => handleStatusChange(v, e.target.value)} style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}>
-                      {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </td>
-                  <td>{v.interviewDate ? new Date(v.interviewDate).toLocaleDateString() : "—"}</td>
-                  <td>{v.approvalDate ? new Date(v.approvalDate).toLocaleDateString() : "—"}</td>
-                  <td><button className="icon-btn danger" onClick={() => handleDelete(v)}><Trash2 size={15} /></button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead><tr><th>Student</th><th>Status</th><th>Interview date</th><th>Approval date</th><th></th></tr></thead>
+              <tbody>
+                {visas.map((v) => (
+                  <tr key={v._id}>
+                    <td>{v.student?.name || "—"}</td>
+                    <td>
+                      <select value={v.status} onChange={(e) => handleStatusChange(v, e.target.value)} style={{ border: "none", background: "transparent", fontSize: 13, fontWeight: 600 }}>
+                        {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+                      </select>
+                    </td>
+                    <td>{v.interviewDate ? new Date(v.interviewDate).toLocaleDateString() : "—"}</td>
+                    <td>{v.approvalDate ? new Date(v.approvalDate).toLocaleDateString() : "—"}</td>
+                    <td><button className="icon-btn danger" onClick={() => handleDelete(v)}><Trash2 size={15} /></button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         {!loading && visas.length === 0 && !error && <div className="empty-state">No visa records yet.</div>}
       </div>
