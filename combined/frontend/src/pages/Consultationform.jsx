@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ConsultationForm.css";
+import "./Consultationform.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
