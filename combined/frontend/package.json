@@ -4,11 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "node node_modules/vite/bin/vite.js build",
+  "preview": "vite preview"
+},
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "aos": "^2.3.4",
