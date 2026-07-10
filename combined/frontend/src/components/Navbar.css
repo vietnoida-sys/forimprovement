@@ -179,10 +179,10 @@ ul {
 ========================================= */
 .login-btn {
   padding: 8px 18px;
-  background-color: #67a872;
-  color: #fff;
+  background-color: white;
+  color: black;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 70px;
   font-weight: 500;
   font-size: 13px;
   white-space: nowrap;
@@ -192,7 +192,7 @@ ul {
 }
 
 .login-btn:hover {
-  background-color: #0ca71c;
+  background-color: wheat;
 }
 
 /* =========================================
