@@ -26,7 +26,7 @@
 .login-modal-box .auth-screen-container {
   min-height: auto;
   width: 100%;
-  padding: 10px;
+  padding: 30px;
 }
 
 .login-modal-box {
@@ -69,4 +69,130 @@
 
 body.login-modal-open {
   overflow: hidden;
+}
+
+/* =========================================
+   IPAD LANDSCAPE (1024px – 1366px wide, short height)
+   e.g. iPad, iPad Air, iPad Pro landscape
+========================================= */
+@media (min-width: 1024px) and (max-width: 1366px) and (max-height: 900px) and (orientation: landscape) {
+  .login-modal-backdrop {
+    align-items: center;
+    padding: 24px 16px;
+  }
+
+  .login-modal-box {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .login-modal-box .auth-screen-container {
+    padding: 24px;
+  }
+}
+
+/* =========================================
+   IPAD PORTRAIT (768px – 1024px)
+========================================= */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .login-modal-backdrop {
+    align-items: center;
+    padding: 24px 16px;
+  }
+
+  .login-modal-box {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .login-modal-box .auth-screen-container {
+    padding: 24px;
+  }
+}
+
+/* =========================================
+   TABLET (fallback for other <1024px devices,
+   applies when the two iPad-specific rules above don't match)
+========================================= */
+@media (max-width: 1024px) {
+  .login-modal-backdrop {
+    padding: 20px 14px;
+  }
+
+  .login-modal-box {
+    max-width: 440px;
+    margin: 30px auto;
+  }
+
+  .login-modal-box .auth-screen-container {
+    padding: 20px;
+  }
+}
+
+/* =========================================
+   MOBILE PHONE
+========================================= */
+@media (max-width: 767px) {
+  .login-modal-backdrop {
+    align-items: center;
+    padding: 16px 10px;
+  }
+
+  .login-modal-box {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .login-modal-box .auth-screen-container {
+    padding: 12px;
+  }
+
+  .login-modal-close {
+    top: -14px;
+    right: -8px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+@media (max-width: 480px) {
+  .login-modal-backdrop {
+    padding: 12px 6px;
+  }
+
+  .login-modal-box {
+    max-width: 100%;
+  }
+
+  .login-modal-box .auth-screen-container {
+    padding: 8px;
+  }
+
+  .login-modal-close {
+    top: -12px;
+    right: -4px;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+@media (max-width: 360px) {
+  .login-modal-box .auth-screen-container {
+    padding: 4px;
+  }
+
+  .login-modal-close {
+    top: -10px;
+    right: 0;
+    width: 28px;
+    height: 28px;
+  }
 }
