@@ -17,7 +17,10 @@ api.interceptors.response.use(
       localStorage.removeItem("eduadmin_token");
       localStorage.removeItem("eduadmin_user");
       if (!window.location.pathname.includes("/portal/login")) {
-        window.location.href = "/portal/login";
+        alert("Session expired, please login again");
+  setTimeout(() => {
+    window.location.href = "/";
+  }, 1000);
       }
     }
     return Promise.reject(err);
