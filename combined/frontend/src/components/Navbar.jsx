@@ -3,7 +3,7 @@ import { FiChevronDown, FiSearch, FiBell } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./Navbar.css";
-
+import { useLoginModal } from "../portal/context/LoginModalContext";
 // IMPORT LOGO
 import logo from "../assets/vietworldgate.png";
 import logo1 from "../assets/profile.png";
@@ -109,6 +109,7 @@ function Navbar() {
   const [profileOpen, setProfileOpen] = useState(false);
   const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
+  const { openLogin } = useLoginModal();
 
   // ==========================================
   // NOTIFICATIONS STATE
@@ -216,10 +217,10 @@ function Navbar() {
   // ==========================================
   const headerRightMarkup =
     user == null ? (
-      <Link to="/portal/login" className="login-btn">
+      <button className="login-btn" onClick={openLogin}>
         Login
-      </Link>
-    ) : (
+      </button>
+    ): (
       <>
         {/* NOTIFICATION BELL */}
         <div className="notif-wrapper">

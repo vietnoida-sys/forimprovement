@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import logo from "../../assets/vietworldgate.png"; // Import the logo image
 
-export default function Auth() {
+export default function Auths() {
   const { login } = useAuth(); // AuthContext for logging in
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,7 +17,7 @@ export default function Auth() {
   // Unified Form State
   const [formData, setFormData] = useState({
     name: "",
-    email: "admin@eduadmin.com", // Default for testing
+    email: "email@123.com", // Default for testing
     password: "",
     phone: "",
     role: "counsellor", // Default role matching your schema
@@ -36,7 +36,7 @@ export default function Auth() {
     // Reset inputs except default email/role logic if needed
     setFormData({
       name: "",
-      email: isLogin ? "" : "admin@eduadmin.com",
+      email: isLogin ? "" : "email@123.com",
       password: "",
       phone: "",
       role: "counsellor",
@@ -75,7 +75,7 @@ export default function Auth() {
         const data = await response.json();
 
         if (!response.ok) {
-          throw new Error(data.message || "Registration failed.");
+         alert( "Registration failed.");
         }
 
         // Token management if returned by registration
@@ -95,7 +95,7 @@ export default function Auth() {
         }
       }
     } catch (err) {
-      setError(err.message || "An error occurred. Please try again.");
+      setError(  "An error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -103,7 +103,7 @@ export default function Auth() {
 
   return (
     <>
-    <Navbar />
+    
     
     <div className=" auth-screen-container">
       <div className="auth-card">
@@ -157,7 +157,7 @@ export default function Auth() {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="you@eduadmin.com"
+              placeholder="vietworldgate@gmail.com"
               required
             />
           </div>
@@ -174,8 +174,10 @@ export default function Auth() {
             />
           </div>
 
-          {error && <div className="error-box">{error}</div>}
-
+          {
+error && <div className="error-box">{error}</div>
+}
+      
           <button className="btn btn-primary btn-block" disabled={loading}>
             {loading ? "Processing..." : isLogin ? "Sign In" : "Sign Up"}
           </button>
@@ -188,13 +190,7 @@ export default function Auth() {
           </button>
         </p>
 
-        {isLogin && (
-          <p className="hint">
-            First time? Run <code>npm run seed</code> in the backend to create demo logins:<br />
-            Admin: <b>admin@eduadmin.com / admin123</b> <br />
-            Counsellor: <b>counsellor@eduadmin.com / counsellor123</b>
-          </p>
-        )}
+       
       </div>
 
 
@@ -335,7 +331,7 @@ export default function Auth() {
         }
       `}</style>
     </div>
-    <Footer />
+    
       </>
   );
 }

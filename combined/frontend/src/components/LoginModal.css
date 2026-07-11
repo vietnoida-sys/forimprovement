@@ -1,0 +1,72 @@
+.login-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(1, 40, 25, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;                 /* now above every navbar/dropdown z-index in the app */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 24px 16px;
+}
+
+/* Hide Auth.jsx's OWN internal Navbar — this is the duplicate sitting on top of the real one */
+.login-modal-box .top-header,
+.login-modal-box .navbar {
+  display: none !important;
+}
+
+/* If your Footer component has a distinct outer class (e.g. .site-footer, .footer),
+   add it here the same way. Tell me the class name and I'll give you the exact line. */
+
+/* Shrink Auth's full-viewport wrapper down to just the card size,
+   so there's actual backdrop space around it to click and close */
+.login-modal-box .auth-screen-container {
+  min-height: auto;
+  width: 100%;
+  padding: 10px;
+}
+
+.login-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;              /* matches Auth's own 420px card + breathing room */
+  margin: 40px auto;
+  animation: loginModalFadeIn 0.25s ease;
+}
+
+.login-modal-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #94c4b1;
+  color: #d11010;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10001;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.login-modal-close:hover {
+  background: #012819;
+  color: #fff;
+}
+
+@keyframes loginModalFadeIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body.login-modal-open {
+  overflow: hidden;
+}

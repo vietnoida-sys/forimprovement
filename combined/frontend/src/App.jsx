@@ -4,7 +4,12 @@ import { FaChevronUp } from "react-icons/fa";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
 import logo from "./assets/vietworldgate.png"; 
-import   SwinburneBanner from "./components/SwinburneBanner"
+import   SwinburneBanner from "./components/SwinburneBanner";
+import { LoginModalProvider } from "./portal/context/LoginModalContext";
+
+import LoginModal from "./components/LoginModal";
+import { AuthProvider } from "./portal/context/AuthContext";
+
 function App() {
   const [loading, setLoading] = useState(false); 
 
@@ -36,13 +41,16 @@ function App() {
 
   
   return (
-    <>
+     <AuthProvider>
+      <LoginModalProvider>
+  
       <SwinburneBanner />
       {/* ✅ AUTO SCROLL TOP ON PAGE CHANGE */}
       <ScrollToTop />
 
       {/* ✅ ROUTES */}
       <AppRoutes />
+       <LoginModal />
 
       {/* ✅ SCROLL TO TOP BUTTON */}
       <a
@@ -54,7 +62,11 @@ function App() {
       >
         <FaChevronUp />
       </a>
-    </>
+      
+   
+ </LoginModalProvider>
+    </AuthProvider>
+    
   );
 }
 
