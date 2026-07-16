@@ -50,6 +50,7 @@ import Abroadcostcalculator from "../pages/Abroadcostcalculator";
 import StudentDashbaord from "../pages/StudentDashbaord";
 import { AuthProvider, useAuth } from "../portal/context/AuthContext";
 import ConsultationForm from "../pages/Consultationform";
+import ConsultationsList from "../portal/pages/consultation";
 
 function AppRoutes() {
   return (
@@ -83,7 +84,7 @@ function AppRoutes() {
          <Route path="/ShortlistUniversities" element={<ShortlistUniversities />} />
          <Route path="/courseAdvice" element={<CourseAdvice />} />
         <Route path="/visaAssistance" element={<VisaAssistance />} />
-        <Route path = "/ourteam" element = {<OurTeam />} />
+     {  /* <Route path = "/ourteam" element = {<OurTeam />} />  */ }
         <Route path="/" element={<Dashboard />} />
         <Route path="/MissionVision" element={<MissionVision />} />
         <Route path="/contact-us" element={<ContactUs />} />
@@ -104,6 +105,7 @@ function AppRoutes() {
           {/* EduAdmin CRM + Student Portal — mounted at /portal */}
           <Route path="/portal/*" element={<PortalApp />} />
           <Route path="/consultationform"  element={<ConsultationForm />} />
+          <Route path="/consultations" element={<ConsultationsList />} />
          
       </Routes>
         </AuthProvider>
