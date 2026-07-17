@@ -6,7 +6,7 @@ const fs = require("fs");
 const connectDB = require("./config/db");
 
 // CMS routers
-const bannersRouter = require("./routes/banners");
+const bannersRouter = require("./routes/Banners");
 const blogPostsRouter = require("./routes/blogPosts");
 const testimonialsRouter = require("./routes/testimonials");
 const faqsRouter = require("./routes/faqs");
