@@ -53,7 +53,7 @@ app.use("/api/notifications", require("./routes/notificationRoutes"));
 // everything else here.
 app.use("/api/public-inquiries", require("./routes/publicInquiryRoutes"));
 app.use("/api/consultations", require("./routes/consultationRoutes"));
-app.use("/api/settings", require("./routes/settings"));
+app.use("/api/settings", require("./routes/Settings"));
 
 // CMS routes
 app.use("/api/banners", bannersRouter);
