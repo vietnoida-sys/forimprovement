@@ -10,7 +10,7 @@ const bannersRouter = require("./routes/Banners");
 const blogPostsRouter = require("./routes/Blogposts");
 const testimonialsRouter = require("./routes/Testimonials");
 const faqsRouter = require("./routes/Faqs");
-const newsEventsRouter = require("./routes/NewsEvents");
+const newsEventsRouter = require("./routes/Newsevents");
 
 const app = express();
 
