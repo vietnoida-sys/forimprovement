@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const { sendEmail } = require("../utils/mailer");
 const Settings = require("../models/Settings");
 
-// GET /api/users?role=student|counsellor|admin
+//  /api/users?role=student|counsellor|admin
 exports.getAll = async (req, res) => {
   try {
     const filter = {};
