@@ -17,7 +17,7 @@ api.interceptors.response.use(
       localStorage.removeItem("eduadmin_token");
       localStorage.removeItem("eduadmin_user");
       if (!window.location.pathname.includes("/portal/login")) {
-        alert("Session expired, please login again");
+        alert(" please login again");
   setTimeout(() => {
     window.location.href = "/";
   }, 1000);
@@ -28,3 +28,39 @@ api.interceptors.response.use(
 );
 
 export default api;
+
+const API_BASE =
+  (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_API_URL) ||
+  (typeof process !== "undefined" && process.env && process.env.REACT_APP_API_URL) ||
+  "http://localhost:5000/api";
+
+async function handle(res) {
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+    // no JSON body (e.g. on some error responses) — fine
+  }
+  if (!res.ok) {
+    throw new Error(body?.message || `Request failed with status ${res.status}`);
+  }
+  return body;
+}
+
+export const cmsApi = {
+  list: (resource) => fetch(`${API_BASE}/${resource}`).then(handle),
+  create: (resource, data) =>
+    fetch(`${API_BASE}/${resource}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).then(handle),
+  update: (resource, id, data) =>
+    fetch(`${API_BASE}/${resource}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).then(handle),
+  remove: (resource, id) =>
+    fetch(`${API_BASE}/${resource}/${id}`, { method: "DELETE" }).then(handle),
+};

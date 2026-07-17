@@ -32,12 +32,14 @@ import StudentUniversities from "./pages/student/StudentUniversities";
 import StudentScholarships from "./pages/student/StudentScholarships";
 import StudentApplications from "./pages/student/StudentApplications";
 
+
 // Admin & counsellor experience — the existing full CRM.
 function AdminApp() {
   return (
     <Routes>
       <Route element={<AdminLayout />}>
         <Route index element={<Dashboard />} />
+     
         <Route path="users" element={<ProtectedRoute roles={["admin"]}><UsersPage /></ProtectedRoute>} />
         <Route path="leads" element={<Leads />} />
         <Route path="universities" element={<Universities />} />
@@ -72,6 +74,7 @@ function StudentApp() {
         <Route path="universities" element={<StudentUniversities />} />
         <Route path="scholarships" element={<StudentScholarships />} />
         <Route path="notifications" element={<NotificationsPage />} />
+         <Route path="appointments" element={<Appointments />} />
         <Route path="settings" element={<Settings />} />
       </Route>
     </Routes>

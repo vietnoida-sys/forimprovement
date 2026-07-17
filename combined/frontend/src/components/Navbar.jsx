@@ -409,7 +409,7 @@ function Navbar() {
             <ul className="dropdown-menu">
               <li onClick={closeMenu}><Link to="/companyprofile">Company Profile</Link></li>
               <li onClick={closeMenu}><Link to="/Certificate">Certificate</Link></li>
-              <li onClick={closeMenu}><Link to="/ourteam">Our Team</Link></li>
+               {  /*  <li onClick={closeMenu}><Link to="/ourteam">Our Team</Link></li>  */ }
               <li onClick={closeMenu}><Link to="/MissionVision">Mission & Vision</Link></li>
               <li onClick={closeMenu}><Link to="/feedback">Success Stories</Link></li>
             </ul>

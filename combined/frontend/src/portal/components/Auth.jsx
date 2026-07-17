@@ -52,9 +52,9 @@ export default function Auths() {
       if (isLogin) {
         // --- LOGIN FLOW ---
         await login(formData.email, formData.password);
-        
-        navigate("/" );
-          window.location.reload();
+
+        navigate("/");
+        window.location.reload();
       } else {
         // --- SIGNUP (REGISTER) FLOW ---
         const response = await fetch("https://forimprovement.onrender.com/api/auth/register", {
@@ -75,27 +75,25 @@ export default function Auths() {
         const data = await response.json();
 
         if (!response.ok) {
-         alert( "Registration failed.");
+          setError(data.message || "email already exit");
+          setLoading(false);
+          return; // stop here — don't fall through
         }
 
-        // Token management if returned by registration
-        if (data.token) {
-          localStorage.setItem("token", data.token);
-        }
-
-        // Automatically sign in the user if token was received, otherwise switch to login screen
-        if (data.token && login) {
-          // If you have automatic login on register:
-          await login(formData.email, formData.password);
-          navigate("/");
-        } else {
-          // Switch to login screen on success with a visual trigger
-          setIsLogin(true);
-          alert("Registration successful! Please sign in.");
-        }
+        // Registration successful — always send user to the login screen,
+        // never auto-login, regardless of whether a token came back.
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+          phone: "",
+          role: "counsellor",
+        });
+        setIsLogin(true);
+        alert("Registration successful! Please sign in.");
       }
     } catch (err) {
-      setError(  "An error occurred. Please try again.");
+      setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -103,100 +101,91 @@ export default function Auths() {
 
   return (
     <>
-    
-    
-    <div className=" auth-screen-container">
-      <div className="auth-card">
-        <div className="auth-brand">
-         <img src={logo} alt="logo" className="brand-mark" />
-          <span>VIETWORLDGATE</span>
+      <div className=" auth-screen-container">
+        <div className="auth-card">
+          <div className="auth-brand">
+            <img src={logo} alt="logo" className="brand-mark" />
+            <span>VIETWORLDGATE</span>
+          </div>
+
+          <h1>{isLogin ? "Welcome back" : "Create Account"}</h1>
+          <p className="subtitle">
+            {isLogin
+              ? "Sign in to manage students, leads, and admissions."
+              : "Register to join the portal management system."}
+          </p>
+
+          <form onSubmit={handleSubmit}>
+            {/* Sign Up Fields Only */}
+            {!isLogin && (
+              <>
+                <div className="field">
+                  <label htmlFor="name">Full Name</label>
+                  <input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+
+                <div className="field">
+                  <label htmlFor="phone">Phone Number</label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone Number"
+                    required
+                  />
+                </div>
+              </>
+            )}
+
+            {/* Common Fields */}
+            <div className="field">
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="vietworldgate@gmail.com"
+                required
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="password">Password</label>
+              <input
+                id="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="••••••••"
+                required
+              />
+            </div>
+
+            {error && <div className="error-box">{error}</div>}
+
+            <button className="btn btn-primary btn-block" disabled={loading}>
+              {loading ? "Processing..." : isLogin ? "Sign In" : "Sign Up"}
+            </button>
+          </form>
+
+          <p className="toggle-text">
+            {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+            <button type="button" onClick={toggleMode} className="toggle-link-btn">
+              {isLogin ? "Sign up here" : "Sign in here"}
+            </button>
+          </p>
         </div>
-        
-        <h1>{isLogin ? "Welcome back" : "Create Account"}</h1>
-        <p className="subtitle">
-          {isLogin 
-            ? "Sign in to manage students, leads, and admissions." 
-            : "Register to join the portal management system."}
-        </p>
 
-        <form onSubmit={handleSubmit}>
-          {/* Sign Up Fields Only */}
-          {!isLogin && (
-            <>
-              <div className="field">
-                <label htmlFor="name">Full Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              <div className="field">
-                <label htmlFor="phone">Phone Number</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Phone Number"
-                  required
-                />
-              </div>
-            </>
-          )}
-
-          {/* Common Fields */}
-          <div className="field">
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="vietworldgate@gmail.com"
-              required
-            />
-          </div>
-
-          <div className="field">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="••••••••"
-              required
-            />
-          </div>
-
-          {
-error && <div className="error-box">{error}</div>
-}
-      
-          <button className="btn btn-primary btn-block" disabled={loading}>
-            {loading ? "Processing..." : isLogin ? "Sign In" : "Sign Up"}
-          </button>
-        </form>
-
-        <p className="toggle-text">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-          <button type="button" onClick={toggleMode} className="toggle-link-btn">
-            {isLogin ? "Sign up here" : "Sign in here"}
-          </button>
-        </p>
-
-       
-      </div>
-
-
-    
-
-      <style>{`
+        <style>{`
         .auth-screen-container {
           min-height: 100vh;
           width: 100vw;
@@ -330,8 +319,7 @@ error && <div className="error-box">{error}</div>
           .subtitle { font-size: 12.5px; }
         }
       `}</style>
-    </div>
-    
-      </>
+      </div>
+    </>
   );
 }

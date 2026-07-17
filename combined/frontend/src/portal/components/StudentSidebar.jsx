@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard, FolderCheck, GraduationCap, Award, FileText, Bell, Settings,
-  GraduationCap as Logo, X,
+  GraduationCap as Logo, X,  CalendarClock,
 } from "lucide-react";
 import logo from "../../assets/vietworldgate1.png";
 const GROUPS = [
@@ -19,6 +19,7 @@ const GROUPS = [
   {
     label: "Explore",
     items: [
+      { to: "/portal/appointments", label: "Appointments", icon: CalendarClock },
       { to: "/portal/universities", label: "Universities", icon: GraduationCap },
       { to: "/portal/scholarships", label: "Scholarships", icon: Award },
     ],

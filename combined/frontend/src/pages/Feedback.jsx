@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import feedbackBannerImg from "../assets/contactimage.jpeg";
+import { cmsApi } from "../portal/api/axiosClient";
 
 const feedbackData = [
   {
@@ -411,6 +412,21 @@ const feedbackData = [
 
 const Feedback = () => {
   const [activeCards, setActiveCards] = useState([]);
+  const [dbTestimonials, setDbTestimonials] = useState([]);
+  const [dbLoading, setDbLoading] = useState(true);
+  const [dbError, setDbError] = useState(null);
+
+  // Fetch testimonials saved in MongoDB via the CMS (only active ones shown on the public site)
+  useEffect(() => {
+    cmsApi
+      .list("testimonials")
+      .then((data) => {
+        const activeOnly = (data || []).filter((t) => t.active !== false);
+        setDbTestimonials(activeOnly);
+      })
+      .catch((err) => setDbError(err.message))
+      .finally(() => setDbLoading(false));
+  }, []);
 
   useEffect(() => {
     const cards = document.querySelectorAll(".feedback-card-item");
@@ -433,7 +449,7 @@ const Feedback = () => {
     cards.forEach((card) => observer.observe(card));
 
     return () => cards.forEach((card) => observer.unobserve(card));
-  }, []);
+  }, [dbTestimonials]); // re-run observer once DB testimonials render in too
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -528,6 +544,73 @@ const Feedback = () => {
               <div className="feedback-quote-watermark">"</div>
             </div>
           ))}
+
+          {/* LIVE TESTIMONIALS FROM MONGODB (added via CMS) */}
+          {dbError && (
+            <p style={{ textAlign: "center", color: "#b91c1c", margin: "20px 0" }}>
+              Couldn't load latest testimonials: {dbError}
+            </p>
+          )}
+
+          {!dbLoading &&
+            dbTestimonials.map((item) => (
+              <div
+                key={item._id}
+                data-id={item._id}
+                className={`feedback-card-item ${
+                  activeCards.includes(item._id)
+                    ? "animate-visible"
+                    : ""
+                }`}
+              >
+                {/* LEFT SIDE */}
+                <div className="feedback-card-left">
+                  <div className="feedback-timeline-line"></div>
+                  <div className="feedback-avatar-border-glow">
+                    <div className="feedback-avatar-circle-inner">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="avatar-icon-svg"
+                      >
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT SIDE */}
+                <div className="feedback-card-right">
+                  <h3 className="feedback-review-title">
+                     "{item.title}"
+                  </h3>
+
+                  <h2 className="feedback-student-name">{item.name}</h2>
+
+                  <p className="feedback-country-name">{item.country}</p>
+
+                  <div className="feedback-stars-row">
+                    {[...Array(5)].map((_, i) => (
+                      <span
+                        key={i}
+                        className={`feedback-star ${
+                          i < item.rating ? "active-gold" : "muted-grey"
+                        }`}
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="feedback-text-block">
+                    <p className="feedback-paragraph-item">"{item.quote}"</p>
+                  </div>
+                </div>
+
+                {/* WATERMARK */}
+                <div className="feedback-quote-watermark">"</div>
+              </div>
+            ))}
         </div>
       </main>
 

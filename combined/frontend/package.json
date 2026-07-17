@@ -4,16 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "node node_modules/vite/bin/vite.js build",
-  "preview": "vite preview"
-},
+    "dev": "vite",
+    "build": "node node_modules/vite/bin/vite.js build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "aos": "^2.3.4",
     "axios": "^1.18.1",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.22.0",
+    "nodemailer": "^9.0.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-helmet": "^6.1.0",
