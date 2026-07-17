@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const { sendEmail } = require("../utils/mailer");
-const Settings = require("../models/Settings");
 
 const signToken = (user) =>
   jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
@@ -50,8 +49,7 @@ exports.register = async (req, res) => {
 
     // 2) Notification email to ADMIN — non-blocking, never fails the request.
     try {
-      const settings = await Settings.findOne({ singleton: "main" });
-      const adminEmail = settings?.smtp?.adminEmail || process.env.ADMIN_NOTIFY_EMAIL;
+      const adminEmail = process.env.ADMIN_NOTIFY_EMAIL;
 
       if (adminEmail) {
         await sendEmail({
@@ -74,7 +72,7 @@ exports.register = async (req, res) => {
           text: `New user registered:\n\nName: ${user.name}\nEmail: ${user.email}\nRole: ${user.role}\nPhone: ${user.phone || "N/A"}\nCountry: ${user.country || "N/A"}\nID: ${user._id}`,
         });
       } else {
-        console.warn("Admin notification email skipped: No admin email configured in settings or environment variables.");
+        console.warn("Admin notification email skipped: ADMIN_NOTIFY_EMAIL is not set in .env.");
       }
     } catch (emailErr) {
       console.error("Admin notification email failed:", emailErr.message);

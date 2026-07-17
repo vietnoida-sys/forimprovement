@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const { sendEmail } = require("../utils/mailer");
-const Settings = require("../models/Settings");
 
 //  /api/users?role=student|counsellor|admin
 exports.getAll = async (req, res) => {
@@ -64,8 +63,7 @@ exports.create = async (req, res) => {
 
     // Admin notification email — non-blocking, never fails the request.
     try {
-      const settings = await Settings.findOne({ singleton: "main" });
-      const adminEmail = settings?.smtp?.adminEmail || process.env.ADMIN_NOTIFY_EMAIL;
+      const adminEmail = process.env.ADMIN_NOTIFY_EMAIL;
 
       if (adminEmail) {
         await sendEmail({
@@ -87,7 +85,7 @@ exports.create = async (req, res) => {
           text: `New user account created:\n\nName: ${user.name}\nEmail: ${user.email}\nRole: ${user.role}\nPhone: ${user.phone || "N/A"}\nCountry: ${user.country || "N/A"}\nID: ${user._id}`,
         });
       } else {
-        console.warn("Admin notification email skipped: No admin email configured.");
+        console.warn("Admin notification email skipped: ADMIN_NOTIFY_EMAIL is not set in .env.");
       }
     } catch (emailErr) {
       console.error("Admin notification email failed:", emailErr.message);
