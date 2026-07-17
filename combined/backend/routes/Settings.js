@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const ctrl = require("../controllers/settingscontroller");
+const ctrl = require("../controllers/Settingscontroller");
 const { protect, authorize } = require("../middleware/auth");
 
 router.use(protect);
