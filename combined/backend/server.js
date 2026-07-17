@@ -7,10 +7,10 @@ const connectDB = require("./config/db");
 
 // CMS routers
 const bannersRouter = require("./routes/Banners");
-const blogPostsRouter = require("./routes/blogPosts");
-const testimonialsRouter = require("./routes/testimonials");
-const faqsRouter = require("./routes/faqs");
-const newsEventsRouter = require("./routes/newsEvents");
+const blogPostsRouter = require("./routes/BlogPosts");
+const testimonialsRouter = require("./routes/Testimonials");
+const faqsRouter = require("./routes/Faqs");
+const newsEventsRouter = require("./routes/NewsEvents");
 
 const app = express();
 
