@@ -3,7 +3,7 @@ const Settings = require("../models/Settings");
 
 // Builds a transporter from whatever SMTP config is saved in Settings.
 // Throws a clear error if admin hasn't configured SMTP yet, so callers
-// can catch it and decide whether to fail loudly or just log it.
+// can catch it , decide whether to fail loudly or just log it.
 const getTransporter = async () => {
   const settings = await Settings.findOne({ singleton: "main" }).select("+smtp.password");
 
