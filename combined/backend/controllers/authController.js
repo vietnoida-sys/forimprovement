@@ -29,7 +29,7 @@ exports.register = async (req, res) => {
     const token = signToken(user);
 
     // 1) Welcome email to the USER — non-blocking, never fails the request.
-    try {
+   /*    try {
       await sendEmail({
         to: user.email,
         subject: "Welcome! Your account has been created",
@@ -46,9 +46,9 @@ exports.register = async (req, res) => {
       });
     } catch (emailErr) {
       console.error("Welcome email failed:", emailErr.message);
-    }
-
+    }  */
     // 2) Notification email to ADMIN — non-blocking, never fails the request.
+    /*
     try {
       const settings = await Settings.findOne({ singleton: "main" });
       const adminEmail = settings?.smtp?.adminEmail || process.env.ADMIN_NOTIFY_EMAIL;
@@ -79,6 +79,7 @@ exports.register = async (req, res) => {
     } catch (emailErr) {
       console.error("Admin notification email failed:", emailErr.message);
     }
+      */
 
     res.status(201).json({ user: user.toSafeObject(), token });
   } catch (err) {
