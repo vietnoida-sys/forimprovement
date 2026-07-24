@@ -367,7 +367,7 @@ function Navbar() {
 
         {/* LOGO SECTION */}
         <div className="logo-section">
-          <img src={logo} alt="Viet World Gate Logo" className="logo-img" />
+         <a href = "/" > <img src={logo} alt="Viet World Gate Logo" className="logo-img" /></a>
           <div className="logo-text">
             <h2>VIET WORLDGATE</h2>
             <p>Your Gateway to Global Opportunities</p>

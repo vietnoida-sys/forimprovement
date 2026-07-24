@@ -4,7 +4,7 @@ import { FaChevronUp } from "react-icons/fa";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
 import logo from "./assets/vietworldgate.png"; 
-import   SwinburneBanner from "./components/SwinburneBanner";
+import SwinburneBanner from "./components/SwinburneBanner";
 import { LoginModalProvider } from "./portal/context/LoginModalContext";
 
 import LoginModal from "./components/LoginModal";
@@ -13,14 +13,27 @@ import { AuthProvider } from "./portal/context/AuthContext";
 function App() {
   const [loading, setLoading] = useState(false); 
 
+  // ✅ sessionStorage har naye tab ke liye alag hota hai —
+  // isliye banner har naye tab me pehli baar dikhega,
+  // lekin usi tab me reload/navigate karne pe dobara nahi dikhega.
+  const [showBanner, setShowBanner] = useState(() => {
+    return !sessionStorage.getItem("swinburneBannerShown");
+  });
+
   useEffect(() => {
-    
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000); 
 
     return () => clearTimeout(timer); 
   }, []);
+
+  useEffect(() => {
+    // ✅ jaise hi banner render ho, is tab ke liye flag set kar do
+    if (showBanner) {
+      sessionStorage.setItem("swinburneBannerShown", "true");
+    }
+  }, [showBanner]);
 
   const scrollToTop = (e) => {
     e.preventDefault();
@@ -30,7 +43,6 @@ function App() {
     });
   };
 
-  
   if (loading) {
     return (
       <div className="splash-screen">
@@ -39,34 +51,27 @@ function App() {
     );
   }
 
-  
   return (
-     <AuthProvider>
+    <AuthProvider>
       <LoginModalProvider>
-  
-      <SwinburneBanner />
-      {/* ✅ AUTO SCROLL TOP ON PAGE CHANGE */}
-      <ScrollToTop />
 
-      {/* ✅ ROUTES */}
-      <AppRoutes />
-       <LoginModal />
+        {/* ✅ Banner sirf isi tab me pehli baar dikhega */}
+        {showBanner && <SwinburneBanner />}
 
-      {/* ✅ SCROLL TO TOP BUTTON */}
-      <a
-        href="#"
-        className="scroll-top"
-        className="scroll-top"
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-      >
-        <FaChevronUp />
-      </a>
-      
-   
- </LoginModalProvider>
+        <ScrollToTop />
+        <AppRoutes />
+        <LoginModal />
+
+        <a href="#"
+          className="scroll-top"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
+          <FaChevronUp />
+        </a>
+
+      </LoginModalProvider>
     </AuthProvider>
-    
   );
 }
 

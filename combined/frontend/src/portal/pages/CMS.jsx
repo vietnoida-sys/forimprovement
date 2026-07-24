@@ -158,6 +158,7 @@ function BannersSection() {
   const [error, setError] = useState(null);
   const [editing, setEditing] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [deleting, setDeleting] = useState(null);
   const [deleteBusy, setDeleteBusy] = useState(false);
 
@@ -216,6 +217,32 @@ function BannersSection() {
     }
   };
 
+  const handleImageSelect = async (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = ""; // allow re-selecting the same file later
+    if (!file) return;
+
+    if (!/^image\/(jpeg|jpg|png|webp|gif)$/.test(file.type)) {
+      setError("Please choose a JPG, PNG, WEBP or GIF image.");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setError("Image must be under 5MB.");
+      return;
+    }
+
+    setUploading(true);
+    setError(null);
+    try {
+      const { url } = await api.upload(resource, file);
+      setEditing((prev) => ({ ...prev, imageUrl: url }));
+    } catch (err) {
+      setError(err.message || "Image upload failed");
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div>
       <SectionHeader
@@ -234,7 +261,11 @@ function BannersSection() {
           {items.map((b) => (
             <div key={b._id} className="cms-banner-item">
               <div className="cms-banner-thumb">
-                <ImageIcon size={20} />
+                {b.imageUrl ? (
+                  <img src={b.imageUrl} alt={b.heading} className="cms-banner-thumb-img" />
+                ) : (
+                  <ImageIcon size={20} />
+                )}
               </div>
               <div className="cms-item-info">
                 <div className="cms-item-title-row">
@@ -268,7 +299,7 @@ function BannersSection() {
           title={editing._id ? "Edit Banner" : "Add Banner"}
           onClose={() => setEditing(null)}
           onSave={save}
-          saving={saving}
+          saving={saving || uploading}
         >
           <Field label="Heading">
             <input
@@ -286,13 +317,43 @@ function BannersSection() {
               placeholder="Shop new arrivals before they're gone"
             />
           </Field>
-          <Field label="Image URL">
-            <input
-              className="cms-input"
-              value={editing.imageUrl}
-              onChange={(e) => setEditing({ ...editing, imageUrl: e.target.value })}
-              placeholder="https://..."
-            />
+          <Field label="Banner Image">
+            <div className="cms-upload-box">
+              {editing.imageUrl ? (
+                <div className="cms-upload-preview">
+                  <img src={editing.imageUrl} alt="Banner preview" />
+                  <button
+                    type="button"
+                    className="cms-icon-btn danger cms-upload-remove"
+                    onClick={() => setEditing({ ...editing, imageUrl: "" })}
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </div>
+              ) : (
+                <div className="cms-upload-placeholder">
+                  <ImageIcon size={22} />
+                  <span>No image selected</span>
+                </div>
+              )}
+
+              <label className="cms-btn-outline cms-upload-btn">
+                {uploading ? (
+                  <>
+                    <Loader2 size={14} className="cms-spin" /> Uploading...
+                  </>
+                ) : (
+                  <>{editing.imageUrl ? "Replace Image" : "Choose Image"}</>
+                )}
+                <input
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/gif"
+                  onChange={handleImageSelect}
+                  disabled={uploading}
+                  hidden
+                />
+              </label>
+            </div>
           </Field>
           <label className="cms-checkbox-label">
             <input
@@ -840,6 +901,9 @@ function FaqsSection() {
 }
 
 /* ---------- News & Events ---------- */
+/* Events-only form: this CMS section now always creates/edits
+   items with type "event" — there is no News/Event toggle
+   anymore, and no way to create a "news" item from this form. */
 
 function NewsEventsSection() {
   const resource = "news-events";
@@ -853,9 +917,17 @@ function NewsEventsSection() {
 
   const blank = {
     title: "",
-    type: "news",
+    type: "event",
     date: new Date().toISOString().slice(0, 10),
     description: "",
+    time: "",
+    location: "",
+    category: "",
+    country: "",
+    mode: "OFFLINE",
+    seatsLeft: 0,
+    totalSeats: 0,
+    img: "",
   };
 
   const load = () => {
@@ -863,7 +935,7 @@ function NewsEventsSection() {
     setError(null);
     api
       .list(resource)
-      .then(setItems)
+      .then((data) => setItems((data || []).filter((n) => n.type === "event")))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   };
@@ -874,11 +946,12 @@ function NewsEventsSection() {
     if (!editing.title.trim()) return;
     setSaving(true);
     try {
+      const payload = { ...editing, type: "event" };
       if (editing._id) {
-        const updated = await api.update(resource, editing._id, editing);
+        const updated = await api.update(resource, editing._id, payload);
         setItems((prev) => prev.map((n) => (n._id === updated._id ? updated : n)));
       } else {
-        const created = await api.create(resource, editing);
+        const created = await api.create(resource, payload);
         setItems((prev) => [created, ...prev]);
       }
       setEditing(null);
@@ -905,16 +978,16 @@ function NewsEventsSection() {
   return (
     <div>
       <SectionHeader
-        title="News & Events"
-        description="Announcements and upcoming events shown on your site."
-        actionLabel="Add Item"
+        title="Events"
+        description="Upcoming events shown on your site."
+        actionLabel="Add Event"
         onAdd={() => setEditing({ ...blank })}
       />
       {error && <ErrorBanner message={error} onRetry={load} />}
       {loading ? (
         <LoadingState />
       ) : items.length === 0 ? (
-        <EmptyState label="Add Item" onAdd={() => setEditing({ ...blank })} />
+        <EmptyState label="Add Event" onAdd={() => setEditing({ ...blank })} />
       ) : (
         <div className="cms-faq-list">
           {items
@@ -933,9 +1006,12 @@ function NewsEventsSection() {
                 <div className="cms-item-info">
                   <div className="cms-item-title-row">
                     <p className="cms-item-title">{n.title}</p>
-                    <span className={`cms-news-type ${n.type}`}>{n.type}</span>
+                    {n.category && <span className="cms-pill on">{n.category}</span>}
+                    {n.mode && <span className="cms-pill off">{n.mode}</span>}
                   </div>
-                  <p className="cms-item-subtitle">{n.description}</p>
+                  <p className="cms-item-subtitle">
+                    {[n.location, n.time].filter(Boolean).join(" · ") || n.description}
+                  </p>
                 </div>
                 <div className="cms-item-actions">
                   <button className="cms-icon-btn" onClick={() => setEditing(n)}>
@@ -952,7 +1028,7 @@ function NewsEventsSection() {
 
       {editing && (
         <Modal
-          title={editing._id ? "Edit Item" : "Add Item"}
+          title={editing._id ? "Edit Event" : "Add Event"}
           onClose={() => setEditing(null)}
           onSave={save}
           saving={saving}
@@ -965,16 +1041,6 @@ function NewsEventsSection() {
             />
           </Field>
           <div className="cms-form-row">
-            <Field label="Type">
-              <select
-                className="cms-input"
-                value={editing.type}
-                onChange={(e) => setEditing({ ...editing, type: e.target.value })}
-              >
-                <option value="news">News</option>
-                <option value="event">Event</option>
-              </select>
-            </Field>
             <Field label="Date">
               <input
                 type="date"
@@ -983,7 +1049,79 @@ function NewsEventsSection() {
                 onChange={(e) => setEditing({ ...editing, date: e.target.value })}
               />
             </Field>
+            <Field label="Time">
+              <input
+                className="cms-input"
+                value={editing.time}
+                onChange={(e) => setEditing({ ...editing, time: e.target.value })}
+                placeholder="5:00 PM - 6:30 PM"
+              />
+            </Field>
           </div>
+          <Field label="Location">
+            <input
+              className="cms-input"
+              value={editing.location}
+              onChange={(e) => setEditing({ ...editing, location: e.target.value })}
+              placeholder="Hyatt Regency, Mumbai (or 'Online Event')"
+            />
+          </Field>
+          <div className="cms-form-row">
+            <Field label="Category">
+              <input
+                className="cms-input"
+                value={editing.category}
+                onChange={(e) => setEditing({ ...editing, category: e.target.value })}
+                placeholder="Education Fair, Webinar, Visa Seminar..."
+              />
+            </Field>
+            <Field label="Country">
+              <input
+                className="cms-input"
+                value={editing.country}
+                onChange={(e) => setEditing({ ...editing, country: e.target.value })}
+                placeholder="Canada, Australia, USA..."
+              />
+            </Field>
+          </div>
+          <div className="cms-form-row">
+            <Field label="Mode">
+              <select
+                className="cms-input"
+                value={editing.mode}
+                onChange={(e) => setEditing({ ...editing, mode: e.target.value })}
+              >
+                <option value="ONLINE">ONLINE</option>
+                <option value="OFFLINE">OFFLINE</option>
+              </select>
+            </Field>
+            <Field label="Total Seats">
+              <input
+                type="number"
+                min="0"
+                className="cms-input"
+                value={editing.totalSeats}
+                onChange={(e) => setEditing({ ...editing, totalSeats: Number(e.target.value) })}
+              />
+            </Field>
+            <Field label="Seats Left">
+              <input
+                type="number"
+                min="0"
+                className="cms-input"
+                value={editing.seatsLeft}
+                onChange={(e) => setEditing({ ...editing, seatsLeft: Number(e.target.value) })}
+              />
+            </Field>
+          </div>
+          <Field label="Image URL">
+            <input
+              className="cms-input"
+              value={editing.img}
+              onChange={(e) => setEditing({ ...editing, img: e.target.value })}
+              placeholder="https://..."
+            />
+          </Field>
           <Field label="Description">
             <textarea
               className="cms-input"

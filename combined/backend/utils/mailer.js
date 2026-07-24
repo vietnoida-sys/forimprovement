@@ -15,6 +15,7 @@ const getTransporter = async () => {
     host: settings.smtp.host,
     port: settings.smtp.port || 587,
     secure: !!settings.smtp.secure, // true for port 465, false for others
+     family: 4, // 👈 FORCE IPv4 (IMPORTANT)
     auth: {
       user: settings.smtp.username,
       pass: settings.smtp.password,
