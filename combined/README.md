@@ -1,115 +1,224 @@
 # VietWorldGate + EduAdmin — Fully Merged Project
 
-Is baar dono projects **ek hi frontend** aur **ek hi backend** mein merge kiye gaye hain
-(pehle wali zip mein do alag apps thi — ab ek hi Vite app aur ek hi Express server hai).
+This version combines both projects into **a single frontend** and **a single backend**.
+Previously, the ZIP file contained two separate applications. Now, everything runs from **one Vite React application** and **one Express server**.
 
-```
+```text
 combined/
-├── backend/     Single Express + MongoDB server — public website API + EduAdmin CRM/Portal API
-└── frontend/    Single React (Vite) app — public website (/) + Student/Admin Portal (/portal)
+├── backend/     Single Express + MongoDB server — Public Website API + EduAdmin CRM/Portal API
+└── frontend/    Single React (Vite) application — Public Website (/) + Student/Admin Portal (/portal)
 ```
 
-## Kaise kaam karta hai
+## How It Works
 
-- **Public website** (VietWorldGate) waise hi chalti hai — `http://localhost:5173/`
-- **Student / Admin Portal** (EduAdmin) ab isi app ke andar `http://localhost:5173/portal` par
-  chalta hai — same React app, same build, sirf ek dusre route ke through
-- Dono backend **ek hi server** (`http://localhost:5000`) se serve hote hain — same MongoDB
-  database, same `.env`
+* The **Public Website (VietWorldGate)** continues to run as usual at `http://localhost:5173/`.
+* The **Student/Admin Portal (EduAdmin)** is now integrated into the same React application and is accessible at `http://localhost:5173/portal`. It uses the same React build and is served through a different route.
+* Both applications share a **single backend server** running at `http://localhost:5000`, using the same MongoDB database and the same `.env` configuration.
 
-Website ke Navbar mein profile dropdown ke andar **"Student Portal (Upload Documents)"**
-link hai jo `/portal/login` par le jaata hai.
+The website's profile dropdown in the navigation bar includes a **"Student Portal (Upload Documents)"** option that redirects users to `/portal/login`.
 
 ---
 
-## Naya kya add hua (aapki latest request ke mutabik)
+# What's New (Based on Your Latest Requirements)
 
-### 1. Student document upload → Admin/Counsellor notification
-Student `/portal` login karke apne documents upload karta hai
-(Passport, Transcript, SOP, IELTS score, etc). Upload hote hi **Admin + Counsellor** dono ko
-notification jaata hai (bell icon 🔔 + notifications page).
+## 1. Student Document Upload → Admin & Counsellor Notifications
 
-### 2. Admin document upload for students (NAYA)
-Admin/Counsellor ab **Documents** page se "Share with students" button use karke:
-- **Single student** ko koi document/form/circular bhej sakta hai, ya
-- **All students** ko ek saath broadcast kar sakta hai (e.g. scholarship form, visa checklist,
-  koi circular)
+Students can log in to the `/portal` and upload their documents, such as:
 
-Jis student(s) ko document mila, unko turant notification jaata hai — "X ne aapke saath
-document share kiya" — aur wo document unke "My Documents" section mein alag se
-("Shared by ...") dikhta hai.
+* Passport
+* Transcript
+* Statement of Purpose (SOP)
+* IELTS Score
+* Other required documents
 
-### 3. Scholarship notification (university ke naam ke saath)
-Jab admin/counsellor koi naya scholarship add karta hai, **sab students** ko notification
-jaata hai jisme scholarship ka naam, **university ka naam**, aur amount saaf dikhta hai —
-e.g. *"Merit Scholarship at Oxford University — up to 5000 USD. Check eligibility."*
-
-### 4. University add → students ko notification
-Naya university add hone par bhi sab students ko notification jaata hai.
-
-### 5. Website ka "Book Appointment" form ab EduAdmin se connected hai
-VietWorldGate website ka appointment/inquiry form ab:
-- Database mein save hota hai (pehle jaisa)
-- Email bhejta hai (pehle jaisa)
-- **Naya**: Admin/Counsellor ko EduAdmin ke andar bhi ek in-app notification milta hai, taaki
-  wo CRM se bahar jaaye bina naye website inquiries dekh sakein
+As soon as a document is uploaded, both the **Admin** and the **assigned Counsellor** receive an in-app notification, which appears in the notification bell (🔔) and on the Notifications page.
 
 ---
 
-## Setup
+## 2. Admin Document Sharing with Students (NEW)
 
-### Backend
+Admins and Counsellors can now use the **Documents** page to share documents with students.
+
+They can:
+
+* Share a document, form, or circular with **a single student**, or
+* Broadcast the same document to **all students** (for example, scholarship forms, visa checklists, or important announcements).
+
+Students instantly receive a notification informing them that a document has been shared with them.
+
+The shared document also appears in the student's **My Documents** section under a separate category labeled **"Shared by ..."**.
+
+---
+
+## 3. Scholarship Notifications (Including University Name)
+
+Whenever an Admin or Counsellor creates a new scholarship, **all students** automatically receive a notification containing:
+
+* Scholarship Name
+* University Name
+* Scholarship Amount
+
+Example:
+
+> **Merit Scholarship at Oxford University — Up to USD 5,000. Check your eligibility.**
+
+---
+
+## 4. New University Notifications
+
+Whenever a new university is added by the Admin or Counsellor, all students automatically receive an in-app notification informing them about the newly added university.
+
+---
+
+## 5. Website "Book Appointment" Form Integrated with EduAdmin
+
+The **Book Appointment** form on the VietWorldGate public website is now fully integrated with EduAdmin.
+
+When a visitor submits the form:
+
+* The inquiry is saved to the database (existing functionality).
+* A confirmation email is sent (existing functionality).
+* **New:** An in-app notification is created inside EduAdmin so that Admins and Counsellors can immediately view new website inquiries directly from the CRM without leaving the system.
+
+---
+
+# Setup
+
+## Backend
+
 ```bash
 cd combined/backend
+
 npm install
-# .env already filled in with your existing MongoDB Atlas + Gmail credentials
-npm run seed      # demo admin + counsellor + student accounts banata hai
-npm run dev        # http://localhost:5000
+
+# The .env file already contains your existing MongoDB Atlas
+# connection string and Gmail credentials.
+
+npm run seed      # Creates demo Admin, Counsellor, and Student accounts
+npm run dev       # Starts the server at http://localhost:5000
 ```
 
-Demo logins (seed ke baad):
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@eduadmin.com | admin123 |
-| Counsellor | counsellor@eduadmin.com | counsellor123 |
-| Student | student@eduadmin.com | student123 |
+### Demo Login Credentials
 
-### Frontend
-```bash
-cd combined/frontend
-npm install
-npm run dev        # http://localhost:5173
-```
-
-- Public site: `http://localhost:5173/`
-- Portal login: `http://localhost:5173/portal/login`
-
-## Test flow (5 minute check)
-
-1. `student@eduadmin.com` se `/portal/login` par login karein → **My Documents** → koi
-   document upload karein.
-2. `admin@eduadmin.com` se login karke bell icon check karein → naya document notification
-   dikhega.
-3. Admin ke **Documents** page par "Share with students" click karke koi document **All
-   students** ko share karein.
-4. Student account se login karke bell icon check karein → "shared with you" notification
-   dikhega, aur My Documents mein "Shared by Super Admin" wala document dikhega.
-5. Admin ke **Scholarships** page se naya scholarship add karein (university select karke) →
-   student ke notifications mein university ka naam ke saath scholarship notification aayega.
-6. Website home page (`/`) par jaake "Book Appointment" form fill karein → admin/counsellor
-   ke notifications mein naya website inquiry dikhega.
+| Role       | Email                                                     | Password      |
+| ---------- | --------------------------------------------------------- | ------------- |
+| Admin      | [admin@eduadmin.com](mailto:admin@eduadmin.com)           | admin123      |
+| Counsellor | [counsellor@eduadmin.com](mailto:counsellor@eduadmin.com) | counsellor123 |
+| Student    | [student@eduadmin.com](mailto:student@eduadmin.com)       | student123    |
 
 ---
 
-## Important notes
+## Frontend
 
-- `.env` mein aapke real MongoDB Atlas connection string aur Gmail app-password already daale
-  hain (aapki original files se) — production mein deploy karne se pehle inhe apne production
-  values se replace karein, aur `JWT_SECRET` ko bhi ek naya random secret bana lein.
-- File uploads abhi local disk (`backend/uploads/`) par store hote hain — production ke liye
-  S3/Cloudinary use karna recommend karta hoon.
-- `.git` aur `node_modules` (dono projects se) is zip mein nahi hain — `npm install` se
-  dobara ban jaayenge.
-- Deploy karte waqt, static hosting (Vercel/Netlify) par SPA rewrite rule zaroor set karein
-  (sab paths ko `index.html` par rewrite karna) — isse `/portal/...` routes bhi refresh par
-  sahi se load honge.
+```bash
+cd combined/frontend
+
+npm install
+
+npm run dev
+```
+
+Application URLs:
+
+* **Public Website:** `http://localhost:5173/`
+* **Portal Login:** `http://localhost:5173/portal/login`
+
+---
+
+# Quick Test Flow (5-Minute Verification)
+
+### 1. Student Upload
+
+* Log in using `student@eduadmin.com`.
+* Navigate to **My Documents**.
+* Upload any document.
+
+**Expected Result:**
+The Admin and Counsellor should receive a notification about the uploaded document.
+
+---
+
+### 2. Admin Notification Check
+
+* Log in using `admin@eduadmin.com`.
+* Click the notification bell.
+
+**Expected Result:**
+A notification for the newly uploaded student document should be visible.
+
+---
+
+### 3. Share a Document
+
+* Go to the **Documents** page.
+* Click **Share with Students**.
+* Share any document with **All Students**.
+
+---
+
+### 4. Student Notification
+
+* Log back in as the student.
+* Check the notification bell.
+
+**Expected Result:**
+
+* A notification indicating that a document has been shared.
+* The document appears in **My Documents** under **"Shared by Super Admin."**
+
+---
+
+### 5. Scholarship Notification
+
+* Log in as the Admin.
+* Navigate to **Scholarships**.
+* Create a new scholarship and select a university.
+
+**Expected Result:**
+Students receive a notification displaying:
+
+* Scholarship Name
+* University Name
+* Scholarship Amount
+
+---
+
+### 6. Website Inquiry
+
+* Open the public website homepage.
+* Submit the **Book Appointment** form.
+
+**Expected Result:**
+
+* The inquiry is saved in the database.
+* A confirmation email is sent.
+* Admins and Counsellors receive an in-app notification inside EduAdmin.
+
+---
+
+# Important Notes
+
+* The `.env` file already contains your existing MongoDB Atlas connection string and Gmail App Password from your original project. Before deploying to production, replace these values with your production credentials and generate a new secure `JWT_SECRET`.
+
+* File uploads are currently stored locally in:
+
+```
+backend/uploads/
+```
+
+For production deployments, it is recommended to use cloud storage services such as **Amazon S3** or **Cloudinary**.
+
+* The project package does **not** include:
+
+  * `.git`
+  * `node_modules`
+
+Simply run:
+
+```bash
+npm install
+```
+
+to reinstall all required dependencies.
+
+* When deploying to static hosting platforms such as **Vercel** or **Netlify**, make sure to configure an SPA rewrite rule that redirects all routes to `index.html`. This ensures routes such as `/portal/login`, `/portal/dashboard`, and `/portal/documents` continue to work correctly even after a browser refresh.
