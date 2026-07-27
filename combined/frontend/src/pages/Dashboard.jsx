@@ -1,19 +1,24 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
-import Testimonials from "../components/Testimonials";
-import FaqSection from "../components/FaqSection";
-import StudyAbroad from "../components/StudyAbroad";
-import OurServices from "../components/OurServices";
-import StudyAbroadFeatures from "../components/StudyAbroadFeatures";
-import StudyAbroadLayouts from "../components/StudyAbroadLayouts";
-import StudyDestinations from "../components/StudyDestinations";
 import BritishCouncilLogo from "../assets/bclogo.jpg";
 import { motion } from "framer-motion";
-import logo9 from "../assets/story6.mp4" ;
-import SEO from '../components/SEO';
+import SEO from "../components/SEO";
+
+// Lazy-load below-the-fold components to reduce initial JS bundle
+// and improve Total Blocking Time (TBT)
+const StudyDestinations = lazy(() => import("../components/StudyDestinations"));
+const StudyAbroadLayouts = lazy(() => import("../components/StudyAbroadLayouts"));
+const StudyAbroadFeatures = lazy(() => import("../components/StudyAbroadFeatures"));
+const OurServices = lazy(() => import("../components/OurServices"));
+const StudyAbroad = lazy(() => import("../components/StudyAbroad"));
+const Testimonials = lazy(() => import("../components/Testimonials"));
+const FaqSection = lazy(() => import("../components/FaqSection"));
+
+// NOTE: removed unused import of "../assets/story6.mp4" (logo9) —
+// it was never used in JSX and was adding dead weight to the bundle.
 
 // 1. Updated FadeUp with a lower y-offset and "some" viewport threshold
 const FadeUp = ({ children, delay = 0 }) => (
@@ -37,11 +42,10 @@ const stats = [
 function Dashboard() {
   return (
     <>
-
       <SEO
-        title="VietWorldGate - Vietnam Travel & Visa Services"
-        description="VietWorldGate offers Vietnam visa, tour packages, and travel assistance for international travelers."
-        keywords="visa for apply , tourist visa for apply , vietworldgate"
+        title="Best Study Abroad &  Visa Consultant in Delhi | VietWorldGate"
+        description="VietWorldGate is a trusted study abroad and Vietnam visa consultant in Delhi, offering student visa guidance, tourist visa support, and post-study work visa assistance for Australia, UK, New Zealand, Japan, and Vietnam."
+        keywords="study abroad consultant delhi, vietnam study visa consultant delhi, vietnam student visa delhi, best overseas education consultant delhi, post study work visa consultant delhi, study abroad consultants near me"
         url="https://vietworldgate.com/"
         image="https://www.vietworldgate.com/public/vietworldgate.png"
       />
@@ -56,7 +60,12 @@ function Dashboard() {
       >
         <div className="trust-container">
           <div className="trust-right">
-            <img src={BritishCouncilLogo} alt="British Council" />
+            <img
+              src={BritishCouncilLogo}
+              alt="British Council Certified Study Abroad Consultant"
+              width="120"
+              height="60"
+            />
             <Link to="/Certificate">
               <span>Certified by British Council</span>
             </Link>
@@ -67,21 +76,40 @@ function Dashboard() {
       {/* HERO SECTION */}
       <section className="hero-section">
         <div className="hero-slider">
-        
-      <img
+          {/*
+            PERFORMANCE NOTE:
+            These images are still loading from Pexels/Unsplash (third-party domains).
+            For a real LCP improvement, download these, compress to WebP,
+            and host them from /public or your CDN, e.g. "/images/hero-study-abroad.webp".
+            Until then, at minimum:
+            - fetchpriority="high" + eager loading on the FIRST (LCP) image
+            - explicit width/height on all three to prevent layout shift (CLS)
+            - lazy loading on the 2nd/3rd slide images since they aren't visible first
+          */}
+          <img
             src="https://images.pexels.com/photos/7018490/pexels-photo-7018490.jpeg"
-            alt="Study Abroad"
+            alt="Study Abroad Consultant Delhi - VietWorldGate"
             className="slide"
+            width="1920"
+            height="1080"
+            fetchpriority="high"
+            loading="eager"
           />
           <img
             src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070"
-            alt="University"
+            alt="University Study Abroad Options"
             className="slide"
+            width="1920"
+            height="1080"
+            loading="lazy"
           />
           <img
             src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070"
-            alt="Students"
+            alt="International Students Studying Abroad"
             className="slide"
+            width="1920"
+            height="1080"
+            loading="lazy"
           />
         </div>
 
@@ -99,19 +127,22 @@ function Dashboard() {
               POST STUDY WORK RIGHT – AUSTRALIA, UK, NEW ZEALAND, JAPAN, RUSSIA
             </span>
             <h1>
-              Extend your stay and work
+              Best Study Abroad & Vietnam Visa Consultant in Delhi
               <br />
-              after Graduation
+              Extend Your Stay and Work After Graduation
             </h1>
             <p>
-              Explore world-class universities and build your future with
-              global education opportunities.
-
+              VietWorldGate is a trusted study abroad and Vietnam visa
+              consultant based in Delhi, helping students explore
+              world-class universities and build their future with global
+              education opportunities.
             </p>
 
-             <div class="button-container">
-                <button class="compare-btn">  <Link to="/CompareUniversity">Compare tool</Link></button>
-              </div>
+            <div className="button-container">
+              <button className="compare-btn">
+                <Link to="/CompareUniversity">Compare tool</Link>
+              </button>
+            </div>
           </motion.div>
 
           {/* WHATSAPP BOX */}
@@ -127,12 +158,9 @@ function Dashboard() {
                 Get free counselling for study abroad, visa guidance,
                 admission process, and career opportunities abroad.
               </p>
-              <Link
-                to="/consultationform"
-                 className="whatsapp-btn"
-                 >
+              <Link to="/consultationform" className="whatsapp-btn">
                 Book Free Consultation
-                  </Link>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -141,7 +169,7 @@ function Dashboard() {
       {/* STATS */}
       <section className="stats-section">
         <div className="stats-container">
-          {stats.map(function(stat, i) {
+          {stats.map(function (stat, i) {
             return (
               <motion.div
                 key={i}
@@ -159,14 +187,30 @@ function Dashboard() {
         </div>
       </section>
 
-      {/* BAAKI SECTIONS */}
-      <FadeUp><StudyDestinations /></FadeUp>
-      <FadeUp delay={0.1}><StudyAbroadLayouts /></FadeUp>
-      <FadeUp delay={0.1}><StudyAbroadFeatures /></FadeUp>
-      <FadeUp delay={0.1}><OurServices /></FadeUp>
-      <FadeUp delay={0.1}><StudyAbroad /></FadeUp>
-      <FadeUp delay={0.1}><Testimonials /></FadeUp>
-      <FadeUp delay={0.1}><FaqSection /></FadeUp>
+      {/* BAAKI SECTIONS - lazy loaded to reduce initial bundle size */}
+      <Suspense fallback={<div style={{ minHeight: 200 }} />}>
+        <FadeUp>
+          <StudyDestinations />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <StudyAbroadLayouts />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <StudyAbroadFeatures />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <OurServices />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <StudyAbroad />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <Testimonials />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <FaqSection />
+        </FadeUp>
+      </Suspense>
 
       <Footer />
     </>
