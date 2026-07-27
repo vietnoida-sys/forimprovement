@@ -41,9 +41,9 @@ function Dashboard() {
       <SEO
         title="VietWorldGate - Vietnam Travel & Visa Services"
         description="VietWorldGate offers Vietnam visa, tour packages, and travel assistance for international travelers."
-        keywords="visa for apply , tourist visa for apply , vietworldgate"
+        keywords="visa for apply , best for abroad country  , vietworldgate"
         url="https://vietworldgate.com/"
-        image="https://www.vietworldgate.com/public/vietworldgate.png"
+        image="https://www.vietworldgate.com/vietworldgate.png"
       />
       <Navbar />
 
