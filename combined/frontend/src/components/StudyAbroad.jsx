@@ -11,19 +11,18 @@ import {
 import "./StudyAbroad.css";
 import { motion } from "framer-motion";
 
-// 1. parent container के लिए variants जो बच्चों (children) को एक-एक करके लोड करेगा
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // हर अंदरूनी element के बीच का gap (delay)
-      delayChildren: 0.1     // पहला element शुरू होने का delay
+      staggerChildren: 0.15, 
+      delayChildren: 0.1     
     }
   }
 };
 
-// 2. अंदर के h2, p, button आदि elements के लिए slide-up animation
+
 const itemVariants = {
   hidden: { opacity: 0, y: 15 },
   visible: {
@@ -33,7 +32,7 @@ const itemVariants = {
   }
 };
 
-// 3. Grid cards के अंदरूनी आइकॉन और टेक्स्ट के लिए pop-in animation
+
 const cardInnerVariants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: {
@@ -66,7 +65,7 @@ export default function StudyAbroad() {
     { 
       title: "Book Your Appointment", 
       icon: <Calendar className="route-icon" />,
-      path: "https://docs.google.com/forms/d/e/1FAIpQLSefWVUVnbBT3GSCLjJM9bKP7hymqVhPTHbixEvbltPcJtVbMA/viewform?usp=publish-editor",
+      path: "/consultationform",
       isExternal: true
     },
     { 
@@ -83,7 +82,7 @@ export default function StudyAbroad() {
     },
   ];
 
-  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSefWVUVnbBT3GSCLjJM9bKP7hymqVhPTHbixEvbltPcJtVbMA/viewform?usp=publish-editor";
+  const googleFormUrl = "/consultationform";
 
   return (
     <div className="study-abroad-container">

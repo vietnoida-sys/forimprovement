@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-import { cmsApi as api } from "../portal/api/axiosClient"; // apne project ke hisaab se path check kar lena
-import bannerImg from "../assets/Preloaderimage.jpeg"; // koi active banner na mile to yehi fallback dikhega
+import { cmsApi as api } from "../portal/api/axiosClient"; 
+import bannerImg from "../assets/Preloaderimage.jpeg"; 
 
-// Agar CMS me active banner na ho to popup isi link pe le jayega
 const DEFAULT_LINK =
-  "https://docs.google.com/forms/d/e/1FAIpQLSefWVUVnbBT3GSCLjJM9bKP7hymqVhPTHbixEvbltPcJtVbMA/viewform?usp=publish-editor";
+  "/consultationform";
 
 export default function SwinburneBanner() {
   const [isOpen, setIsOpen] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [banner, setBanner] = useState(null); // CMS se aaya hua active banner
+  const [banner, setBanner] = useState(null); 
 
   useEffect(() => {
     let isMounted = true;
@@ -30,7 +29,7 @@ export default function SwinburneBanner() {
 
         setBanner(active[0] || null);
       } catch (err) {
-        // Fetch fail ho jaye to bhi popup local fallback image ke saath chalega
+      
         if (isMounted) setBanner(null);
       } finally {
         if (isMounted) setLoading(false);
@@ -43,7 +42,7 @@ export default function SwinburneBanner() {
     };
   }, []);
 
-  // Jab tak fetch complete nahi hota, popup mat dikhao (flash/flicker avoid karne ke liye)
+
   if (loading || !isOpen) return null;
 
   const imageSrc = banner?.imageUrl || bannerImg;

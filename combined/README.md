@@ -189,7 +189,7 @@ Students receive a notification displaying:
 * Submit the **Book Appointment** form.
 
 **Expected Result:**
-
+# 
 * The inquiry is saved in the database.
 * A confirmation email is sent.
 * Admins and Counsellors receive an in-app notification inside EduAdmin.
