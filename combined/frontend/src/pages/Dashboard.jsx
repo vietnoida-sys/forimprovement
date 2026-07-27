@@ -13,6 +13,7 @@ import StudyDestinations from "../components/StudyDestinations";
 import BritishCouncilLogo from "../assets/bclogo.jpg";
 import { motion } from "framer-motion";
 import logo9 from "../assets/story6.mp4" ;
+import SEO from '../components/SEO';
 
 // 1. Updated FadeUp with a lower y-offset and "some" viewport threshold
 const FadeUp = ({ children, delay = 0 }) => (
@@ -36,6 +37,14 @@ const stats = [
 function Dashboard() {
   return (
     <>
+
+      <SEO
+        title="VietWorldGate - Vietnam Travel & Visa Services"
+        description="VietWorldGate offers Vietnam visa, tour packages, and travel assistance for international travelers."
+        keywords="visa for apply , tourist visa for apply , vietworldgate"
+        url="https://vietworldgate.com/"
+        image="https://www.vietworldgate.com/public/vietworldgate.png"
+      />
       <Navbar />
 
       {/* TRUST BAR */}

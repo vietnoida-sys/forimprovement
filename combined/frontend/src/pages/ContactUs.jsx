@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import logo from "../assets/contactimage.jpeg";
+import SEO from '../components/SEO';
 
 // Aapki CompanyProfile waali exact same configuration jo kabhi fail nahi hoti
 const FadeUp = ({ children, delay = 0 }) => (
@@ -53,6 +54,13 @@ export default function ContactUs() {
 
   return (
     <>
+      <SEO
+        title="Contact Us - VietWorldGate"
+        description="Get in touch with VietWorldGate for Vietnam visa and tour package assistance."
+        keywords="contact vietworldgate, vietnam visa help"
+        url="https://vietworldgate.com/contact-us"
+        image="https://www.vietworldgate.com/public/vietworldgate.png"
+      />
       <Navbar />
 
       <div className="contact-container">

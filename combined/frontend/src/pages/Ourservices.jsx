@@ -4,7 +4,7 @@ import "./OurServices.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
-
+import SEO from '../components/SEO';
 const services = [
   {
     id: 1,
@@ -90,7 +90,15 @@ export default function OurServices() {
 
   return (
     <> 
+      <SEO
+        title="About Us - VietWorldGate"
+        description="Learn more about VietWorldGate and our expertise in Vietnam travel services."
+        keywords="about vietworldgate, vietnam travel company"
+        url="https://vietworldgate.com/Ourservices"
+        image="https://www.vietworldgate.com/public/vietworldgate.png"
+      />
       <Navbar />
+
       <main>
         {/* ── Hero Banner ── */}
         <section className="services-heros" aria-label="Our Services banner">
