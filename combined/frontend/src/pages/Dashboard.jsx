@@ -44,7 +44,7 @@ function Dashboard() {
     <>
       <SEO
         title="Best Study Abroad &  Visa Consultant in Delhi | VietWorldGate"
-        description="VietWorldGate is a trusted study abroad and Vietnam visa consultant in Delhi, offering student visa guidance, tourist visa support, and post-study work visa assistance for Australia, UK, New Zealand, Japan, and Vietnam."
+        description="VietWorldGate is a trusted study abroad and visa consultant in Delhi, offering student visa guidance, tourist visa support, and post-study work visa assistance for Australia, UK, New Zealand, Japan."
         keywords="study abroad consultant delhi, study visa consultant delhi,  student visa delhi, best overseas education consultant delhi, post study work visa consultant delhi, study abroad consultants near me"
         url="https://vietworldgate.com/"
         image="https://www.vietworldgate.com/public/vietworldgate.png"
