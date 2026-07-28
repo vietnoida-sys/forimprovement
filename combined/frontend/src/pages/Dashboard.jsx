@@ -127,12 +127,12 @@ function Dashboard() {
               POST STUDY WORK RIGHT – AUSTRALIA, UK, NEW ZEALAND, JAPAN, RUSSIA
             </span>
             <h1>
-              Best Study Abroad & Vietnam Visa Consultant in Delhi
+              Best Study Abroad & Visa Consultant in Delhi
               <br />
               Extend Your Stay and Work After Graduation
             </h1>
             <p>
-              VietWorldGate is a trusted study abroad and Vietnam visa
+              VietWorldGate is a trusted study abroad and  visa
               consultant based in Delhi, helping students explore
               world-class universities and build their future with global
               education opportunities.
