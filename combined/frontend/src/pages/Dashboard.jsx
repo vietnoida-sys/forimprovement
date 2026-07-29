@@ -187,7 +187,7 @@ function Dashboard() {
         </div>
       </section>
 
-      {/* BAAKI SECTIONS - lazy loaded to reduce initial bundle size */}
+  
       <Suspense fallback={<div style={{ minHeight: 200 }} />}>
         <FadeUp>
           <StudyDestinations />

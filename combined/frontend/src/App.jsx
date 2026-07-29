@@ -29,7 +29,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // ✅ jaise hi banner render ho, is tab ke liye flag set kar do
     if (showBanner) {
       sessionStorage.setItem("swinburneBannerShown", "true");
     }
@@ -55,7 +54,6 @@ function App() {
     <AuthProvider>
       <LoginModalProvider>
 
-        {/* ✅ Banner sirf isi tab me pehli baar dikhega */}
         {showBanner && <SwinburneBanner />}
 
         <ScrollToTop />
