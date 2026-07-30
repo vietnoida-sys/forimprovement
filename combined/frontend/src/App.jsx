@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     if (showBanner) {
-      sessionStorage.setItem("swinburneBannerShown", "true");
+      sessionStorage.setItem("#", "true");
     }
   }, [showBanner]);
 
