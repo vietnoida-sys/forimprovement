@@ -33,7 +33,7 @@ export default function DubaiDestination() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2 // Staggers the entry of children feature cards
+        staggerChildren: 0.2 
       }
     }
   };

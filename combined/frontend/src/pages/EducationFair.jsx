@@ -7,6 +7,7 @@ import { FaMoneyBillWave, FaUniversity, FaUserTie } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Imported Framer Motion
 
+
 const countriesDataList = [
   { name: "United Kingdom", visaType: "Tier 4 Student Visa", speed: "15 Days Processing", flag: "🇬🇧" },
   { name: "Canada", visaType: "Study Permit (SDS)", speed: "20 Days Processing", flag: "🇨🇦" },
@@ -55,7 +56,7 @@ const EducationFair = () => {
   const [searchIndex, setSearchIndex] = useState(0);
   const [showAllCourses, setShowAllCourses] = useState(false);
 
-  const phoneNumber = "917982295530"; 
+  const phoneNumber = "917982295530";
   const message = "Hi, I am looking to study abroad and want assistance with admission and student visas.";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -80,11 +81,11 @@ const EducationFair = () => {
   return (
     <>
       <Navbar />
-      
+
       {/* HERO SECTION */}
       <section className="heros">
         <div className="heros-container">
-          <motion.div 
+          <motion.div
             className="heros-left"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -100,7 +101,7 @@ const EducationFair = () => {
               Get end-to-end guidance from picking premium international universities to seamless visa processing. Turn your global education dreams into reality today.
             </p>
 
-            <motion.div 
+            <motion.div
               className="statss"
               variants={staggerContainer}
               initial="hidden"
@@ -120,10 +121,10 @@ const EducationFair = () => {
               </motion.div>
             </motion.div>
 
-            <motion.a 
-              href={whatsappLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <motion.a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="whatsapps-hero-btn"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -132,7 +133,7 @@ const EducationFair = () => {
             </motion.a>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="heros-right"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -146,7 +147,7 @@ const EducationFair = () => {
       {/* BENEFITS SECTION */}
       <section className="benefitss">
         <div className="containers">
-          <motion.div 
+          <motion.div
             className="benefitss-header"
             variants={fadeInUp}
             initial="hidden"
@@ -157,7 +158,7 @@ const EducationFair = () => {
             <p>Unlock opportunities, save money, and get expert guidance — all in one place.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="benefitss-grid"
             variants={staggerContainer}
             initial="hidden"
@@ -173,18 +174,22 @@ const EducationFair = () => {
             ))}
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="benefitss-cta"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="benefitss-btn">
+            <Link to="/consultationform">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="benefitss-btn"
+              >
                 Register Now
               </motion.button>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -205,7 +210,7 @@ const EducationFair = () => {
           </div>
 
           <div className="sliders-container">
-            <motion.div 
+            <motion.div
               className="universities-grid"
               variants={staggerContainer}
               initial="hidden"
@@ -223,8 +228,8 @@ const EducationFair = () => {
                       <strong>{college.fees}</strong>
                     </div>
                     <div className="visas-badge"><FaPassport /> {college.visaSuccess}</div>
-                    <motion.button 
-                      onClick={() => window.open(whatsappLink, '_blank')} 
+                    <motion.button
+                      onClick={() => window.open(whatsappLink, '_blank')}
                       className="applys-btn"
                       whileHover={{ backgroundColor: "#128C7E", scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -252,7 +257,7 @@ const EducationFair = () => {
         <div className="containers">
           <h2 className="titles">Popular Global Programs</h2>
 
-          <motion.div 
+          <motion.div
             className="courses-grid"
             variants={staggerContainer}
             initial="hidden"
@@ -261,8 +266,8 @@ const EducationFair = () => {
           >
             {visibleCourses.map((course, idx) => (
               <a href="/CoursePortal" key={idx} style={{ textDecoration: 'none' }}>
-                <motion.div 
-                  className="courses-card" 
+                <motion.div
+                  className="courses-card"
                   variants={cardPop}
                   whileHover={{ y: -5, boxShadow: "0 8px 20px rgba(0,0,0,0.15)" }}
                 >
@@ -283,7 +288,7 @@ const EducationFair = () => {
 
       {/* WHATSAPP CTA BOX */}
       <section className="whatsapps-section">
-        <motion.div 
+        <motion.div
           className="whatsapps-box"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -315,7 +320,7 @@ const EducationFair = () => {
       {/* RECENT REVIEWS SECTION */}
       <section className="recents-reviews">
         <div className="containers">
-          <motion.div 
+          <motion.div
             className="reviewss-header"
             variants={fadeInUp}
             initial="hidden"
@@ -324,12 +329,12 @@ const EducationFair = () => {
           >
             <h2>Recent Reviews</h2>
             <p>
-              Hear from our global students who successfully obtained their visas and admission 
+              Hear from our global students who successfully obtained their visas and admission
               to top-tier international universities.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="reviewss-grid"
             variants={staggerContainer}
             initial="hidden"

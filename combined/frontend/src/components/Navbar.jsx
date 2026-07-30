@@ -318,8 +318,8 @@ function Navbar() {
               </div>
               <ul className="profile-menu">
                 <li><Link to="/portal" onClick={() => setProfileOpen(false)}>Dashboard</Link></li>
-                <li><Link to="/profile" onClick={() => setProfileOpen(false)}>My Profile</Link></li>
-                <li><Link to="/settings" onClick={() => setProfileOpen(false)}>Settings</Link></li>
+                {/* <li><Link to="/profile" onClick={() => setProfileOpen(false)}>My Profile</Link></li>
+                <li><Link to="/settings" onClick={() => setProfileOpen(false)}>Settings</Link></li> */}
                 <li className="divider">
                   <button onClick={() => logout()}>Logout</button>
                 </li>

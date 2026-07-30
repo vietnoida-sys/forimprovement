@@ -342,7 +342,7 @@ export default function EventsPage() {
                 <div className="time-box"><h3>30</h3><p>Secs</p></div>
               </div>
 
-              <Link to="https://docs.google.com/forms/d/e/1FAIpQLSefWVUVnbBT3GSCLjJM9bKP7hymqVhPTHbixEvbltPcJtVbMA/viewform?usp=publish-editor">
+              <Link to="/consultationform">
                 <button className="btn-register-yellow">
                   Register For Free →
                 </button>

@@ -97,7 +97,7 @@ export default function CompanyHistory() {
             </div>
             <div className="ch-hero__btns">
               <a href="#global-presence" className="ch-btn ch-btn--primary">Locate Our Branches ↓</a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSefWVUVnbBT3GSCLjJM9bKP7hymqVhPTHbixEvbltPcJtVbMA/viewform?usp=publish-editor" className="ch-btn ch-btn--ghost">Book Free Consultation</a>
+              <a href="/consultationform" className="ch-btn ch-btn--ghost">Book Free Consultation</a>
             </div>
           </motion.div>
         </section>
@@ -297,7 +297,7 @@ export default function CompanyHistory() {
               <h2 className="sec-title" style={{ marginBottom: 18 }}>Ready to Plan Your Next<br />International Semester?</h2>
               <p className="sec-sub" style={{ margin: "0 auto 44px" }}>Connect with our certified visa agents at Ghaziabad, Noida, Delhi, or London for a free profile evaluation session.</p>
               <div className="ch-cta-btns">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSefWVUVnbBT3GSCLjJM9bKP7hymqVhPTHbixEvbltPcJtVbMA/viewform?usp=publish-editor" className="ch-btn ch-btn--primary">Contact me</a>
+                <a href="/consultationform" className="ch-btn ch-btn--primary">Contact me</a>
               </div>
             </div>
           </section>
