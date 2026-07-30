@@ -17,7 +17,7 @@ function App() {
   // isliye banner har naye tab me pehli baar dikhega,
   // lekin usi tab me reload/navigate karne pe dobara nahi dikhega.
   const [showBanner, setShowBanner] = useState(() => {
-    return !sessionStorage.getItem("swinburneBannerShown");
+    return !sessionStorage.getItem("#");
   });
 
   useEffect(() => {
