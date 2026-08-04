@@ -27,6 +27,7 @@ function App() {
       behavior: "smooth",
     });
   };
+  
 
   if (loading) {
     return (

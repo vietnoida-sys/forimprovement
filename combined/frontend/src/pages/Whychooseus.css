@@ -257,15 +257,12 @@
     gap: 12px;
   }
   .whatsapp-btn2, .phone-btn-animated { width: 100%; }
-
-  /* 👇 FIXED: Flags will now explicitly stay 3 in a row on mobile screen boundaries */
   .heros-right {
     grid-template-columns: repeat(3, 1fr); 
     gap: 8px; /* Compact padding for small screens */
     margin-top: 15px;
   }
   
-  /* Compact styling so 3 cards fit beautifully without breaking text alignment */
   .card { 
     padding: 10px 4px; 
     font-size: 11px; 

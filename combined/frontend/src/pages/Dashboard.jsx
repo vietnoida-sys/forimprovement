@@ -13,6 +13,7 @@ const StudyDestinations = lazy(() => import("../components/StudyDestinations"));
 const StudyAbroadLayouts = lazy(() => import("../components/StudyAbroadLayouts"));
 const StudyAbroadFeatures = lazy(() => import("../components/StudyAbroadFeatures"));
 const OurServices = lazy(() => import("../components/OurServices"));
+const LoanProcessSection = lazy(() => import("../components/Loanprocesssection"));
 const StudyAbroad = lazy(() => import("../components/StudyAbroad"));
 const Testimonials = lazy(() => import("../components/Testimonials"));
 const FaqSection = lazy(() => import("../components/FaqSection"));
@@ -187,7 +188,6 @@ function Dashboard() {
         </div>
       </section>
 
-  
       <Suspense fallback={<div style={{ minHeight: 200 }} />}>
         <FadeUp>
           <StudyDestinations />
@@ -200,6 +200,9 @@ function Dashboard() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <OurServices />
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <LoanProcessSection />
         </FadeUp>
         <FadeUp delay={0.1}>
           <StudyAbroad />

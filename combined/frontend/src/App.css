@@ -4,9 +4,6 @@ html, body {
   height: auto !important;       
   min-height: 100vh;
 }
-
-
-
 .scroll-top {
   position: fixed;
   bottom: 20px;
@@ -30,7 +27,6 @@ html, body {
   background-color: #0a3121;
 }
 
-
 .splash-screen {
   position: fixed;
   top: 0;
@@ -43,7 +39,6 @@ html, body {
   align-items: center;
   z-index: 99999;
 }
-
 
 .splash-logo {
   width: 160px; 

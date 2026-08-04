@@ -39,8 +39,6 @@ import TermsConditions from "../pages/TermsConditions";
 import EducationFair from '../pages/EducationFair';
 import VideoGallery from "../pages/VideoGallery";
 
-
-
 import Accreditations from "../pages/Accreditations";
 import CompanyHistory from "../pages/CompanyHistory";
 import SocialResponsibility from "../pages/Socialresponsibility";
@@ -51,6 +49,7 @@ import StudentDashbaord from "../pages/StudentDashbaord";
 import { AuthProvider, useAuth } from "../portal/context/AuthContext";
 import ConsultationForm from "../pages/Consultationform";
 import ConsultationsList from "../portal/pages/consultation";
+import LoanProcessSection from "../components/Loanprocesssection";
 
 function AppRoutes() {
   return (
@@ -106,11 +105,9 @@ function AppRoutes() {
           <Route path="/portal/*" element={<PortalApp />} />
           <Route path="/consultationform"  element={<ConsultationForm />} />
           <Route path="/consultations" element={<ConsultationsList />} />
-         
+          <Route path="/loansection" element={<LoanProcessSection/>} />    
       </Routes>
-        </AuthProvider>
-   
+        </AuthProvider> 
   );
 }
-
 export default AppRoutes;
