@@ -5,12 +5,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cmsApi as api } from '../portal/api/axiosClient';
 
-const FAQ_LIMIT = 5; // Only this many FAQs are ever shown on the public site
-
-// Default questions — these show as-is when nothing has been added from the
-// CMS yet. Each real FAQ you add from the CMS replaces one of these
-// (starting from the end of the list), so the section never shows more
-// than FAQ_LIMIT items and never looks empty either.
+const FAQ_LIMIT = 5; 
 const DEFAULT_FAQS = [
   {
     _id: 'default-1',
@@ -43,7 +38,6 @@ const DEFAULT_FAQS = [
       'Yes, we provide end-to-end support for documentation, visa file preparation, and mock interview sessions to maximize your success rate.',
   },
 ];
-
 const FaqSection = () => {
   // First item stays open by default in the accordion
   const [activeIndex, setActiveIndex] = useState(0);
@@ -72,11 +66,6 @@ const FaqSection = () => {
           return bTime - aTime; // newest first
         });
 
-        // Merge: real (added) FAQs fill the slots first, defaults fill
-        // whatever is left over so the section always shows FAQ_LIMIT items.
-        // - Nothing added yet -> all 5 defaults show.
-        // - 1 added -> 1 real FAQ + 4 defaults.
-        // - 5+ added -> all 5 slots are real FAQs, defaults fully replaced.
         const remainingDefaults = DEFAULT_FAQS.slice(
           0,
           Math.max(FAQ_LIMIT - added.length, 0)

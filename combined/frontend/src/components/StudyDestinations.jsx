@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import './StudyDestinations.css';
-// 1. Import motion from framer-motion
 import { motion } from 'framer-motion';
 
 import AusImg from '../assets/studydestination/austraila.jpg';
@@ -43,6 +42,20 @@ const universities = [
   { main: "Coventry University", logo: "/logos/coventry.jpeg", website: "https://www.coventry.ac.uk/" }
 ];
 
+// Study Abroad Global Partners & Edtech Aggregators Data
+const studyAbroadPartners = [
+  { name: "KC Overseas Education", logo: "https://import.cdn.thinkific.com/532427%2Fcustom_site_themes%2Fid%2FfJTyQLsT82fo15yLJxUG_Untitled%201.jpg?width=384&dpr=2" },
+  { name: "ApplyBoard", logo: "https://didmdw8v48h5q.cloudfront.net/wp-content/uploads/2020/09/ApplyBoard_Logo_Horizontal_Blue.svg" },
+  { name: "IDP Education", logo: "https://images.ctfassets.net/8bbwomjfix8m/55AePSl50ZnwVBce2lROSW/ff063dcfbec1eb176c59e2179eef57e2/idp-logo.svg" },
+  { name: "VIEC", logo: "https://www.vieceducation.com/images/logo.png" },
+  { name: "SI-UK", logo: "https://siuk-europe.s3.amazonaws.com/static/original_images/si-uk-latest-logo.webp" },
+  { name: "Edvoy", logo: "https://strapi-assets.edvoy.com/web/edvoy.svg?w=256&q=80" },
+  { name: "UniScholars", logo: "https://unischolars.gumlet.io/2.0/logos/unischolars-logo.png?w=1280&q=75" },
+  { name: "Global University Systems", logo: "https://tse3.mm.bing.net/th/id/OIP.xV1BU0DS3LyAW71kDTZnKAHaHa?r=0&pid=Api&h=220&P=0" },
+  { name: "Intake Education", logo: "https://www.englishuk.com/images/2019/English%20UK%20logo%20RGB%202018%201000w.png" },
+  { name: "Study In", logo: "https://gostudyin.com/wp-content/uploads/2025/03/studyin-logo.svg" }
+];
+
 // Work destinations data
 const workDestinations = [
   { id: 1, name: 'Dubai', image: Dubai },
@@ -54,7 +67,7 @@ const workDestinations = [
   { id: 7, name: 'UK', image: Uk }
 ];
 
-// 2. Parent container variants to trigger staggered transitions on direct children
+// Motion Variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -66,23 +79,12 @@ const containerVariants = {
   }
 };
 
-// 3. Subtle slide-up transitions for text layers and standard descriptive content
 const textRevealVariants = {
   hidden: { opacity: 0, y: 15 },
   visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: "easeOut" }
-  }
-};
-
-// 4. Smooth scale-in transition for logos and grid card boundaries
-const scaleInVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" }
   }
 };
 
@@ -164,7 +166,6 @@ export default function StudyDestinations() {
 
       {/* --- 1. STUDY DESTINATION SLIDER --- */}
       <section className="destination-slider-section">
-        {/* Animated main section header */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -179,7 +180,6 @@ export default function StudyDestinations() {
           </motion.p>
         </motion.div>
 
-        {/* Dynamic sliding container reveals smoothly as one block to prevent scroll-snap clipping */}
         <motion.div 
           className="slider-view-window"
           initial={{ opacity: 0, y: 30 }}
@@ -222,7 +222,6 @@ export default function StudyDestinations() {
 
       {/* --- 2. UNIVERSITY PARTNERS INFINITE AUTO-SCROLLER --- */}
       <section className="university-partners-section">
-        {/* Partner section title */}
         <motion.div 
           className="section-title-center"
           initial={{ opacity: 0, y: -20 }}
@@ -235,7 +234,6 @@ export default function StudyDestinations() {
           </h3>
         </motion.div>
 
-        {/* Scroller container reveals seamlessly */}
         <motion.div 
           className="slider-wrapper"
           initial={{ opacity: 0, scale: 0.98 }}
@@ -247,7 +245,7 @@ export default function StudyDestinations() {
             {/* First Loop */}
             {universities.map((uni, idx) => (
               <a
-                key={`first-${idx}`}
+                key={`first-uni-${idx}`}
                 href={uni.website}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -262,10 +260,10 @@ export default function StudyDestinations() {
                 </motion.div>
               </a>
             ))}
-            {/* Second Loop (For seamless infinite transition) */}
+            {/* Second Loop for Seamless Infinite Scroll */}
             {universities.map((uni, idx) => (
               <a
-                key={`second-${idx}`}
+                key={`second-uni-${idx}`}
                 href={uni.website}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -283,7 +281,6 @@ export default function StudyDestinations() {
           </div>
         </motion.div>
 
-        {/* View All Action Button */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -298,9 +295,73 @@ export default function StudyDestinations() {
         </motion.div>
       </section>
 
-      {/* --- 3. WORK DESTINATION SLIDER --- */}
+      {/* --- 3. GLOBAL STUDY ABROAD PARTNERS SECTION --- */}
+      <section className="university-partners-section study-abroad-partners-section">
+        <motion.div 
+          className="section-title-center"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: "some" }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3>
+           Our Official <span className="purple-highlight italic-bold"> Business Partners</span>
+          </h3>
+          <p className="section-subtitle">
+            We collaborate with world-leading educational networks and recruitment platforms.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className="slider-wrapper"
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: "some" }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="slider-track reverse-track">
+            {/* First Loop */}
+            {studyAbroadPartners.map((partner, idx) => (
+              <a
+                key={`first-partner-${idx}`}
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="logo-card"
+              >
+                <motion.div 
+                  className="logo-image-wrapper"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                >
+                  <img src={partner.logo} alt={partner.name} className="university-logo" />
+                </motion.div>
+              </a>
+            ))}
+            {/* Second Loop for Seamless Infinite Scroll */}
+            {studyAbroadPartners.map((partner, idx) => (
+              <a
+                key={`second-partner-${idx}`}
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="logo-card"
+              >
+                <motion.div 
+                  className="logo-image-wrapper"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                >
+                  <img src={partner.logo} alt={partner.name} className="university-logo" />
+                </motion.div>
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* --- 4. WORK DESTINATION SLIDER --- */}
       <section className="destination-slider-section work-slider-section">
-        {/* Work slider header */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -315,7 +376,6 @@ export default function StudyDestinations() {
           </motion.p>
         </motion.div>
 
-        {/* Sliding card wrapper reveals together */}
         <motion.div 
           className="slider-view-window"
           initial={{ opacity: 0, y: 30 }}

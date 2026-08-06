@@ -4,7 +4,7 @@
   background: rgba(1, 40, 25, 0.35);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 10000;                 /* now above every navbar/dropdown z-index in the app */
+  z-index: 10000;               
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -12,17 +12,11 @@
   padding: 24px 16px;
 }
 
-/* Hide Auth.jsx's OWN internal Navbar — this is the duplicate sitting on top of the real one */
 .login-modal-box .top-header,
 .login-modal-box .navbar {
   display: none !important;
 }
 
-/* If your Footer component has a distinct outer class (e.g. .site-footer, .footer),
-   add it here the same way. Tell me the class name and I'll give you the exact line. */
-
-/* Shrink Auth's full-viewport wrapper down to just the card size,
-   so there's actual backdrop space around it to click and close */
 .login-modal-box .auth-screen-container {
   min-height: auto;
   width: 100%;
@@ -32,7 +26,7 @@
 .login-modal-box {
   position: relative;
   width: 100%;
-  max-width: 480px;              /* matches Auth's own 420px card + breathing room */
+  max-width: 480px;              
   margin: 40px auto;
   animation: loginModalFadeIn 0.25s ease;
 }
