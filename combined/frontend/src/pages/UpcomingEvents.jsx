@@ -9,20 +9,9 @@ import Footer from "../components/Footer";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// ⚠️ CONFIGURE THIS: point to your real backend.
-// If your frontend and backend run on different ports in dev (e.g. Vite on 5173,
-// Express/Django on 5000), set VITE_API_BASE_URL in a .env file at your project root:
-//   VITE_API_BASE_URL=http://localhost:5000
-// Restart `npm run dev` after adding/editing .env — Vite only reads it on startup.
-// If you're using a Vite proxy instead, leave API_BASE_URL empty and make sure
-// vite.config.js has a server.proxy entry for "/api".
 const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 const EVENTS_ENDPOINT = `${API_BASE_URL}/news-events`;
 
-// Your backend's NewsEvent model only stores { title, type, date, description }.
-// The event cards on this page also expect time/location/category/country/mode/
-// seats/img. Until those fields exist on the backend, we fill in safe defaults
-// here so the UI doesn't break. See the note at the bottom of this file for the
 // suggested schema fields to add so real data flows through instead of placeholders.
 function normalizeEvent(item) {
   const parsedDate = new Date(item.date);
@@ -37,9 +26,9 @@ function normalizeEvent(item) {
     id: item._id || item.id,
     title: item.title,
     description: item.description || '',
-    rawDate: item.date,          // kept in original YYYY-MM-DD form for calendar matching
-    date: dateLabel,             // display form, e.g. "10 Aug 2026"
-    day: dayLabel,                // e.g. "Mon"
+    rawDate: item.date,          
+    date: dateLabel,           
+    day: dayLabel,              
     time: item.time || 'Time TBA',
     location: item.location || 'Location TBA',
     category: item.category || 'Event',
@@ -323,7 +312,7 @@ export default function EventsPage() {
               <div className="event-meta-grid">
                 <div className="meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <span>25 June 2026</span>
+                  <span>25 August 2026</span>
                 </div>
                 <div className="meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>

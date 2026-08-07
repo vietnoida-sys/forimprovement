@@ -35,13 +35,12 @@ export default function SwinburneBanner() {
         if (isMounted) setLoading(false);
       }
     };
-
+  
     loadBanner();
     return () => {
       isMounted = false;
     };
   }, []);
-
 
   if (loading || !isOpen) return null;
 

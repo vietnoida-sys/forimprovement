@@ -3,7 +3,8 @@ import "./Consultationform.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const CONSULTATION_TYPES = [
   "Study Visa",
@@ -24,11 +25,11 @@ const COUNTRIES = [
   "Other",
 ];
 
-const CalendarIcon = ({ className }) => (
+const CalendarIcon = ({ className = "" }) => (
   <svg
     className={className}
-    width="18"
-    height="18"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -45,8 +46,9 @@ const CalendarIcon = ({ className }) => (
 
 const ChevronIcon = () => (
   <svg
-    width="16"
-    height="16"
+    className="cf-chevron"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -66,33 +68,57 @@ export default function ConsultationForm() {
     targetCountry: "",
     consultationType: "",
   });
+
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [status, setStatus] = useState("idle");
   const [serverMessage, setServerMessage] = useState("");
 
   const handleChange = (field) => (e) => {
-    setForm((prev) => ({ ...prev, [field]: e.target.value }));
+    setForm((prev) => ({
+      ...prev,
+      [field]: e.target.value,
+    }));
+
     if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: undefined }));
+      setErrors((prev) => ({
+        ...prev,
+        [field]: undefined,
+      }));
     }
   };
 
   const validateClientSide = () => {
     const newErrors = {};
-    if (!form.fullName.trim()) newErrors.fullName = "Full name is required";
+
+    if (!form.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+
     if (!form.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
+    ) {
       newErrors.email = "Enter a valid email address";
     }
-    if (!form.targetCountry) newErrors.targetCountry = "Target country is required";
-    if (!form.consultationType) newErrors.consultationType = "Consultation type is required";
+
+    if (!form.targetCountry) {
+      newErrors.targetCountry = "Target country is required";
+    }
+
+    if (!form.consultationType) {
+      newErrors.consultationType =
+        "Consultation type is required";
+    }
+
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const clientErrors = validateClientSide();
+
     if (Object.keys(clientErrors).length > 0) {
       setErrors(clientErrors);
       return;
@@ -100,24 +126,34 @@ export default function ConsultationForm() {
 
     setStatus("submitting");
     setServerMessage("");
+    setErrors({});
 
     try {
       const res = await fetch(`${API_URL}/consultations`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(form),
       });
+
       const result = await res.json();
 
       if (!res.ok) {
         setErrors(result.errors || {});
         setStatus("error");
-        setServerMessage(result.message || "Please fix the errors below.");
+        setServerMessage(
+          result.message || "Please fix the errors below."
+        );
         return;
       }
 
       setStatus("success");
-      setServerMessage("Your consultation request has been submitted. Our team will reach out shortly.");
+
+      setServerMessage(
+        "Your consultation request has been submitted. Our team will reach out shortly."
+      );
+
       setForm({
         fullName: "",
         email: "",
@@ -126,133 +162,226 @@ export default function ConsultationForm() {
         consultationType: "",
       });
     } catch (err) {
+      console.error("Consultation submit error:", err);
+
       setStatus("error");
-      setServerMessage("Something went wrong. Please try again.");
+      setServerMessage(
+        "Something went wrong. Please try again."
+      );
     }
   };
 
   return (
     <>
       <Navbar />
-      <div className="cf-card">
-        <div className="cf-header">
-          <CalendarIcon className="cf-header-icon" />
-          <h2>Consultation Details</h2>
-        </div>
 
-        <form className="cf-body" onSubmit={handleSubmit} noValidate>
-          <div className="cf-grid">
-            <div className="cf-field">
-              <label htmlFor="fullName">
-                Full Name <span className="cf-required">*</span>
-              </label>
-              <input
-                id="fullName"
-                type="text"
-                placeholder="Your full name"
-                value={form.fullName}
-                onChange={handleChange("fullName")}
-                className={errors.fullName ? "cf-input cf-input-error" : "cf-input"}
-              />
-              {errors.fullName && <span className="cf-error-text">{errors.fullName}</span>}
+      <main className="consultation-page">
+
+        {/* ================= HEADING ================= */}
+        <section className="consultation-hero">
+          <h1>Book Your Free Consultation</h1>
+
+          <p>
+            Our expert advisors will contact you within 5 working
+            hours
+          </p>
+        </section>
+
+        {/* ================= FORM CARD ================= */}
+        <section className="consultation-card">
+
+          {/* Card Header */}
+          <div className="consultation-card-header">
+            <CalendarIcon />
+
+            <h2>Consultation Details</h2>
+          </div>
+
+          {/* Form */}
+          <form
+            className="cf-body"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <div className="cf-grid">
+
+              {/* Full Name */}
+              <div className="cf-field">
+                <label htmlFor="fullName">
+                  Full Name{" "}
+                  <span className="cf-required">*</span>
+                </label>
+
+                <input
+                  id="fullName"
+                  type="text"
+                  placeholder="Your full name"
+                  value={form.fullName}
+                  onChange={handleChange("fullName")}
+                  className={
+                    errors.fullName
+                      ? "cf-input cf-input-error"
+                      : "cf-input"
+                  }
+                />
+
+                {errors.fullName && (
+                  <span className="cf-error-text">
+                    {errors.fullName}
+                  </span>
+                )}
+              </div>
+
+              {/* Email */}
+              <div className="cf-field">
+                <label htmlFor="email">
+                  Email{" "}
+                  <span className="cf-required">*</span>
+                </label>
+
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="your.email@example.com"
+                  value={form.email}
+                  onChange={handleChange("email")}
+                  className={
+                    errors.email
+                      ? "cf-input cf-input-error"
+                      : "cf-input"
+                  }
+                />
+
+                {errors.email && (
+                  <span className="cf-error-text">
+                    {errors.email}
+                  </span>
+                )}
+              </div>
+
+              {/* WhatsApp */}
+              <div className="cf-field">
+                <label htmlFor="whatsappNumber">
+                  WhatsApp Number
+                </label>
+
+                <input
+                  id="whatsappNumber"
+                  type="tel"
+                  placeholder="+91 xxxx xxxx"
+                  value={form.whatsappNumber}
+                  onChange={handleChange("whatsappNumber")}
+                  className="cf-input"
+                />
+              </div>
+
+              {/* Country */}
+              <div className="cf-field">
+                <label htmlFor="targetCountry">
+                  Target Country{" "}
+                  <span className="cf-required">*</span>
+                </label>
+
+                <div className="cf-select-wrap">
+                  <select
+                    id="targetCountry"
+                    value={form.targetCountry}
+                    onChange={handleChange("targetCountry")}
+                    className={
+                      errors.targetCountry
+                        ? "cf-input cf-select cf-input-error"
+                        : "cf-input cf-select"
+                    }
+                  >
+                    <option value="" disabled>
+                      Select country
+                    </option>
+
+                    {COUNTRIES.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                  </select>
+
+                  <ChevronIcon />
+                </div>
+
+                {errors.targetCountry && (
+                  <span className="cf-error-text">
+                    {errors.targetCountry}
+                  </span>
+                )}
+              </div>
             </div>
 
-            <div className="cf-field">
-              <label htmlFor="email">
-                Email <span className="cf-required">*</span>
+            {/* Consultation Type */}
+            <div className="cf-field cf-field-full">
+              <label htmlFor="consultationType">
+                Consultation Type{" "}
+                <span className="cf-required">*</span>
               </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="your.email@example.com"
-                value={form.email}
-                onChange={handleChange("email")}
-                className={errors.email ? "cf-input cf-input-error" : "cf-input"}
-              />
-              {errors.email && <span className="cf-error-text">{errors.email}</span>}
-            </div>
 
-            <div className="cf-field">
-              <label htmlFor="whatsappNumber">WhatsApp Number</label>
-              <input
-                id="whatsappNumber"
-                type="tel"
-                placeholder="+91 xxxx xxxx"
-                value={form.whatsappNumber}
-                onChange={handleChange("whatsappNumber")}
-                className="cf-input"
-              />
-            </div>
-
-            <div className="cf-field">
-              <label htmlFor="targetCountry">
-                Target Country <span className="cf-required">*</span>
-              </label>
               <div className="cf-select-wrap">
                 <select
-                  id="targetCountry"
-                  value={form.targetCountry}
-                  onChange={handleChange("targetCountry")}
+                  id="consultationType"
+                  value={form.consultationType}
+                  onChange={handleChange("consultationType")}
                   className={
-                    errors.targetCountry ? "cf-input cf-select cf-input-error" : "cf-input cf-select"
+                    errors.consultationType
+                      ? "cf-input cf-select cf-input-error"
+                      : "cf-input cf-select"
                   }
                 >
                   <option value="" disabled>
-                    Select country
+                    Select consultation type
                   </option>
-                  {COUNTRIES.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
+
+                  {CONSULTATION_TYPES.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
                     </option>
                   ))}
                 </select>
+
                 <ChevronIcon />
               </div>
-              {errors.targetCountry && <span className="cf-error-text">{errors.targetCountry}</span>}
-            </div>
-          </div>
 
-          <div className="cf-field cf-field-full">
-            <label htmlFor="consultationType">
-              Consultation Type <span className="cf-required">*</span>
-            </label>
-            <div className="cf-select-wrap">
-              <select
-                id="consultationType"
-                value={form.consultationType}
-                onChange={handleChange("consultationType")}
+              {errors.consultationType && (
+                <span className="cf-error-text">
+                  {errors.consultationType}
+                </span>
+              )}
+            </div>
+
+            {/* Server Message */}
+            {serverMessage && (
+              <div
                 className={
-                  errors.consultationType ? "cf-input cf-select cf-input-error" : "cf-input cf-select"
+                  status === "success"
+                    ? "cf-banner cf-banner-success"
+                    : "cf-banner cf-banner-error"
                 }
               >
-                <option value="" disabled>
-                  Select consultation type
-                </option>
-                {CONSULTATION_TYPES.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-              <ChevronIcon />
-            </div>
-            {errors.consultationType && (
-              <span className="cf-error-text">{errors.consultationType}</span>
+                {serverMessage}
+              </div>
             )}
-          </div>
 
-          {serverMessage && (
-            <div className={status === "success" ? "cf-banner cf-banner-success" : "cf-banner cf-banner-error"}>
-              {serverMessage}
-            </div>
-          )}
+            {/* Submit */}
+            <button
+              type="submit"
+              className="cf-submit"
+              disabled={status === "submitting"}
+            >
+              <CalendarIcon />
 
-          <button type="submit" className="cf-submit" disabled={status === "submitting"}>
-            <CalendarIcon />
-            {status === "submitting" ? "Submitting..." : "Submit Consultation Request"}
-          </button>
-        </form>
-      </div>
+              {status === "submitting"
+                ? "Submitting..."
+                : "Submit Consultation Request"}
+            </button>
+          </form>
+        </section>
+      </main>
 
       <Footer />
     </>

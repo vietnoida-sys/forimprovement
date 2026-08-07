@@ -201,7 +201,6 @@ export default function StudyDestinations() {
                 <div className="card-image-wrapper">
                   <img src={dest.image} alt={dest.name} />
                 </div>
-
                 <div className="card-content">
                   <h3>{dest.name}</h3>
                   <Link to={dest.path} className="read-more-wrapper">
@@ -219,7 +218,6 @@ export default function StudyDestinations() {
           </div>
         </motion.div>
       </section>
-
       {/* --- 2. UNIVERSITY PARTNERS INFINITE AUTO-SCROLLER --- */}
       <section className="university-partners-section">
         <motion.div 
@@ -311,7 +309,6 @@ export default function StudyDestinations() {
             We collaborate with world-leading educational networks and recruitment platforms.
           </p>
         </motion.div>
-
         <motion.div 
           className="slider-wrapper"
           initial={{ opacity: 0, scale: 0.98 }}
