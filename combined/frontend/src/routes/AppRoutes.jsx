@@ -50,6 +50,7 @@ import { AuthProvider, useAuth } from "../portal/context/AuthContext";
 import ConsultationForm from "../pages/Consultationform";
 import ConsultationsList from "../portal/pages/consultation";
 import LoanProcessSection from "../components/Loanprocesssection";
+import Ielts from "../pages/Ielts";
 
 function AppRoutes() {
   return (
@@ -97,7 +98,6 @@ function AppRoutes() {
         <Route path="/gallary" element={<VideoGallery/>} />
         <Route path="/termsandconditions" element={<TermsConditions/>} />
           <Route path="/CompanyHistory" element={<CompanyHistory/>} />
-      
          <Route path="/Accrediations" element={<Accreditations/>} />
          <Route path="/SocialResponsibility" element={<SocialResponsibility/>} />
           <Route path="/studentdashbaord" element={<StudentDashbaord/>} />
@@ -105,7 +105,8 @@ function AppRoutes() {
           <Route path="/portal/*" element={<PortalApp />} />
           <Route path="/consultationform"  element={<ConsultationForm />} />
           <Route path="/consultations" element={<ConsultationsList />} />
-          <Route path="/loansection" element={<LoanProcessSection/>} />    
+          <Route path="/loansection" element={<LoanProcessSection/>} />
+          <Route path="ielts" element={<Ielts/>}  />   
       </Routes>
         </AuthProvider> 
   );

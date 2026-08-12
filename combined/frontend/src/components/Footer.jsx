@@ -190,6 +190,13 @@ const Footer = () => {
                   Gallery
                 </Link>
               </li>
+
+              <li> 
+                <Link to="/ielts">
+                 IELTS
+              </Link>
+              </li>
+
             </ul>
           </div>
 

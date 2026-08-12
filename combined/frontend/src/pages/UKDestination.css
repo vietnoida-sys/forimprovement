@@ -9,12 +9,10 @@
   --wa-green: #25D366;
   --wa-dark-green: #128C7E;
 }
-
 /* Base Reset & Box Sizing Safeguard */
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
 .global-destination-wrapper {
   background-color: var(--white);
   color: var(--text-dark-slate);
@@ -30,7 +28,6 @@
 
   padding: 30px 6%; /* Balanced spacing alignment */
   background-image: url('https://images.pexels.com/photos/7807857/pexels-photo-7807857.jpeg');
-
   background-repeat: no-repeat;
   background-position: right center;
   background-size: cover;
@@ -149,6 +146,7 @@
 }
 
 .cta-meta-text {
+  
   display: block;
   font-size: 0.82rem;
   text-transform: uppercase;
