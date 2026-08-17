@@ -7,6 +7,7 @@ import { cmsApi as api } from '../portal/api/axiosClient';
 
 const FAQ_LIMIT = 5; 
 const DEFAULT_FAQS = [
+  
   {
     _id: 'default-1',
     question: 'What is VIET WORLDGATE?',
@@ -125,6 +126,8 @@ const FaqSection = () => {
             src="https://images.pexels.com/photos/2789781/pexels-photo-2789781.jpeg"
             alt="Student pointing"
             className="faq-student-img"
+            loading="lazy"
+            decoding="async"
           />
         </motion.div>
 
@@ -187,5 +190,4 @@ const FaqSection = () => {
     </section>
   );
 };
-
 export default FaqSection;

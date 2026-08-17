@@ -217,23 +217,6 @@
   border-top: 1px solid #f2edf4; 
 }
 
-.destination-link{
-  text-decoration:none;
-  color:inherit;
-  display:block;
-}
-
-.read-more-wrapper{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:12px;
-}
-
-.read-more-text{
-  font-weight:600;
-}
-
 .slider-wrapper {
   overflow: hidden;
   width: 100%;
@@ -245,11 +228,134 @@
   animation: scroll 40s linear infinite;
 }
 
+.slider-track.reverse-track {
+  animation-direction: reverse;
+}
+
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* =========================================
+    UNIVERSITY / BUSINESS PARTNERS SECTIONS
+========================================= */
+.university-partners-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  width: 100%;
+}
+
+.study-abroad-partners-section {
+  border-top: 1px solid #f2edf4;
+}
+
+.section-title-center {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.section-title-center h3 {
+  font-size: 1.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.section-title-center .section-subtitle {
+  margin-bottom: 0;
+}
+
+.purple-highlight {
+  color: #012819;
+}
+
+.italic-bold {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Logo cards inside the infinite scroller */
+.logo-card {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  text-decoration: none;
+}
+
+.logo-image-wrapper {
+  width: 150px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #f2edf4;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  padding: 14px;
+}
+
+.university-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.logo-card:hover .university-logo {
+  filter: grayscale(0%);
+}
+
+.center-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.btn-secondary {
+  padding: 12px 32px;
+  border: 1.5px solid #012819;
+  border-radius: 30px;
+  background: transparent;
+  color: #012819;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #012819;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 650px) {
+  .logo-image-wrapper {
+    width: 120px;
+    height: 72px;
+  }
+
+  .logo-card {
+    padding: 0 18px;
+  }
+
+  .section-title-center h3 {
+    font-size: 1.5rem;
   }
 }

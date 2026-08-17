@@ -165,6 +165,8 @@ export default function LoanProcessSection() {
                   src={partner.logo}
                   alt={partner.name}
                   className="lp-partner-logo"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

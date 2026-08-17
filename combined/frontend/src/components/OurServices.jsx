@@ -90,6 +90,8 @@ export default function OurServices() {
                       src={service.imageUrl}
                       alt={service.title}
                       className="service-img"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     <div className="service-icon-badge">

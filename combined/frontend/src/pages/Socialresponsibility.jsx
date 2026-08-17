@@ -33,7 +33,7 @@ const FacebookIcon = ({ size = 24, className }) => (
 
 // Videos imports
 import video1 from "../assets/story1video.mp4";
-import video2 from "../assets/story2video.MOV";
+import video2 from "../assets/story2video.mp4";
 import video3 from "../assets/story3video.mp4";
 import video4 from "../assets/story4video.mp4";
 import video5 from "../assets/story5video.mp4";

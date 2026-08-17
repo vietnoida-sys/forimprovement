@@ -199,7 +199,7 @@ export default function StudyDestinations() {
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
               >
                 <div className="card-image-wrapper">
-                  <img src={dest.image} alt={dest.name} />
+                  <img src={dest.image} alt={dest.name} loading="lazy" decoding="async" />
                 </div>
                 <div className="card-content">
                   <h3>{dest.name}</h3>
@@ -218,6 +218,7 @@ export default function StudyDestinations() {
           </div>
         </motion.div>
       </section>
+
       {/* --- 2. UNIVERSITY PARTNERS INFINITE AUTO-SCROLLER --- */}
       <section className="university-partners-section">
         <motion.div 
@@ -254,7 +255,7 @@ export default function StudyDestinations() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 >
-                  <img src={uni.logo} alt={uni.main} className="university-logo" />
+                  <img src={uni.logo} alt={uni.main} className="university-logo" loading="lazy" decoding="async" />
                 </motion.div>
               </a>
             ))}
@@ -272,7 +273,7 @@ export default function StudyDestinations() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 >
-                  <img src={uni.logo} alt={uni.main} className="university-logo" />
+                  <img src={uni.logo} alt={uni.main} className="university-logo" loading="lazy" decoding="async" />
                 </motion.div>
               </a>
             ))}
@@ -303,12 +304,13 @@ export default function StudyDestinations() {
           transition={{ duration: 0.6 }}
         >
           <h3>
-           Our Official <span className="purple-highlight italic-bold"> Business Partners</span>
+            Our Official <span className="purple-highlight italic-bold">Business Partners</span>
           </h3>
           <p className="section-subtitle">
             We collaborate with world-leading educational networks and recruitment platforms.
           </p>
         </motion.div>
+
         <motion.div 
           className="slider-wrapper"
           initial={{ opacity: 0, scale: 0.98 }}
@@ -319,39 +321,63 @@ export default function StudyDestinations() {
           <div className="slider-track reverse-track">
             {/* First Loop */}
             {studyAbroadPartners.map((partner, idx) => (
-              <a
-                key={`first-partner-${idx}`}
-                href={partner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="logo-card"
-              >
-                <motion.div 
-                  className="logo-image-wrapper"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              partner.website ? (
+                <a
+                  key={`first-partner-${idx}`}
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="logo-card"
                 >
-                  <img src={partner.logo} alt={partner.name} className="university-logo" />
-                </motion.div>
-              </a>
+                  <motion.div
+                    className="logo-image-wrapper"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <img src={partner.logo} alt={partner.name} className="university-logo" loading="lazy" decoding="async" />
+                  </motion.div>
+                </a>
+              ) : (
+                <div key={`first-partner-${idx}`} className="logo-card">
+                  <motion.div
+                    className="logo-image-wrapper"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <img src={partner.logo} alt={partner.name} className="university-logo" loading="lazy" decoding="async" />
+                  </motion.div>
+                </div>
+              )
             ))}
             {/* Second Loop for Seamless Infinite Scroll */}
             {studyAbroadPartners.map((partner, idx) => (
-              <a
-                key={`second-partner-${idx}`}
-                href={partner.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="logo-card"
-              >
-                <motion.div 
-                  className="logo-image-wrapper"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              partner.website ? (
+                <a
+                  key={`second-partner-${idx}`}
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="logo-card"
                 >
-                  <img src={partner.logo} alt={partner.name} className="university-logo" />
-                </motion.div>
-              </a>
+                  <motion.div
+                    className="logo-image-wrapper"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <img src={partner.logo} alt={partner.name} className="university-logo" loading="lazy" decoding="async" />
+                  </motion.div>
+                </a>
+              ) : (
+                <div key={`second-partner-${idx}`} className="logo-card">
+                  <motion.div
+                    className="logo-image-wrapper"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <img src={partner.logo} alt={partner.name} className="university-logo" loading="lazy" decoding="async" />
+                  </motion.div>
+                </div>
+              )
             ))}
           </div>
         </motion.div>
@@ -392,7 +418,7 @@ export default function StudyDestinations() {
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
               >
                 <div className="card-image-wrapper">
-                  <img src={dest.image} alt={dest.name} />
+                  <img src={dest.image} alt={dest.name} loading="lazy" decoding="async" />
                 </div>
                 <div className="card-content">
                   <h3>{dest.name}</h3>

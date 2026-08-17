@@ -118,7 +118,7 @@ export default function StudyAbroadFeatures() {
             viewport={{ once: true, amount: "some" }}
           >
             <motion.div className="finder-img-wrap" variants={scaleVariants}>
-              <img src={studentBannerImg} alt="Student holding books" />
+              <img src={studentBannerImg} alt="Student holding books" loading="lazy" decoding="async" />
             </motion.div>
 
             <motion.div className="finder-text-wrap" variants={containerVariants}>
@@ -245,7 +245,7 @@ export default function StudyAbroadFeatures() {
 
                   {/* Inside image zoom-in effect */}
                   <motion.div className="circle-image-inner" variants={scaleVariants}>
-                    <img src={step.img} alt={step.title} />
+                    <img src={step.img} alt={step.title} loading="lazy" decoding="async" />
                   </motion.div>
                 </div>
 
@@ -293,7 +293,7 @@ export default function StudyAbroadFeatures() {
             >
               {/* Image side slide-in */}
               <motion.div className="benefit-img-side" variants={scaleVariants}>
-                <img src={benefit.img} alt={benefit.title} />
+                <img src={benefit.img} alt={benefit.title} loading="lazy" decoding="async" />
               </motion.div>
 
               {/* Text elements (h3, p) slide up sequentially */}

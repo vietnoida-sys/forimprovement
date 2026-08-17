@@ -240,9 +240,9 @@ body{
 }
 
 .hero-left h1{
-  font-size:clamp(42px,5vw,76px);
+  font-size:clamp(12px,5vw,56px);
   line-height:1.15;
-  font-weight:700;
+  font-weight:500;
   margin-bottom:25px;
 }
 

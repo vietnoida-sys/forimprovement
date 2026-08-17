@@ -5,7 +5,7 @@ import "./StudyAbroadLayouts.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 import logo1 from "../assets/story1video.mp4";
-import logo2 from "../assets/story2video.MOV";
+import logo2 from "../assets/story2video.mp4";
 import logo3 from "../assets/story3video.mp4";
 import logo4 from "../assets/story4video.mp4";
 import logo5 from "../assets/story5video.mp4";
@@ -276,49 +276,55 @@ export default function StudyAbroadLayouts() {
               className="visits-slider-track"
               style={{ transform: `translateX(-${storyTranslateX}%)` }}
             >
-              {testimonials.map((item) => (
-                <div
-                  key={item.id}
-                  className="story-card-wrapper"
-                  style={{ flex: `0 0 ${100 / visibleStoryCount}%`, width: `${100 / visibleStoryCount}%` }}
-                >
-                  <motion.div
-                    className="testimonial-cards"
-                    onClick={() => item.isVideo && setActiveVideoUrl(item.img)}
-                    style={{ cursor: item.isVideo ? "pointer" : "default" }}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              {testimonials.map((item, idx) => {
+                // Only the cards currently scrolled into view should preload/autoplay.
+                // Everything else stays untouched until the user scrolls to it or opens the modal.
+                const isInView =
+                  idx >= storyIndex && idx < storyIndex + visibleStoryCount;
+                return (
+                  <div
+                    key={item.id}
+                    className="story-card-wrapper"
+                    style={{ flex: `0 0 ${100 / visibleStoryCount}%`, width: `${100 / visibleStoryCount}%` }}
                   >
-                    <div className="video-thumbnail-box">
-                      <motion.div 
-                        className="circular-video-frame"
-                        variants={scaleInVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                      >
-                        {item.isVideo ? (
-                          <video
-                            src={item.img}
-                            muted
-                            loop
-                            playsInline
-                            autoPlay
-                            preload="auto"
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                          />
-                        ) : (
-                          <img src={item.img} alt={item.name} />
-                        )}
-                        {item.isVideo && <div className="play-btn-overlay">▶</div>}
-                      </motion.div>
-                    </div>
-                    <div className="testimonial-details">
-                      <h4 className="testimonial-name">{item.name}</h4>
-                    </div>
-                  </motion.div>
-                </div>
-              ))}
+                    <motion.div
+                      className="testimonial-cards"
+                      onClick={() => item.isVideo && setActiveVideoUrl(item.img)}
+                      style={{ cursor: item.isVideo ? "pointer" : "default" }}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    >
+                      <div className="video-thumbnail-box">
+                        <motion.div 
+                          className="circular-video-frame"
+                          variants={scaleInVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                        >
+                          {item.isVideo ? (
+                            <video
+                              src={item.img}
+                              muted
+                              loop
+                              playsInline
+                              autoPlay={isInView}
+                              preload={isInView ? "metadata" : "none"}
+                              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            />
+                          ) : (
+                            <img src={item.img} alt={item.name} loading="lazy" decoding="async" />
+                          )}
+                          {item.isVideo && <div className="play-btn-overlay">▶</div>}
+                        </motion.div>
+                      </div>
+                      <div className="testimonial-details">
+                        <h4 className="testimonial-name">{item.name}</h4>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -452,7 +458,7 @@ export default function StudyAbroadLayouts() {
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
                     <div className="visit-img-banner">
-                      <img src={visit.img} alt={visit.title} />
+                      <img src={visit.img} alt={visit.title} loading="lazy" decoding="async" />
                     </div>
                     
                     {/* Content inside the card */}
