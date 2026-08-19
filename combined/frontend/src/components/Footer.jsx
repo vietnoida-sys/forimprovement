@@ -73,7 +73,6 @@ const Footer = () => {
               alt="VIET WORLDGATE Logo"
               className="footer-logo"
             />
-
             <p>
               VIET WORLDGATE is one of the largest international
               student recruitment companies in South Asia.
@@ -91,7 +90,7 @@ const Footer = () => {
                 <FaInstagram />
               </a>
 
-              <a href="https://www.youtube.com/@viet.worldgate" aria-label="YouTube">
+              <a href="https://www.youtube.com/@VIETWORLDGATE" aria-label="YouTube">
                 <FaYoutube />
               </a>
 
@@ -320,6 +319,7 @@ const Footer = () => {
             <Link to="/ContactNoida" onClick={scrollToTop}>
               Branches
             </Link>
+
 
           </div>
         </div>
