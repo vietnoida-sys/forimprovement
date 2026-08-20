@@ -138,10 +138,8 @@ export default function Sidebar({ open, onClose }) {
 
   /* Logo image */
   .brand-mark img {
-    width: 40px;
-    height: 40px;
-    max-width: 100%;
-    max-height: 100%;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     object-position: center;
     display: block;

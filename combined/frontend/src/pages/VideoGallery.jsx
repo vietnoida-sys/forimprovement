@@ -3,27 +3,22 @@ import "./VideoGallery.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const videos = [
-  {
-    id: 1,
-    title: "Canada Visa",
-    url: "",
-  },
-  {
-    id: 2,
-    title:"UK Visa",
-    url: "",
-  },
-  {
-    id:3,
-    title:"AUS Visa",
-    url:"",
-  },
-   {
-    id:4,
-    tittle:"Germany Visa",
-    url:"",
-   }
+import visaFirst from "../assets/visa_first.png";
+import visaSecond from "../assets/visa_second.png";
+import visaThird from "../assets/visa_third.png";
+import visaFourth from "../assets/visa_fourth.png";
+import visaFifth from "../assets/visa_fifth.png";
+import visaSix from "../assets/visa_six.png";
+import visaSeven from "../assets/visa_seven.png";
+
+const galleryItems = [
+  { id: 1, image: visaFirst },
+  { id: 2, image: visaSecond },
+  { id: 3, image: visaThird },
+  { id: 4, image: visaFourth },
+  { id: 5, image: visaFifth },
+  { id: 6, image: visaSix  },
+  { id: 7, image: visaSeven },
 ];
 
 const VideoGallery = () => {
@@ -33,27 +28,22 @@ const VideoGallery = () => {
 
       <section className="video-gallery">
         <div className="container">
-          <h2>Gallery</h2>
-          <p>Watch real students sharing their study abroad journey.</p>
+          <div className="gallery-heading">
+            <span className="gallery-tag">STUDENT STORIES</span>
+            <h1>Students Gallery</h1>
+            <p>
+              Explore our students' study abroad journey, visa success and
+              international education experience.
+            </p>
+          </div>
 
           <div className="video-grid">
-            {videos.map((video) => (
-              <div className="video-card" key={video.id}>
-                {video.url ? (
-                  <iframe
-                    src={video.url}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                ) : (
-                  <div className="video-placeholder">
-                    <span>Coming Soon...</span>
-                  </div>
-                )}
-
-                <h3>{video.title}</h3>
+            {galleryItems.map((item) => (
+              <div className="video-card" key={item.id}>
+                <div className="image-wrapper">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </div>
+                <span className="card-title">{item.title}</span>
               </div>
             ))}
           </div>
