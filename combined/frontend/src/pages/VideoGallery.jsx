@@ -6,34 +6,24 @@ import Footer from "../components/Footer";
 const videos = [
   {
     id: 1,
-    title: "Coming Soon...",
-    url: "https://www.youtube.com/embed/5goFEt0zh-Y",
+    title: "Canada Visa",
+    url: "",
   },
   {
     id: 2,
-    title: "Coming Soon...",
+    title:"UK Visa",
     url: "",
   },
   {
-    id: 3,
-    title: "Coming Soon...",
-    url: "",
+    id:3,
+    title:"AUS Visa",
+    url:"",
   },
-  {
-    id: 4,
-    title: "Coming Soon...",
-    url: "",
-  },
-  {
-    id: 5,
-    title: "Coming Soon...",
-    url: "",
-  },
-  {
-    id: 6,
-    title: "Coming Soon...",
-    url: "",
-  },
+   {
+    id:4,
+    tittle:"Germany Visa",
+    url:"",
+   }
 ];
 
 const VideoGallery = () => {

@@ -50,8 +50,7 @@ export default function StatCard({ icon: Icon, label, value, tint = "indigo" }) 
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-      
+        }     
 }
 `}</style>
     </div>
