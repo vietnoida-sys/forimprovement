@@ -32,7 +32,7 @@ export default function ContactUs() {
     {
       type: "Domestic Corporate Office",
       title: "Noida, India",
-      text: "36, Block H, Sector 5, Noida, Uttar Pradesh 201301",
+      text: "36, Block H, Sector 63, Noida, Uttar Pradesh 201301",
     },
     {
       type: "Domestic Branch Office",

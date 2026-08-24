@@ -36,8 +36,10 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 4000 },
     tuition: { min: 500000, max: 1800000 },
     insurance: { min: 40000, max: 80000 },
+
   },
   Germany: {
+
     code: "de", flag: "🇩🇪", label: "Germany",
     visa: { min: 7000, max: 8000 },
     flight: { min: 35000, max: 75000 },
@@ -47,8 +49,10 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 4000 },
     tuition: { min: 200000, max: 800000 },
     insurance: { min: 30000, max: 60000 },
+
   },
   Australia: {
+
     code: "au", flag: "🇦🇺", label: "Australia",
     visa: { min: 9000, max: 13000 },
     flight: { min: 55000, max: 110000 },
@@ -58,8 +62,10 @@ const COUNTRIES = {
     utilities: { min: 2500, max: 5000 },
     tuition: { min: 600000, max: 2200000 },
     insurance: { min: 45000, max: 90000 },
+
   },
   NewZealand: {
+
     code: "nz", flag: "🇳🇿", label: "New Zealand",
     visa: { min: 6000, max: 9000 },
     flight: { min: 60000, max: 115000 },
@@ -69,8 +75,10 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 4000 },
     tuition: { min: 500000, max: 1600000 },
     insurance: { min: 35000, max: 70000 },
+
   },
   Singapore: {
+
     code: "sg", flag: "🇸🇬", label: "Singapore",
     visa: { min: 3000, max: 5000 },
     flight: { min: 20000, max: 50000 },
@@ -80,8 +88,10 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 4000 },
     tuition: { min: 400000, max: 1500000 },
     insurance: { min: 30000, max: 65000 },
+
   },
   UAE: {
+
     code: "ae", flag: "🇦🇪", label: "UAE (Dubai)",
     visa: { min: 5000, max: 8000 },
     flight: { min: 15000, max: 40000 },
@@ -91,8 +101,10 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 5000 },
     tuition: { min: 300000, max: 1200000 },
     insurance: { min: 25000, max: 55000 },
+
   },
   France: {
+
     code: "fr", flag: "🇫🇷", label: "France",
     visa: { min: 7000, max: 9000 },
     flight: { min: 35000, max: 80000 },
@@ -102,8 +114,11 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 4000 },
     tuition: { min: 150000, max: 900000 },
     insurance: { min: 30000, max: 65000 },
+
   },
+
   Netherlands: {
+
     code: "nl", flag: "🇳🇱", label: "Netherlands",
     visa: { min: 7000, max: 9000 },
     flight: { min: 35000, max: 75000 },
@@ -113,8 +128,10 @@ const COUNTRIES = {
     utilities: { min: 2000, max: 4000 },
     tuition: { min: 200000, max: 1000000 },
     insurance: { min: 30000, max: 65000 },
+
   },
   Italy: {
+
     code: "it", flag: "🇮🇹", label: "Italy",
     visa: { min: 7000, max: 9000 },
     flight: { min: 40000, max: 85000 },
@@ -124,6 +141,7 @@ const COUNTRIES = {
     utilities: { min: 1500, max: 3500 },
     tuition: { min: 150000, max: 800000 },
     insurance: { min: 25000, max: 50000 },
+
   },
   Japan: {
     code: "jp", flag: "🇯🇵", label: "Japan",
@@ -140,6 +158,7 @@ const COUNTRIES = {
 
 // Monthly PhD stipend per country (in INR) — sourced from official funding guides
 const PHD_STIPENDS = {
+  
   USA:         { min: 220000, max: 350000, note: "Fully funded via tuition waiver. Includes health insurance." },
   UK:          { min: 220000, max: 250000, note: "UKRI minimum stipends apply. London universities pay higher." },
   Canada:      { min: 160000, max: 250000, note: "U15 universities guarantee minimum funding packages." },

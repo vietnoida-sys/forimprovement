@@ -117,7 +117,6 @@ npm install
 
 npm run dev
 ```
-
 Application URLs:
 
 * **Public Website:** `http://localhost:5173/`

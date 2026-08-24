@@ -2,7 +2,6 @@ import React from "react";
 import "./VideoGallery.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import visaFirst from "../assets/visa_first.png";
 import visaSecond from "../assets/visa_second.png";
 import visaThird from "../assets/visa_third.png";
@@ -12,12 +11,32 @@ import visaSix from "../assets/visa_six.png";
 import visaSeven from "../assets/visa_seven.png";
 
 const galleryItems = [
-  { id: 1, image: visaFirst },
-  { id: 2, image: visaSecond },
-  { id: 3, image: visaThird },
-  { id: 4, image: visaFourth },
-  { id: 5, image: visaFifth },
-  { id: 6, image: visaSix  },
+
+  { 
+    id: 1,
+     image: visaFirst 
+    },
+
+  { 
+    id: 2,
+     image: visaSecond 
+    },
+  { 
+    id: 3, 
+    image: visaThird 
+  },
+  { 
+    id: 4, 
+    image: visaFourth 
+  },
+  { 
+    id: 5, 
+    image: visaFifth 
+  },
+  { 
+    id: 6, 
+    image: visaSix 
+   },
   { id: 7, image: visaSeven },
 ];
 
@@ -49,7 +68,6 @@ const VideoGallery = () => {
           </div>
         </div>
       </section>
-
       <Footer />
     </>
   );
