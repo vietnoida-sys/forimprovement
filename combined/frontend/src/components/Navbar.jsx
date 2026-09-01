@@ -496,7 +496,7 @@ function Navbar() {
           </li>
 
           <li onClick={closeMenu}><Link to="/CoursePortal">Find a Course</Link></li>
-          <li onClick={closeMenu}><Link to="/careers">Careers</Link></li>
+          <li onClick={closeMenu}><Link to="/Certificate">Certificate</Link></li>
           <li onClick={closeMenu}><Link to="/contact-us">Contact Us</Link></li>
 
         </ul>

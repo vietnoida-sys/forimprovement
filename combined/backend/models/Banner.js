@@ -8,6 +8,7 @@ const bannerSchema = new mongoose.Schema(
     active: { type: Boolean, default: true },
     order: { type: Number, default: 0 },
   },
+  
   { timestamps: true }
 );
 

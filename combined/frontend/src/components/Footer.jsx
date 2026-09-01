@@ -53,7 +53,6 @@ const Footer = () => {
               placeholder="Your email address"
               required
             />
-
             <button type="submit">
               SUBSCRIBE <FaArrowRight />
             </button>
@@ -97,7 +96,6 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/viet-worldgate-private-limited-7940b8419" aria-label="LinkedIn">
                 <FaLinkedinIn />
               </a>
-
               <a
                 href="https://www.justdial.com/Noida/Viet-Worldgate-Pvt-Ltd-Noida-Sector-63/011PXX11-XX11-260513121404-D7V9_BZDET?auto=1&trkid=2315608691&term="
                 target="_blank"
@@ -146,59 +144,49 @@ const Footer = () => {
           <div className="footer-col">
 
             <h4>VIET WORLDGATE STUDY ABROAD</h4>
-
             <ul>
               <li>
                 <Link to="/OurServices">
                   Service to Students
                 </Link>
               </li>
-
               <li>
                 <Link to="/universitypartner">
                   Service to institutions
                 </Link>
               </li>
-
               <li>
                 <Link to="/Scholarships">
                   Scholarships
                 </Link>
               </li>
-
               <li>
                 <Link to="/upcomingevents">
                   Events
                 </Link>
               </li>
-
               <li>
                 <Link to="/feedback">
                   Testimonials
                 </Link>
               </li>
-
               <li>
                 <Link to="/Careers">
                   Careers
                 </Link>
               </li>
-
               <li>
                 <Link to="/gallary">
                   Gallery
                 </Link>
               </li>
-
               <li> 
                 <Link to="/ielts">
                  IELTS
               </Link>
               </li>
-
             </ul>
           </div>
-
           {/* Column 4 */}
           <div className="footer-col">
 
@@ -319,11 +307,8 @@ const Footer = () => {
             <Link to="/ContactNoida" onClick={scrollToTop}>
               Branches
             </Link>
-
-
           </div>
         </div>
-
       </div>
     </footer>
   );

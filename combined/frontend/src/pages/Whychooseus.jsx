@@ -14,7 +14,7 @@ const slideUpScroll = {
     y: 0, 
     transition: { 
       duration: 0.55, 
-      ease: [0.16, 1, 0.3, 1] // Custom premium cubic-bezier ease
+      ease: [0.16, 1, 0.3, 1] 
     } 
   }
 };
@@ -23,7 +23,7 @@ const staggerContainer = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.08 // Elegant cascade timing offset
+      staggerChildren: 0.08 
     }
   }
 };

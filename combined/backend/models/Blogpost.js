@@ -7,7 +7,7 @@ const blogPostSchema = new mongoose.Schema(
     excerpt: { type: String, trim: true, default: "" },
     content: { type: String, default: "" },
     status: { type: String, enum: ["draft", "published"], default: "draft" },
-    date: { type: String, required: true }, // stored as YYYY-MM-DD to match the form's <input type="date">
+    date: { type: String, required: true }, 
   },
   { timestamps: true }
 );
