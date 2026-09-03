@@ -39,7 +39,7 @@ const universities = [
   { main: "Australian National University", logo: "/logos/Anu.jpg", website: "https://www.anu.edu.au" },
   { main: "University of Sydney", logo: "/logos/sydney.png", website: "https://www.sydney.edu.au" },
   { main: "Monash University", logo: "/logos/monas.png", website: "https://www.monash.edu" },
-  { main: "Coventry University", logo: "/logos/coventry.jpeg", website: "https://www.coventry.ac.uk/" }
+  { main: "Coventry University", logo: "/logos/coventry.jpg", website: "https://www.coventry.ac.uk/" }
 ];
 
 // Study Abroad Global Partners & Edtech Aggregators Data

@@ -97,7 +97,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 1,
       title: "Coventry University",
-      date: "18th May 2026, 03:30 PM to 04:30 PM",
+      date: "18th September 2026, 03:30 PM to 04:30 PM",
       speaker: "Mr. Gaurav Singh",
       branch: "VIET WORLDGATE-Amritsar (Office)",
       type: "University Visits",
@@ -106,7 +106,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 2,
       title: "JCU Singapore",
-      date: "19th May 2026, 1:00 PM",
+      date: "19th September 2026, 1:00 PM",
       speaker: "Mr. Tanuj Soni",
       branch: "VIET WORLDGATE-Bhutan (Office)",
       type: "University Visits",
@@ -115,7 +115,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 3,
       title: "Edith Cowan University",
-      date: "19th May 2026, 10:00 AM to 12:00 PM",
+      date: "19th September 2026, 10:00 AM to 12:00 PM",
       speaker: "Ms. Neelam Jain",
       branch: "VIET WORLDGATE-Kochi (Office)",
       type: "University Visits",
@@ -124,7 +124,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 4,
       title: "Swinburne University",
-      date: "20th May 2026, 11:30 AM to 12:30 PM",
+      date: "20th September 2026, 11:30 AM to 12:30 PM",
       speaker: "Mrs. Prachi Hajela",
       branch: "VIET WORLDGATE-Mumbai, Andheri (Office)",
       type: "University Visits",
@@ -133,8 +133,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 5,
       title: "CQUniversity Australia",
-      date: "26th May 2026, 10:00 AM to 11:30 AM",
-      speaker: "Ms. Shobhagya Sharma",
+      date: "26th September 2026, 10:00 AM to 11:30 AM",
       branch: "VIET WORLDGATE-Sri Lanka, Colombo (Office)",
       type: "University Visits",
       img: "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=1200",
@@ -142,8 +141,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 6,
       title: "University of Toronto",
-      date: "28th May 2026, 02:00 PM to 04:00 PM",
-      speaker: "Dr. Alan Mercer",
+      date: "28th September 2026, 02:00 PM to 04:00 PM",
       branch: "VIET WORLDGATE-Delhi (Office)",
       type: "Global Meet",
       img: "https://images.pexels.com/photos/12167748/pexels-photo-12167748.jpeg",
@@ -151,8 +149,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 7,
       title: "Deakin University",
-      date: "01st June 2026, 11:00 AM",
-      speaker: "Mr. Ryan Reynolds",
+      date: "01st October 2026, 11:00 AM",
       branch: "VIET WORLDGATE-Noida (Office)",
       type: "Admissions Day",
       img: "https://images.pexels.com/photos/19014974/pexels-photo-19014974.jpeg",
@@ -160,8 +157,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 8,
       title: "University of Leeds",
-      date: "03rd June 2026, 01:00 PM to 03:00 PM",
-      speaker: "Ms. Sarah Jenkins",
+      date: "03rd October 2026, 01:00 PM to 03:00 PM",
       branch: "VIET WORLDGATE-Noida",
       type: "University Visits",
       img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=400",
@@ -169,8 +165,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 9,
       title: "Auckland Tech University",
-      date: "05th June 2026, 10:30 AM",
-      speaker: "Mr. David Boon",
+      date: "05th October 2026, 10:30 AM",
       branch: "VIET WORLDGATE-Ghaziabad (Office)",
       type: "Scholarship Seminar",
       img: "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&q=80&w=400",
@@ -178,8 +173,7 @@ export default function StudyAbroadLayouts() {
     {
       id: 10,
       title: "Dublin City University",
-      date: "10th June 2026, 04:00 PM",
-      speaker: "Ms. Emma Walsh",
+      date: "10th October 2026, 04:00 PM",
       branch: "VIET WORLDGATE-Noida (Office)",
       type: "University Visits",
       img: "https://images.pexels.com/photos/33770005/pexels-photo-33770005.jpeg",
