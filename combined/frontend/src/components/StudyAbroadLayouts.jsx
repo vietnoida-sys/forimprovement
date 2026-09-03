@@ -98,8 +98,7 @@ export default function StudyAbroadLayouts() {
       id: 1,
       title: "Coventry University",
       date: "18th September 2026, 03:30 PM to 04:30 PM",
-      speaker: "Mr. Gaurav Singh",
-      branch: "VIET WORLDGATE-Amritsar (Office)",
+      branch: "VIET WORLDGATE",
       type: "University Visits",
       img: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&q=80&w=1200",
     },
@@ -107,8 +106,7 @@ export default function StudyAbroadLayouts() {
       id: 2,
       title: "JCU Singapore",
       date: "19th September 2026, 1:00 PM",
-      speaker: "Mr. Tanuj Soni",
-      branch: "VIET WORLDGATE-Bhutan (Office)",
+      branch: "VIET WORLDGATE",
       type: "University Visits",
       img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1200",
     },
@@ -116,8 +114,7 @@ export default function StudyAbroadLayouts() {
       id: 3,
       title: "Edith Cowan University",
       date: "19th September 2026, 10:00 AM to 12:00 PM",
-      speaker: "Ms. Neelam Jain",
-      branch: "VIET WORLDGATE-Kochi (Office)",
+      branch: "VIET WORLDGATE",
       type: "University Visits",
       img: "https://tse2.mm.bing.net/th/id/OIP.Vd3ZsTLfGsC0TpYGHqsTcAHaE8?pid=Api&h=220&P=0",
     },
@@ -125,8 +122,7 @@ export default function StudyAbroadLayouts() {
       id: 4,
       title: "Swinburne University",
       date: "20th September 2026, 11:30 AM to 12:30 PM",
-      speaker: "Mrs. Prachi Hajela",
-      branch: "VIET WORLDGATE-Mumbai, Andheri (Office)",
+      branch: "VIET WORLDGATE",
       type: "University Visits",
       img: "https://www.buildingengineering.com.au/wp-content/uploads/2023/02/Bldg-Eng-University-of-Melbourne-International-House-01-1536x1028.jpg",
     },
@@ -134,7 +130,7 @@ export default function StudyAbroadLayouts() {
       id: 5,
       title: "CQUniversity Australia",
       date: "26th September 2026, 10:00 AM to 11:30 AM",
-      branch: "VIET WORLDGATE-Sri Lanka, Colombo (Office)",
+      branch: "VIET WORLDGATE",
       type: "University Visits",
       img: "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=1200",
     },
@@ -461,10 +457,6 @@ export default function StudyAbroadLayouts() {
                       <div className="meta-info-row">
                         <span className="icon">📅</span>
                         <span>{visit.date}</span>
-                      </div>
-                      <div className="meta-info-row">
-                        <span className="icon">👤</span>
-                        <span>{visit.speaker}</span>
                       </div>
                       <div className="meta-info-row">
                         <span className="icon">🏢</span>
