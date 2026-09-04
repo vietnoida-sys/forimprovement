@@ -82,17 +82,16 @@ export default function StudyAbroadLayouts() {
 
   // DATA
   const testimonials = [
-    { id: 1, name: "Vibhu Patel",    img: logo1, isVideo: true },
-    { id: 2, name: "Lakshya Sharma", img: logo2, isVideo: true },
-    { id: 3, name: "Ishita Verma",   img: logo3, isVideo: true },
-    { id: 4, name: "Dharshini",      img: logo4, isVideo: true },
-    { id: 5, name: "Shafquat",       img: logo5, isVideo: true },
-      { id: 6, name: "Ishita",       img: logo6, isVideo: true },
-        { id: 7, name: "Ishita",       img: logo7, isVideo: true },
-          { id: 8, name: "Gopi",       img: logo8, isVideo: true },
-           { id: 9, name: "University of Chester",       img: logo9, isVideo: true },
+    { id: 1, name: "Vibhu Patel",img: logo1,isVideo:true },
+    { id: 2, name: "Lakshya Sharma",img:logo2,isVideo:true },
+    { id: 3, name: "Ishita Verma",img:logo3,isVideo:true },
+    { id: 4, name: "Dharshini",img: logo4,isVideo:true },
+    { id: 5, name: "Shafquat",img: logo5,isVideo:true },
+    { id: 6, name: "Ishita",img: logo6,isVideo:true },
+    { id: 7, name: "Ishita",img: logo7,isVideo:true },
+    { id: 8, name: "Gopi",img: logo8,isVideo:true },
+    { id: 9, name: "University of Chester",img:logo9,isVideo:true },
   ];
-
   const universityVisits = [
     {
       id: 1,

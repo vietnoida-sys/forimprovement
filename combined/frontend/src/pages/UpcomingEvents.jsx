@@ -306,13 +306,13 @@ export default function EventsPage() {
           <motion.div className="featured-card" variants={slideUpScroll}>
             <div className="featured-details">
               <span className="badge-featured">🌟 FEATURED EVENT</span>
-              <h2>UK Education Fair 2026 🇬🇧</h2>
+              <h2>UK Education Fair 2026 </h2>
               <p className="featured-desc">Meet top UK universities, explore premium engineering & management courses, unlock explicit scholarships, and map your direct route abroad.</p>
 
               <div className="event-meta-grid">
                 <div className="meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <span>25 August 2026</span>
+                  <span>25 September 2026</span>
                 </div>
                 <div className="meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -567,7 +567,7 @@ export default function EventsPage() {
               <div className="student-profile">
                 <div className="avatar-placeholder">👩‍🎓</div>
                 <div>
-                  <strong>Neha Sharma</strong>
+                  <strong>Aman Sharma</strong>
                   <p>MSc Student, UK Admissions</p>
                 </div>
               </div>
