@@ -225,7 +225,7 @@ const Footer = () => {
                 <strong>Phone</strong>
 
                 <a href="tel:+917982295530" className="contact-link">
-                  +91 79822 95530
+                  +91 7982549603
                 </a>
               </div>
             </div>
@@ -313,5 +313,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;
