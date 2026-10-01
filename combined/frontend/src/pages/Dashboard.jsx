@@ -9,14 +9,14 @@ import SEO from "../components/SEO";
 
 // Lazy-load below-the-fold components to reduce initial JS bundle
 // and improve Total Blocking Time (TBT)
-const StudyDestinations = lazy(() => import("../components/StudyDestinations"));
-const StudyAbroadLayouts = lazy(() => import("../components/StudyAbroadLayouts"));
-const StudyAbroadFeatures = lazy(() => import("../components/StudyAbroadFeatures"));
-const OurServices = lazy(() => import("../components/OurServices"));
-const LoanProcessSection = lazy(() => import("../components/Loanprocesssection"));
-const StudyAbroad = lazy(() => import("../components/StudyAbroad"));
-const Testimonials = lazy(() => import("../components/Testimonials"));
-const FaqSection = lazy(() => import("../components/FaqSection"));
+// const StudyDestinations = lazy(() => import("../components/StudyDestinations"));
+// const StudyAbroadLayouts = lazy(() => import("../components/StudyAbroadLayouts"));
+// const StudyAbroadFeatures = lazy(() => import("../components/StudyAbroadFeatures"));
+// const OurServices = lazy(() => import("../components/OurServices"));
+// const LoanProcessSection = lazy(() => import("../components/Loanprocesssection"));
+// const StudyAbroad = lazy(() => import("../components/StudyAbroad"));
+// const Testimonials = lazy(() => import("../components/Testimonials"));
+// const FaqSection = lazy(() => import("../components/FaqSection"));
 
 // NOTE: removed unused import of "../assets/story6.mp4" (logo9) —
 // it was never used in JSX and was adding dead weight to the bundle.
@@ -78,14 +78,6 @@ function Dashboard() {
       <section className="hero-section">
         <div className="hero-slider">
           {/*
-            PERFORMANCE NOTE:
-            These images are still loading from Pexels/Unsplash (third-party domains).
-            For a real LCP improvement, download these, compress to WebP,
-            and host them from /public or your CDN, e.g. "/images/hero-study-abroad.webp".
-            Until then, at minimum:
-            - fetchpriority="high" + eager loading on the FIRST (LCP) image
-            - explicit width/height on all three to prevent layout shift (CLS)
-            - lazy loading on the 2nd/3rd slide images since they aren't visible first
           */}
           <img
             src="https://images.pexels.com/photos/7018490/pexels-photo-7018490.jpeg"
@@ -189,7 +181,7 @@ function Dashboard() {
       </section>
 
       <Suspense fallback={<div style={{ minHeight: 200 }} />}>
-        <FadeUp>
+        {/* <FadeUp>
           <StudyDestinations />
         </FadeUp>
         <FadeUp delay={0.1}>
@@ -212,7 +204,7 @@ function Dashboard() {
         </FadeUp>
         <FadeUp delay={0.1}>
           <FaqSection />
-        </FadeUp>
+        </FadeUp> */}
       </Suspense>
 
       <Footer />
